@@ -14,12 +14,13 @@ public class Inmueble {
     private int idInmueble;
     private String direccion;
     private int altura;
-    private Character tipo;
+    private String tipo;
     private double superficie;
     private double precio;
     private boolean disponibilidad; 
+    private Propietario propietario;
 
-    public Inmueble(int idInmueble, String direccion, int altura, Character tipo, double superficie, double precio, boolean disponibilidad) {
+    public Inmueble(int idInmueble, String direccion, int altura, String tipo, double superficie, double precio, boolean disponibilidad, Propietario propietario) {
         this.idInmueble = idInmueble;
         this.direccion = direccion;
         this.altura = altura;
@@ -27,8 +28,24 @@ public class Inmueble {
         this.superficie = superficie;
         this.precio = precio;
         this.disponibilidad = disponibilidad;
+        this.propietario = propietario;
     }
 
+    public Inmueble() {
+    }
+
+    public Inmueble(String direccion, int altura, String tipo, double superficie, double precio, boolean disponibilidad, Propietario propietario) {
+        this.direccion = direccion;
+        this.altura = altura;
+        this.tipo = tipo;
+        this.superficie = superficie;
+        this.precio = precio;
+        this.disponibilidad = disponibilidad;
+        this.propietario = propietario;
+    }
+
+    
+    
     public int getIdInmueble() {
         return idInmueble;
     }
@@ -53,11 +70,11 @@ public class Inmueble {
         this.altura = altura;
     }
 
-    public Character getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(Character tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -85,9 +102,17 @@ public class Inmueble {
         this.disponibilidad = disponibilidad;
     }
 
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
     @Override
     public String toString() {
-        return "Inmueble{" + "idInmueble=" + idInmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", disponibilidad=" + disponibilidad + '}';
+        return "Inmueble{" + "idInmueble=" + idInmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", disponibilidad=" + disponibilidad + ", propietario=" + propietario + '}';
     }
     
     
