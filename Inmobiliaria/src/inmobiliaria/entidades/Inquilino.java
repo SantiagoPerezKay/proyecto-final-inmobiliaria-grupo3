@@ -18,6 +18,9 @@ public class Inquilino {
     private String lugarTrabajo;
     private String nombreGarante;
     private String dniGarante;
+
+    public Inquilino() {
+    }
     
     public Inquilino(int idInquilino, String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante) {
         this.idInquilino = idInquilino;
@@ -29,6 +32,16 @@ public class Inquilino {
         this.dniGarante = dniGarante;
     } 
     
+      public Inquilino(String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante) {
+    
+        this.cuit = cuit;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.lugarTrabajo = lugarTrabajo;
+        this.nombreGarante = nombreGarante;
+        this.dniGarante = dniGarante;
+    
+        }
     public int getIdInquilino() {
         return idInquilino;
     }
