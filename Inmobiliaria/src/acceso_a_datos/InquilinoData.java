@@ -23,7 +23,7 @@ public class InquilinoData extends Conexion{
     }
     
     
-     public void insertarInquilino (Inquilino inqui) {
+    public void insertarInquilino (Inquilino inqui) {
 
         String sql = "INSERT INTO inquilino (cuit,nombre,apellido,lugar_trabajo,nombre_garante, dni_garante) VALUES(?,?,?,?,?,?)";
 

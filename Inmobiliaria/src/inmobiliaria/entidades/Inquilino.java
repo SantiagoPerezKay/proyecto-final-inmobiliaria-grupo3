@@ -32,7 +32,7 @@ public class Inquilino {
         this.dniGarante = dniGarante;
     } 
     
-      public Inquilino(String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante) {
+    public Inquilino(String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante) {
     
         this.cuit = cuit;
         this.nombre = nombre;
@@ -40,8 +40,8 @@ public class Inquilino {
         this.lugarTrabajo = lugarTrabajo;
         this.nombreGarante = nombreGarante;
         this.dniGarante = dniGarante;
+    }
     
-        }
     public int getIdInquilino() {
         return idInquilino;
     }
