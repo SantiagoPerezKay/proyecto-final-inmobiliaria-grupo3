@@ -60,7 +60,7 @@ public class Inmobiliaria {
         
         Contrato cont = new Contrato(new Date(2016,05,25), new Date(2018,05,25), 10000.500, true, inqui2, imb);
         
-       System.out.println(contData.buscarInquilino(3));
+       System.out.println(contData.listarContratos());
         
     } 
     

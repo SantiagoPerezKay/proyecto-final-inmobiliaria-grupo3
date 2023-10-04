@@ -94,7 +94,7 @@ public class Contrato {
 
     @Override
     public String toString() {
-        return "Contrato{" + "idContrato=" + idContrato + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto + ", estado=" + estado + ", inquilino=" + inquilino + ", inmueble=" + inmueble + '}';
+        return "Contrato{" + "idContrato=" + idContrato + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto + ", estado=" + estado + ", inquilino=" + inquilino.getIdInquilino() + ", inmueble=" + inmueble.getIdInmueble() + '}';
     }
     
     
