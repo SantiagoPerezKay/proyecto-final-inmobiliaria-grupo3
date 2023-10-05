@@ -4,15 +4,21 @@
  */
 package vistas;
 
+import acceso_a_datos.PropietarioData;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import javax.swing.JOptionPane;
+import inmobiliaria.entidades.Propietario; 
+
 /**
  *
  * @author santy
  */
 public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AdministracionPropietario
-     */
+    private PropietarioData propiData = new PropietarioData(); 
+    private Propietario propiActual = null;
+    
     public AdministracionPropietario() {
         initComponents();
     }
@@ -102,9 +108,24 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("REGISTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("INGRESAR INMUEBLE");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,8 +166,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jtdomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(14, 14, 14)))))
+                                        .addComponent(jtdomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(130, 130, 130))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jButton1)
@@ -213,6 +233,55 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtdomicilioActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try {
+            String dni = jtdni.getText();
+            String nombre = jtnombre.getText();
+            String apellido = jtapellido.getText();
+            String telefono = jttelefono.getText(); 
+            String domicilio = jtdomicilio.getText();
+
+            if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || domicilio.isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+                return;
+
+            }
+            
+            if (propiActual == null) {
+                propiActual = new Propietario(nombre, apellido, domicilio, telefono, dni);
+                propiData.insertarPropietario(propiActual);
+
+            } else {
+
+                propiActual.setDni(dni);
+                propiActual.setApellido(apellido);
+                propiActual.setNombre(nombre);
+                propiActual.setTelefono(telefono); 
+                propiActual.setDomicilio(domicilio);
+                propiData.actualizarPropietario(propiActual);
+
+            }
+            
+            limpiarCampos();
+            
+        } catch (NumberFormatException nfe) {
+
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        //...
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -231,4 +300,13 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtnombre;
     private javax.swing.JTextField jttelefono;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiarCampos() {
+
+        jtdni.setText("");
+        jtapellido.setText("");
+        jtnombre.setText("");
+        jttelefono.setText("");
+        jtdomicilio.setText(""); 
+    }
 }
