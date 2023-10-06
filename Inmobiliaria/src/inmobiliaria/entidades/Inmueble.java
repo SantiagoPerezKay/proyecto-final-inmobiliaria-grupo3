@@ -10,17 +10,18 @@ package inmobiliaria.entidades;
  * @author Agente Sosa
  */
 public class Inmueble {
-    
+
     private int idInmueble;
     private String direccion;
     private int altura;
     private String tipo;
     private double superficie;
     private double precio;
-    private boolean disponibilidad; 
+    private String disponibilidad;
     private Propietario propietario;
+    private boolean estado;
 
-    public Inmueble(int idInmueble, String direccion, int altura, String tipo, double superficie, double precio, boolean disponibilidad, Propietario propietario) {
+    public Inmueble(int idInmueble, String direccion, int altura, String tipo, double superficie, double precio, String disponibilidad, Propietario propietario,boolean estado) {
         this.idInmueble = idInmueble;
         this.direccion = direccion;
         this.altura = altura;
@@ -29,12 +30,13 @@ public class Inmueble {
         this.precio = precio;
         this.disponibilidad = disponibilidad;
         this.propietario = propietario;
+        this.estado =  estado;
     }
 
     public Inmueble() {
     }
 
-    public Inmueble(String direccion, int altura, String tipo, double superficie, double precio, boolean disponibilidad, Propietario propietario) {
+    public Inmueble(String direccion, int altura, String tipo, double superficie, double precio, String disponibilidad, Propietario propietario,boolean estado) {
         this.direccion = direccion;
         this.altura = altura;
         this.tipo = tipo;
@@ -42,10 +44,17 @@ public class Inmueble {
         this.precio = precio;
         this.disponibilidad = disponibilidad;
         this.propietario = propietario;
+        this.estado =  estado;
     }
 
-    
-    
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     public int getIdInmueble() {
         return idInmueble;
     }
@@ -94,13 +103,15 @@ public class Inmueble {
         this.precio = precio;
     }
 
-    public boolean isDisponibilidad() {
+    public String getDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(boolean disponibilidad) {
+    public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
+
+  
 
     public Propietario getPropietario() {
         return propietario;
@@ -114,7 +125,5 @@ public class Inmueble {
     public String toString() {
         return "Inmueble{" + "idInmueble=" + idInmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", disponibilidad=" + disponibilidad + ", propietario=" + propietario + '}';
     }
-    
-    
-    
+
 }

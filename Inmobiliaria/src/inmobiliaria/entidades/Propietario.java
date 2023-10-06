@@ -80,7 +80,7 @@ public class Propietario {
 
     @Override
     public String toString() {
-        return "Propietario{" + "idPropietario=" + idPropietario + ", nombre=" + nombre + ", apellido=" + apellido + ", domicilio=" + domicilio + ", telefono=" + telefono + ", dni=" + dni + '}';
+        return "id:"+ idPropietario + ", " + nombre + ", "  + apellido + ", " + dni ;
     }
 
     

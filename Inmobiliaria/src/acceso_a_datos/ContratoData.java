@@ -188,7 +188,7 @@ public class ContratoData extends Conexion{
                 inmueble.setTipo(rs.getString("tipo"));
                 inmueble.setSuperficie(rs.getDouble("superficie"));
                 inmueble.setPrecio(rs.getDouble("precio"));
-                inmueble.setDisponibilidad(rs.getBoolean("disponibilidad"));
+                inmueble.setDisponibilidad(rs.getString("disponibilidad"));
             } else {
                 JOptionPane.showMessageDialog(null, "Error al buscar inmueble");
             }

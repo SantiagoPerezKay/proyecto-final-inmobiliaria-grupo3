@@ -18,18 +18,18 @@ public class InmuebleData extends Conexion {
     
     public void agregarInmueble(Inmueble inmueble) { 
         
-        String sql = "INSERT INTO Inmueble (direccion, altura, tipo, superficie, precio, disponibilidad, id_propietario	) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Inmueble (direccion, altura, tipo, superficie, precio, disponibilidad, id_propietario, estado	) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, inmueble.getDireccion());
             ps.setInt(2, inmueble.getAltura());
-            ps.setString(3, inmueble.getTipo());
+            ps.setString(3, String.valueOf(inmueble.getTipo().charAt(0)));
             ps.setDouble(4, inmueble.getSuperficie());
             ps.setDouble(5, inmueble.getPrecio());
-            ps.setBoolean(6, inmueble.isDisponibilidad());
+            ps.setString(6, inmueble.getDisponibilidad());
             ps.setInt(7, inmueble.getPropietario().getIdPropietario());
-            
+            ps.setBoolean(8, inmueble.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             
@@ -38,7 +38,7 @@ public class InmuebleData extends Conexion {
             }
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "no se agrego correctamente un inmueble ");
+            JOptionPane.showMessageDialog(null, "no se agrego correctamente un inmueble "+ex.getMessage());
         }
     }
     
@@ -68,7 +68,7 @@ public class InmuebleData extends Conexion {
             ps.setString(3, inmueble.getTipo());
             ps.setDouble(4, inmueble.getSuperficie());
             ps.setDouble(5, inmueble.getPrecio());
-            ps.setBoolean(6, inmueble.isDisponibilidad());
+            ps.setString(6, inmueble.getDisponibilidad());
             ps.setInt(7, inmueble.getPropietario().getIdPropietario());
             ps.setInt(8, inmueble.getIdInmueble());
             ps.executeUpdate();
@@ -97,7 +97,7 @@ public class InmuebleData extends Conexion {
                 inmueble.setTipo(rs.getString("tipo"));
                 inmueble.setSuperficie(rs.getDouble("superficie"));
                 inmueble.setPrecio(rs.getDouble("precio"));
-                inmueble.setDisponibilidad(rs.getBoolean("disponibilidad"));
+                inmueble.setDisponibilidad(rs.getString("disponibilidad"));
                 inmueble.setIdInmueble(rs.getInt("id_inmueble"));
                 
             }
@@ -128,7 +128,7 @@ public class InmuebleData extends Conexion {
                 inmueble.setTipo(rs.getString("tipo"));
                 inmueble.setSuperficie(rs.getDouble("superficie"));
                 inmueble.setPrecio(rs.getDouble("precio"));
-                inmueble.setDisponibilidad(rs.getBoolean("disponibilidad"));
+                inmueble.setDisponibilidad(rs.getNString("disponibilidad"));
                 inmueble.setIdInmueble(rs.getInt("id_inmueble"));
                 
             }
@@ -161,7 +161,7 @@ public class InmuebleData extends Conexion {
             inmueble.setTipo(rs.getString("tipo"));
             inmueble.setSuperficie(rs.getDouble("superficie"));
             inmueble.setPrecio(rs.getDouble("precio"));
-            inmueble.setDisponibilidad(rs.getBoolean("disponibilidad"));
+            inmueble.setDisponibilidad(rs.getString("disponibilidad"));
             inmueble.setIdInmueble(rs.getInt("id_inmueble"));
             
             listaInmuebles.add(inmueble);

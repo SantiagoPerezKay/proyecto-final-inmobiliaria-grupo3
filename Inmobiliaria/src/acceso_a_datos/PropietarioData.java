@@ -41,7 +41,22 @@ public class PropietarioData extends Conexion {
 
     }
 
-    public void borrarPropietario(int idpropietario) {
+    public void borrarPropietarioLogico(int idpropietario) {
+
+        String sql = "UPDATE propietario SET  estado=0  WHERE id_propietario=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idpropietario);
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "se cambio el estado a falso propietario ID: " + idpropietario);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudo eliminar el propietario de ID " + idpropietario + "\n error:" + ex.getMessage());
+        }
+    }
+       public void borrarPropietarioFisico(int idpropietario) {
 
         String sql = "DELETE FROM propietario WHERE id_propietario=?";
 
@@ -56,6 +71,7 @@ public class PropietarioData extends Conexion {
             JOptionPane.showMessageDialog(null, "no se pudo eliminar el propietario de ID " + idpropietario + "\n error:" + ex.getMessage());
         }
     }
+    
 
     public void actualizarPropietario(Propietario propietario) {
 
@@ -169,7 +185,7 @@ public class PropietarioData extends Conexion {
                 
             }
             
-            JOptionPane.showMessageDialog(null, "se actualizo la lista correctamente");
+          
             return milista;
 
         } catch (SQLException ex) {

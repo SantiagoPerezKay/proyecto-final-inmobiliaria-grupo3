@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 public class Conexion {
    
     private String usuario = "root";
-    private String password = "";
-    private String url = "jdbc:mariadb://localhost:3306/Inmobiliaria";
+    private String password = "asd1234";
+    private String url = "jdbc:mysql://localhost:3306/Inmobiliaria";
     public Connection con;
     public Connection conMysql;
 
@@ -26,26 +26,7 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Error de conexion");
             return null;
         }
-//        catch (ClassNotFoundException i) {
-//            JOptionPane.showMessageDialog(null, "Error de driver");
-//            return null;
-//        }
     }
-
-   /* public Connection EstablecerConexion2() {
-        try {
-
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/universidad_grupo3", "root", "asd1234");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error de conexion");
-            return null;
-        }
-        catch (ClassNotFoundException i) {
-            JOptionPane.showMessageDialog(null, "Error de driver");
-            return null;
-        }
-    }
-*/
     public void cerrarConexion() {
         try {
             con.close();

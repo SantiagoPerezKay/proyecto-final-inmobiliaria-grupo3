@@ -18,15 +18,15 @@ public class Inmobiliaria {
 
     public static void main(String[] args) {
         //*************ABM  PROPIETARIO***********
-        //Propietario prop = new Propietario("pepito", "muñoz", "av Maria", "222", "22222");
-       // PropietarioData propData = new PropietarioData();
+//        Propietario prop = new Propietario("francisco", "cordoba", "av la paz", "3468-22411", "43000002");
+     //   PropietarioData propData = new PropietarioData();
        
-       // propData.insertarPropietario(prop);
-        //propData.borrarPropietario(3);
-        //propData.actualizarPropietario(new Propietario(5,"josesito","muñoz","av Nuestra","222","33333"));
+//        propData.insertarPropietario(prop);
+   //   propData.borrarPropietarioLogico(6);
+//        propData.actualizarPropietario(new Propietario(7,"josesito","mendoza","av Nuestra","222","1232133"));
         // System.out.println(propData.obtenerPropietarioPorId(2));  //por id
         // System.out.println(propData.obtenerPropietarioPorDni("33333")); //por dni
-        // System.out.println(propData.listarPropietarios());
+//         System.out.println(propData.listarPropietarios());
         
        //******ABM INQUILINO ****** //
        
@@ -42,25 +42,25 @@ public class Inmobiliaria {
 
         //******ABM contrato ****** //
         
-        ContratoData contData = new ContratoData();
+//        ContratoData contData = new ContratoData();
         //PropietarioData propData = new PropietarioData();
         //InquilinoData inquiData = new InquilinoData();
         //InmuebleData inmData = new InmuebleData();
         
-        Propietario prop = new Propietario(2,"pepito", "muñoz", "av Maria", "222", "22222");
+//        Propietario prop = new Propietario(2,"pepito", "muñoz", "av Maria", "222", "22222");
         //propData.insertarPropietario(prop);
         //System.out.println( propData.listarPropietarios());
         
-        Inquilino inqui2 = new Inquilino(3,"2767788", "Caimila", "Lopez", "PintureriaPro", "Marcos Remos", "444567543");
+//        Inquilino inqui2 = new Inquilino(3,"2767788", "Caimila", "Lopez", "PintureriaPro", "Marcos Remos", "444567543");
         //inquiData.insertarInquilino(inqui2);
         //System.out.println( inquiData.listarInquilinos());
         
-        Inmueble imb = new Inmueble(2,"Carrasco", 255, "D", 52, 25000, true, prop);
+//        Inmueble imb = new Inmueble(2,"Carrasco", 255, "D", 52, 25000, true, prop);
         //inmData.agregarInmueble(imb);
         
-        Contrato cont = new Contrato(new Date(2016,05,25), new Date(2018,05,25), 10000.500, true, inqui2, imb);
+//        Contrato cont = new Contrato(new Date(2016,05,25), new Date(2018,05,25), 10000.500, true, inqui2, imb);
         
-       System.out.println(contData.listarContratos());
+//       System.out.println(contData.listarContratos());
         
     } 
     

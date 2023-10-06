@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import inmobiliaria.entidades.Propietario; 
+import javax.swing.JDesktopPane;
 
 /**
  *
@@ -274,8 +275,17 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        //...
+         Menu menu =new Menu ();
+        menu.setVisible(true);
         
+        menu.Escritorio.removeAll();
+        menu.Escritorio.revalidate();
+        menu.Escritorio.repaint();
+        AdministracionInmueble administracioninmueble = new AdministracionInmueble();
+        administracioninmueble.setVisible(true);
+        menu.Escritorio.add(administracioninmueble);
+        administracioninmueble.setLocation((menu.Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (menu.Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
+        menu.Escritorio.moveToFront(administracioninmueble);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
