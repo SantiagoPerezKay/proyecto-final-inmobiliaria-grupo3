@@ -248,22 +248,13 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
                 return;
 
-            }
-            
-            if (propiActual == null) {
+            } else {
+                
                 propiActual = new Propietario(nombre, apellido, domicilio, telefono, dni);
                 propiData.insertarPropietario(propiActual);
-
-            } else {
-
-                propiActual.setDni(dni);
-                propiActual.setApellido(apellido);
-                propiActual.setNombre(nombre);
-                propiActual.setTelefono(telefono); 
-                propiActual.setDomicilio(domicilio);
-                propiData.actualizarPropietario(propiActual);
-
+                
             }
+            
             
             limpiarCampos();
             
@@ -275,7 +266,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-         Menu menu =new Menu ();
+        Menu menu =new Menu ();
         menu.setVisible(true);
         
         menu.Escritorio.removeAll();
@@ -286,6 +277,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         menu.Escritorio.add(administracioninmueble);
         administracioninmueble.setLocation((menu.Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (menu.Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
         menu.Escritorio.moveToFront(administracioninmueble);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked

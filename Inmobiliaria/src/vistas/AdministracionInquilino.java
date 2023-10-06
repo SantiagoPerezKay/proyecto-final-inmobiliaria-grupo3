@@ -4,15 +4,19 @@
  */
 package vistas;
 
+import acceso_a_datos.InquilinoData;
+import inmobiliaria.entidades.Inquilino;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author santy
  */
 public class AdministracionInquilino extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AdministracionInquilino
-     */
+    private InquilinoData inquiData = new InquilinoData(); 
+    private Inquilino inquiActual = null;
+    
     public AdministracionInquilino() {
         initComponents();
     }
@@ -27,31 +31,182 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jtCuit = new javax.swing.JTextField();
+        jtNombre = new javax.swing.JTextField();
+        jtApellido = new javax.swing.JTextField();
+        jtLugarTrabajo = new javax.swing.JTextField();
+        jtNombreGarante = new javax.swing.JTextField();
+        jtDniGarante = new javax.swing.JTextField();
+        jbIngresar = new javax.swing.JButton();
 
         jLabel1.setText("Administracion Inquilino");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setText("NOMBRE:");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("APELLIDO:");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("CUIT:");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("LUGAR DE TRABAJO:");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("NOMBRE DEL GARANTE:");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("DIN DEL GARANTE:");
+
+        jtCuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCuitActionPerformed(evt);
+            }
+        });
+
+        jbIngresar.setText("INGRESAR");
+        jbIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbIngresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(325, 325, 325)
-                .addComponent(jLabel1)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jbIngresar)
+                                .addComponent(jLabel10)))
+                        .addGap(91, 91, 91)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtCuit, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(jtNombre)
+                            .addComponent(jtApellido)
+                            .addComponent(jtLugarTrabajo)
+                            .addComponent(jtNombreGarante)
+                            .addComponent(jtDniGarante))))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addContainerGap(545, Short.MAX_VALUE))
+                .addGap(87, 87, 87)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtLugarTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addComponent(jbIngresar)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jtCuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCuitActionPerformed
+        
+    }//GEN-LAST:event_jtCuitActionPerformed
+
+    private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
+        
+        try {
+            String cuit = jtCuit.getText();
+            String nombre = jtNombre.getText();
+            String apellido = jtApellido.getText();
+            String lugarDeTrabajo = jtLugarTrabajo.getText(); 
+            String nombreGarante = jtNombreGarante.getText();
+            String dniGarante = jtDniGarante.getText();
+
+            if (cuit.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || lugarDeTrabajo.isEmpty() || nombreGarante.isEmpty() || dniGarante.isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+                return;
+
+            } else {
+                
+                inquiActual = new Inquilino(cuit, nombre, apellido, lugarDeTrabajo, nombreGarante, dniGarante);
+                inquiData.insertarInquilino(inquiActual);
+                
+            }
+            
+            
+            limpiarCampos();
+            
+        } catch (NumberFormatException nfe) {
+
+        }
+        
+    }//GEN-LAST:event_jbIngresarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jbIngresar;
+    private javax.swing.JTextField jtApellido;
+    private javax.swing.JTextField jtCuit;
+    private javax.swing.JTextField jtDniGarante;
+    private javax.swing.JTextField jtLugarTrabajo;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtNombreGarante;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiarCampos() {
+
+        jtCuit.setText("");
+        jtApellido.setText("");
+        jtNombre.setText("");
+        jtDniGarante.setText("");
+        jtLugarTrabajo.setText(""); 
+        jtNombreGarante.setText("");
+        
+    }
+
 }
