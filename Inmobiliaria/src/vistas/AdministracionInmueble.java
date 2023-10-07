@@ -314,7 +314,7 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         Inmueble inmueble = new Inmueble(direccion, altura, tipo, superficie, precio, disponibilidad, propietario, estado);
 
         inmuebledata.agregarInmueble(inmueble);
-
+       limpiarCampos();
     }//GEN-LAST:event_jbaltaActionPerformed
 
 
@@ -347,6 +347,17 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
             jcpropietario.addItem(propietario);
         }
 
+    }
+    
+      private void limpiarCampos() {
+
+         jtdireccion.setText("");
+         jtaltura.setText("");
+        jtdisponibilidad.setText("");
+        jtprecio.setText("");
+        jtsuperficie.setText(""); 
+        jttipo.setText("");
+        
     }
 
 }

@@ -10,7 +10,6 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-
  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

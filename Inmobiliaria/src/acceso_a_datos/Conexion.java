@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 public class Conexion {
    
     private String usuario = "root";
-    private String password = "asd1234";
-    private String url = "jdbc:mysql://localhost:3306/Inmobiliaria";
+    private String password = "";
+    private String url = "jdbc:mariadb://localhost:3306/Inmobiliaria";
     public Connection con;
     public Connection conMysql;
 

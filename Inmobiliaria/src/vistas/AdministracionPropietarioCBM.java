@@ -69,6 +69,12 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbusquedaActionPerformed(evt);
+            }
+        });
+
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,8 +146,10 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         borrarDatos();
 
         String opcion = (String) jcbusqueda.getSelectedItem();
-
+      
         PropietarioData propietariodata = new PropietarioData();
+        
+        
         switch (opcion) {
             case "id_propietario":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
@@ -203,6 +211,10 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
     private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
         dispose();
     }//GEN-LAST:event_jbsalirActionPerformed
+
+    private void jcbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbusquedaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

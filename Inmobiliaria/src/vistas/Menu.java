@@ -88,6 +88,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(jMenuItem2);
 
         jMenuItem6.setText("Consulta");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
@@ -187,6 +192,16 @@ public class Menu extends javax.swing.JFrame {
         AdministracionpropietarioCBM.setLocation((Escritorio.getWidth() - AdministracionpropietarioCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionpropietarioCBM.getHeight()) / 2);
         Escritorio.moveToFront(AdministracionpropietarioCBM);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionInquilinoCBM administracionInquilinoCBM = new AdministracionInquilinoCBM();
+        administracionInquilinoCBM.setVisible(true);
+        Escritorio.add(administracionInquilinoCBM);
+        administracionInquilinoCBM.setLocation((Escritorio.getWidth() - administracionInquilinoCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInquilinoCBM.getHeight()) / 2);
+        Escritorio.moveToFront(administracionInquilinoCBM);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
