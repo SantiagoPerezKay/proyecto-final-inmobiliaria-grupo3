@@ -178,8 +178,9 @@ public class PropietarioData extends Conexion {
                 propietario.setTelefono(rs.getString("telefono"));
                 propietario.setDni(rs.getString("dni"));
                 propietario.setDomicilio(rs.getString("domicilio"));
+                 propietario.setEstado(rs.getBoolean("estado"));
                 propietario.setIdPropietario(rs.getInt("id_propietario"));
-
+                
                 milista.add(propietario);
 
             }

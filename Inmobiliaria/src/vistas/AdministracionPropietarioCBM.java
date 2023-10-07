@@ -12,6 +12,8 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
     public AdministracionPropietarioCBM() {
         initComponents();
         cargarCabecera();
+        cargarTabla();
+        cargarCombo();
     }
 
     /**
@@ -24,14 +26,28 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jtdni = new javax.swing.JTextField();
+        jtpalabra = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtpropietarios = new javax.swing.JTable();
+        jtrestablecer = new javax.swing.JButton();
+        jcbusqueda = new javax.swing.JComboBox<>();
+        jbsalir = new javax.swing.JButton();
 
         jLabel1.setText("CONSULTA BAJA MODIFICACION");
 
-        jLabel2.setText("DNI PROPIETARIO");
+        jtpalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtpalabraActionPerformed(evt);
+            }
+        });
+        jtpalabra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtpalabraKeyReleased(evt);
+            }
+        });
+
+        jLabel2.setText("Buscar por:");
 
         jtpropietarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -46,25 +62,47 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtpropietarios);
 
+        jtrestablecer.setText("RESTABLECER");
+        jtrestablecer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtrestablecerActionPerformed(evt);
+            }
+        });
+
+        jbsalir.setText("SALIR");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(jtdni, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(285, 285, 285))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(301, 301, 301)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jtpalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(230, 230, 230))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jtrestablecer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbsalir)
+                .addGap(224, 224, 224))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,22 +112,108 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtdni))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jtpalabra)
+                    .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtrestablecer)
+                    .addComponent(jbsalir))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtpalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtpalabraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtpalabraActionPerformed
+
+    private void jtrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtrestablecerActionPerformed
+        borrarDatos();
+        cargarTabla();
+    }//GEN-LAST:event_jtrestablecerActionPerformed
+
+    private void jtpalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtpalabraKeyReleased
+
+        borrarDatos();
+
+        String opcion = (String) jcbusqueda.getSelectedItem();
+
+        PropietarioData propietariodata = new PropietarioData();
+        switch (opcion) {
+            case "id_propietario":
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.getIdPropietario()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+
+                break;
+            case "nombre":
+
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.getNombre()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+
+                break;
+            case "apellido":
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.getApellido()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+                break;
+            case "telefono":
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.getTelefono()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+                break;
+            case "dni":
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.getDni()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+                break;
+            case "domicilio":
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.getDomicilio()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+                break;
+            case "estado":
+                for (Propietario prop : propietariodata.listarPropietarios()) {
+                    if (String.valueOf(prop.isEstado()).startsWith(jtpalabra.getText())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    }
+                }
+                break;
+        }
+
+
+    }//GEN-LAST:event_jtpalabraKeyReleased
+
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbsalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jtdni;
+    private javax.swing.JButton jbsalir;
+    private javax.swing.JComboBox<String> jcbusqueda;
+    private javax.swing.JTextField jtpalabra;
     private javax.swing.JTable jtpropietarios;
+    private javax.swing.JButton jtrestablecer;
     // End of variables declaration//GEN-END:variables
 
     public void cargarCabecera() {
@@ -102,11 +226,37 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jtpropietarios.setModel(modelo);
     }
 
+    public void cargarCombo() {
+
+        jcbusqueda.addItem("id_propietario");
+        jcbusqueda.addItem("nombre");
+        jcbusqueda.addItem("apellido");
+        jcbusqueda.addItem("telefono");
+        jcbusqueda.addItem("dni");
+        jcbusqueda.addItem("domicilio");
+        jcbusqueda.addItem("estado");
+    }
+
     public void cargarTabla() {
 
         PropietarioData propietariodata = new PropietarioData();
         for (Propietario prop : propietariodata.listarPropietarios()) {
-            modelo.addRow(new Object[]{prop.getIdPropietario(),prop.getNombre(),prop.getApellido(),prop.getTelefono(),prop.getDomicilio(),prop});
+            modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+        }
+
+    }
+
+    public void filtrarTabla(String palabraABuscar) {
+
+    }
+
+    private void borrarDatos() {
+
+        int f = jtpropietarios.getRowCount() - 1; //obtengo total de filas de la tabla
+
+        for (; f >= 0; f--) { //recorro filas para borrar 1 por 1 en iteracion.
+
+            modelo.removeRow(f);// remuevo valor por indice en la tabla "jcTable"
         }
 
     }
