@@ -16,7 +16,7 @@ public class PropietarioData extends Conexion {
 
     public void insertarPropietario(Propietario propietario) {
 
-        String sql = "INSERT INTO propietario(nombre,apellido,dni,telefono,domicilio) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO propietario(nombre,apellido,dni,telefono,domicilio,estado) VALUES(?,?,?,?,?,?)";
 
         try {
 
@@ -27,7 +27,7 @@ public class PropietarioData extends Conexion {
             ps.setString(3, propietario.getDni());
             ps.setString(4, propietario.getTelefono());
             ps.setString(5, propietario.getDomicilio());
-
+            ps.setBoolean(6, propietario.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
 
@@ -56,7 +56,8 @@ public class PropietarioData extends Conexion {
             JOptionPane.showMessageDialog(null, "no se pudo eliminar el propietario de ID " + idpropietario + "\n error:" + ex.getMessage());
         }
     }
-       public void borrarPropietarioFisico(int idpropietario) {
+
+    public void borrarPropietarioFisico(int idpropietario) {
 
         String sql = "DELETE FROM propietario WHERE id_propietario=?";
 
@@ -71,7 +72,6 @@ public class PropietarioData extends Conexion {
             JOptionPane.showMessageDialog(null, "no se pudo eliminar el propietario de ID " + idpropietario + "\n error:" + ex.getMessage());
         }
     }
-    
 
     public void actualizarPropietario(Propietario propietario) {
 
@@ -158,10 +158,9 @@ public class PropietarioData extends Conexion {
     }
 
     public ArrayList<Propietario> listarPropietarios() {
-        
-        ArrayList<Propietario>milista=new ArrayList<>();
 
-        
+        ArrayList<Propietario> milista = new ArrayList<>();
+
         String sql = "SELECT * FROM propietario";
 
         try {
@@ -171,21 +170,20 @@ public class PropietarioData extends Conexion {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                
+
                 Propietario propietario = new Propietario();
-                
+
                 propietario.setNombre(rs.getString("nombre"));
                 propietario.setApellido(rs.getString("apellido"));
                 propietario.setTelefono(rs.getString("telefono"));
                 propietario.setDni(rs.getString("dni"));
                 propietario.setDomicilio(rs.getString("domicilio"));
                 propietario.setIdPropietario(rs.getInt("id_propietario"));
-                
+
                 milista.add(propietario);
-                
+
             }
-            
-          
+
             return milista;
 
         } catch (SQLException ex) {

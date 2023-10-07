@@ -8,26 +8,28 @@ public class Propietario {
     private String domicilio;
     private String telefono;
     private String dni;
-
+    private boolean estado;
     public Propietario() {
     }
     ;
-    public Propietario(Integer idPropietario, String nombre, String apellido, String domicilio, String telefono, String dni) {
+    public Propietario(Integer idPropietario, String nombre, String apellido, String domicilio, String telefono, String dni,boolean estado) {
         this.idPropietario = idPropietario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.dni = dni;
+         this.estado=estado;
     }
 
-    public Propietario(String nombre, String apellido, String domicilio, String telefono, String dni) {
+    public Propietario(String nombre, String apellido, String domicilio, String telefono, String dni,boolean estado) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.dni = dni;
+        this.estado=estado;
     }
 
     public Integer getIdPropietario() {

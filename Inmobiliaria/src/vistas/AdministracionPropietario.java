@@ -8,7 +8,7 @@ import acceso_a_datos.PropietarioData;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
-import inmobiliaria.entidades.Propietario; 
+import inmobiliaria.entidades.Propietario;
 import javax.swing.JDesktopPane;
 
 /**
@@ -17,11 +17,12 @@ import javax.swing.JDesktopPane;
  */
 public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
-    private PropietarioData propiData = new PropietarioData(); 
+    private PropietarioData propiData = new PropietarioData();
     private Propietario propiActual = null;
-    
+
     public AdministracionPropietario() {
         initComponents();
+        jractivo.setSelected(true);
     }
 
     /**
@@ -48,6 +49,10 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jtdomicilio = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jblimpiar = new javax.swing.JButton();
+        jbsalir = new javax.swing.JButton();
+        jractivo = new javax.swing.JRadioButton();
+        jrinactivo = new javax.swing.JRadioButton();
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("INGRESAR INMUEBLE");
@@ -128,6 +133,34 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
             }
         });
 
+        jblimpiar.setText("LIMPIAR CAMPOS");
+        jblimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimpiarActionPerformed(evt);
+            }
+        });
+
+        jbsalir.setText("SALIR");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
+
+        jractivo.setText("ACTIVO");
+        jractivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jractivoActionPerformed(evt);
+            }
+        });
+
+        jrinactivo.setText("INACTIVO");
+        jrinactivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrinactivoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,42 +171,52 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                         .addGap(256, 256, 256)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(156, 156, 156)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(58, 58, 58)
-                                        .addComponent(jLabel5)
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jtdni, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jLabel1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jtdomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(130, 130, 130))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(237, 237, 237))
+                                .addGap(58, 58, 58)
+                                .addComponent(jLabel5)
+                                .addGap(22, 22, 22)
+                                .addComponent(jtdni, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtdomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jblimpiar)
+                            .addComponent(jButton1)
+                            .addComponent(jractivo))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jbsalir))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jrinactivo)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,11 +247,19 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtdomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jractivo)
+                    .addComponent(jrinactivo))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jblimpiar)
+                    .addComponent(jbsalir))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,13 +286,14 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtdomicilioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         try {
             String dni = jtdni.getText();
             String nombre = jtnombre.getText();
             String apellido = jtapellido.getText();
-            String telefono = jttelefono.getText(); 
+            String telefono = jttelefono.getText();
             String domicilio = jtdomicilio.getText();
+            boolean estado = jractivo.isSelected();
 
             if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || domicilio.isEmpty()) {
 
@@ -249,26 +301,25 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 return;
 
             } else {
-                
-                propiActual = new Propietario(nombre, apellido, domicilio, telefono, dni);
+
+                propiActual = new Propietario(nombre, apellido, domicilio, telefono, dni, estado);
                 propiData.insertarPropietario(propiActual);
-                
+
             }
-            
-            
+
             limpiarCampos();
-            
+
         } catch (NumberFormatException nfe) {
 
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        Menu menu =new Menu ();
+
+        Menu menu = new Menu();
         menu.setVisible(true);
-        
+
         menu.Escritorio.removeAll();
         menu.Escritorio.revalidate();
         menu.Escritorio.repaint();
@@ -277,12 +328,30 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         menu.Escritorio.add(administracioninmueble);
         administracioninmueble.setLocation((menu.Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (menu.Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
         menu.Escritorio.moveToFront(administracioninmueble);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jblimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimpiarActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_jblimpiarActionPerformed
+
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbsalirActionPerformed
+
+    private void jractivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jractivoActionPerformed
+        jractivo.setSelected(true);
+        jrinactivo.setSelected(false);
+    }//GEN-LAST:event_jractivoActionPerformed
+
+    private void jrinactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrinactivoActionPerformed
+        jractivo.setSelected(false);
+        jrinactivo.setSelected(true);
+    }//GEN-LAST:event_jrinactivoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -296,6 +365,10 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jblimpiar;
+    private javax.swing.JButton jbsalir;
+    private javax.swing.JRadioButton jractivo;
+    private javax.swing.JRadioButton jrinactivo;
     private javax.swing.JTextField jtapellido;
     private javax.swing.JTextField jtdni;
     private javax.swing.JTextField jtdomicilio;
@@ -309,6 +382,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jtapellido.setText("");
         jtnombre.setText("");
         jttelefono.setText("");
-        jtdomicilio.setText(""); 
+        jtdomicilio.setText("");
     }
+
 }
