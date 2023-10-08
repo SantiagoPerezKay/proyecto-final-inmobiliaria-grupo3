@@ -186,7 +186,7 @@ public class InquilinoData extends Conexion{
                 
             }
             
-            JOptionPane.showMessageDialog(null, "se actualizo la lista correctamente");
+            
             return milista;
 
         } catch (SQLException ex) {
