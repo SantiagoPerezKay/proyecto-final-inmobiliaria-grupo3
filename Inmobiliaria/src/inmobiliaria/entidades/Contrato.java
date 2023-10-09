@@ -1,20 +1,23 @@
 
 package inmobiliaria.entidades;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
+
+
 
 
 public class Contrato {
     
     private int idContrato;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
     private double monto;
     private boolean estado; 
     private Inquilino inquilino;
     private Inmueble inmueble;
 
-    public Contrato(int idContrato, Date fechaInicio, Date fechaFin, double monto, boolean estado, Inquilino inquilino, Inmueble inmueble) {
+    public Contrato(int idContrato, LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado, Inquilino inquilino, Inmueble inmueble) {
         this.idContrato = idContrato;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -27,7 +30,7 @@ public class Contrato {
     public Contrato() {
     }
 
-    public Contrato(Date fechaInicio, Date fechaFin, double monto, boolean estado, Inquilino inquilino, Inmueble inmueble) {
+    public Contrato(LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado, Inquilino inquilino, Inmueble inmueble) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.monto = monto;
@@ -44,19 +47,19 @@ public class Contrato {
         this.idContrato = idContrato;
     }
 
-    public Date getFechaInicio() {
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         this.fechaFin = fechaFin;
     }
 

@@ -6,6 +6,7 @@ import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Inquilino;
 import inmobiliaria.entidades.Propietario;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -34,8 +35,8 @@ public class ContratoData extends Conexion{
 
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
-            ps.setDate(1, (Date) contrato.getFechaInicio());
-            ps.setDate(2, (Date) contrato.getFechaFin());
+            ps.setDate(1, Date.valueOf(contrato.getFechaInicio()));
+            ps.setDate(2, Date.valueOf(contrato.getFechaFin()));
             ps.setBoolean(3, contrato.isEstado());
             ps.setDouble(4, contrato.getMonto());
             ps.setInt(5, contrato.getInmueble().getIdInmueble());
@@ -76,8 +77,9 @@ public class ContratoData extends Conexion{
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             
-            ps.setDate(1, (Date) contrato.getFechaInicio());
-            ps.setDate(2, (Date) contrato.getFechaFin());
+            PreparedStatement setLocalDate;
+            ps.setDate(1, Date.valueOf(contrato.getFechaInicio()));
+            ps.setDate(2, Date.valueOf(contrato.getFechaFin()));
             ps.setBoolean(3, contrato.isEstado());
             ps.setDouble(4, contrato.getMonto());
             ps.setInt(5, contrato.getInmueble().getIdInmueble());
@@ -111,8 +113,8 @@ public class ContratoData extends Conexion{
                 Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
                 Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
                 
-                contrato.setFechaInicio(rs.getDate("fecha_inicio"));
-                contrato.setFechaFin(rs.getDate("fecha_fin"));
+                contrato.setFechaInicio(getLocalDate("fecha_inicio"));
+                contrato.setFechaFin(getLocalDate("fecha_fin"));
                 contrato.setMonto(rs.getInt("monto"));
                 contrato.setEstado(rs.getBoolean("estado"));
                 contrato.setInmueble(imb);
@@ -146,8 +148,8 @@ public class ContratoData extends Conexion{
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                contrato.setFechaInicio(rs.getDate("fecha_inicio"));
-                contrato.setFechaInicio(rs.getDate("fecha_fin"));
+                contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                contrato.setFechaInicio(rs.getDate("fecha_fin").toLocalDate());
                 contrato.setMonto(rs.getInt("monto"));
                 contrato.setEstado(rs.getBoolean("estado"));
                 Inmueble imb = buscarInmueble(rs.getInt("id_inmueble"));
@@ -228,6 +230,10 @@ public class ContratoData extends Conexion{
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de inquilinos" + ex.getMessage());
         }
         return inqui;
+    }
+
+    private LocalDate getLocalDate(String fecha_inicio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

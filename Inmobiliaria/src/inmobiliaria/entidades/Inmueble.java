@@ -19,6 +19,15 @@ public class Inmueble {
     private double precio;
     private String disponibilidad;
     private Propietario propietario;
+    private int propid;
+
+    public int getPropid() {
+        return propid;
+    }
+
+    public void setPropid(int propid) {
+        this.propid = propid;
+    }
     private boolean estado;
 
     public Inmueble(int idInmueble, String direccion, int altura, String tipo, double superficie, double precio, String disponibilidad, Propietario propietario,boolean estado) {
@@ -111,8 +120,6 @@ public class Inmueble {
         this.disponibilidad = disponibilidad;
     }
 
-  
-
     public Propietario getPropietario() {
         return propietario;
     }
@@ -123,7 +130,13 @@ public class Inmueble {
 
     @Override
     public String toString() {
-        return "ID: " + idInmueble + ". Direccion: " + direccion + ". Altura: " + altura + " Tipo: " + tipo + ". Superficie:" + superficie + ". Precio: " + precio + ". Disponibilidad: " + disponibilidad + ". Propietario: " + propietario + '}';
+        return "ID: " + idInmueble + ". Direccion: " + direccion + ". Altura: " + altura;
+        
     }
+    
+    public String toString2() {
+       return "ID: " + idInmueble + ". Direccion: " + direccion + ". Altura: " + altura + " Tipo: " + tipo + ". Superficie:" + superficie + ". Precio: " + precio + ". Disponibilidad: " + disponibilidad + ". Propietario: " + propietario.getIdPropietario() + '}';
+    }
+    
 
 }

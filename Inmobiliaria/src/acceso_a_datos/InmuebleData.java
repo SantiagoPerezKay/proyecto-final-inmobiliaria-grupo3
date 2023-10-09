@@ -98,6 +98,7 @@ public class InmuebleData extends Conexion {
                 inmueble.setSuperficie(rs.getDouble("superficie"));
                 inmueble.setPrecio(rs.getDouble("precio"));
                 inmueble.setDisponibilidad(rs.getString("disponibilidad"));
+               
                 inmueble.setIdInmueble(rs.getInt("id_inmueble"));
                 
             }
@@ -129,6 +130,7 @@ public class InmuebleData extends Conexion {
                 inmueble.setSuperficie(rs.getDouble("superficie"));
                 inmueble.setPrecio(rs.getDouble("precio"));
                 inmueble.setDisponibilidad(rs.getNString("disponibilidad"));
+                
                 inmueble.setIdInmueble(rs.getInt("id_inmueble"));
                 
             }
@@ -153,7 +155,6 @@ public class InmuebleData extends Conexion {
 
         while (rs.next()) {
             
-            //Inmueble inmueble = new Inmueble();
             Inmueble inmueble = new Inmueble();
             
             inmueble.setDireccion(rs.getString("direccion"));
@@ -162,6 +163,7 @@ public class InmuebleData extends Conexion {
             inmueble.setSuperficie(rs.getDouble("superficie"));
             inmueble.setPrecio(rs.getDouble("precio"));
             inmueble.setDisponibilidad(rs.getString("disponibilidad"));
+            inmueble.setPropid(rs.getInt("id_propietario"));
             inmueble.setIdInmueble(rs.getInt("id_inmueble"));
             
             listaInmuebles.add(inmueble);
@@ -174,5 +176,7 @@ public class InmuebleData extends Conexion {
         return listaInmuebles;
     }
 }
+    
+
     
 }
