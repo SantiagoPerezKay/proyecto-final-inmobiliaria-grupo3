@@ -75,7 +75,7 @@ public class PropietarioData extends Conexion {
 
     public void actualizarPropietario(Propietario propietario) {
 
-        String sql = "UPDATE propietario SET nombre=?,apellido=?,telefono=?,dni=?,domicilio=? WHERE id_propietario=?";
+        String sql = "UPDATE propietario SET nombre=?,apellido=?,telefono=?,dni=?,domicilio=?,estado=? WHERE id_propietario=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -84,7 +84,8 @@ public class PropietarioData extends Conexion {
             ps.setString(3, propietario.getTelefono());
             ps.setString(4, propietario.getDni());
             ps.setString(5, propietario.getDomicilio());
-            ps.setInt(6, propietario.getIdPropietario());
+            ps.setBoolean(6, propietario.isEstado());
+            ps.setInt(7, propietario.getIdPropietario());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "se actualizo correctamente a propietario ID: " + propietario);
         } catch (SQLException ex) {
@@ -113,6 +114,7 @@ public class PropietarioData extends Conexion {
                 propietario.setDni(rs.getString("dni"));
                 propietario.setDomicilio(rs.getString("domicilio"));
                 propietario.setIdPropietario(rs.getInt("id_propietario"));
+                propietario.setEstado(rs.getBoolean("estado"));
             }
 
             JOptionPane.showMessageDialog(null, "se obtuvo al propietario correctamente");
@@ -145,6 +147,7 @@ public class PropietarioData extends Conexion {
                 propietario.setDni(rs.getString("dni"));
                 propietario.setDomicilio(rs.getString("domicilio"));
                 propietario.setIdPropietario(rs.getInt("id_propietario"));
+                propietario.setEstado(rs.getBoolean("estado"));
             }
 
             JOptionPane.showMessageDialog(null, "se obtuvo al propietario correctamente");
@@ -178,9 +181,9 @@ public class PropietarioData extends Conexion {
                 propietario.setTelefono(rs.getString("telefono"));
                 propietario.setDni(rs.getString("dni"));
                 propietario.setDomicilio(rs.getString("domicilio"));
-                 propietario.setEstado(rs.getBoolean("estado"));
+                propietario.setEstado(rs.getBoolean("estado"));
                 propietario.setIdPropietario(rs.getInt("id_propietario"));
-                
+
                 milista.add(propietario);
 
             }

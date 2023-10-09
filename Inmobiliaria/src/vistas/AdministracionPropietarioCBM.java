@@ -7,7 +7,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
 
-    DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modelo = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int a, int c) {
+            return (c != 0) && (c != 6);
+        }
+    };
 
     public AdministracionPropietarioCBM() {
         initComponents();
@@ -33,14 +38,11 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jtrestablecer = new javax.swing.JButton();
         jcbusqueda = new javax.swing.JComboBox<>();
         jbsalir = new javax.swing.JButton();
+        jbguardarcambios = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("CONSULTA BAJA MODIFICACION");
 
-        jtpalabra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtpalabraActionPerformed(evt);
-            }
-        });
         jtpalabra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtpalabraKeyReleased(evt);
@@ -82,6 +84,20 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
             }
         });
 
+        jbguardarcambios.setText("GUARAR CAMBIOS");
+        jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbguardarcambiosActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("ELIMINAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,8 +123,12 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 .addGap(196, 196, 196)
                 .addComponent(jtrestablecer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbguardarcambios)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(72, 72, 72)
                 .addComponent(jbsalir)
-                .addGap(224, 224, 224))
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,20 +145,19 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtrestablecer)
-                    .addComponent(jbsalir))
+                    .addComponent(jbsalir)
+                    .addComponent(jbguardarcambios)
+                    .addComponent(jButton1))
                 .addContainerGap(174, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtpalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtpalabraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtpalabraActionPerformed
-
     private void jtrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtrestablecerActionPerformed
         borrarDatos();
         cargarTabla();
+        jtpalabra.setText("");
     }//GEN-LAST:event_jtrestablecerActionPerformed
 
     private void jtpalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtpalabraKeyReleased
@@ -146,15 +165,14 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         borrarDatos();
 
         String opcion = (String) jcbusqueda.getSelectedItem();
-      
+
         PropietarioData propietariodata = new PropietarioData();
-        
-        
+
         switch (opcion) {
             case "id_propietario":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
                     if (String.valueOf(prop.getIdPropietario()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
 
@@ -162,44 +180,44 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
             case "nombre":
 
                 for (Propietario prop : propietariodata.listarPropietarios()) {
-                    if (String.valueOf(prop.getNombre()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    if (String.valueOf(prop.getNombre().toLowerCase()).startsWith(jtpalabra.getText().toLowerCase())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
 
                 break;
             case "apellido":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
-                    if (String.valueOf(prop.getApellido()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    if (String.valueOf(prop.getApellido().toLowerCase()).startsWith(jtpalabra.getText().toLowerCase())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
                 break;
             case "telefono":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
                     if (String.valueOf(prop.getTelefono()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
                 break;
             case "dni":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
                     if (String.valueOf(prop.getDni()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
                 break;
             case "domicilio":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
-                    if (String.valueOf(prop.getDomicilio()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    if (String.valueOf(prop.getDomicilio().toLowerCase()).startsWith(jtpalabra.getText().toLowerCase())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
                 break;
             case "estado":
                 for (Propietario prop : propietariodata.listarPropietarios()) {
-                    if (String.valueOf(prop.isEstado()).startsWith(jtpalabra.getText())) {
-                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+                    if (String.valueOf(prop.isEstado()).startsWith(jtpalabra.getText().toLowerCase())) {
+                        modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                     }
                 }
                 break;
@@ -216,11 +234,60 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbusquedaActionPerformed
 
+    private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
+        int fila = jtpropietarios.getSelectedRow();
+
+        PropietarioData propietariodata = new PropietarioData();
+
+        Propietario prop = new Propietario();
+        prop.setIdPropietario((int) jtpropietarios.getValueAt(fila, 0));
+        prop.setNombre((String) jtpropietarios.getValueAt(fila, 1));
+        prop.setApellido((String) jtpropietarios.getValueAt(fila, 2));
+        prop.setTelefono((String) jtpropietarios.getValueAt(fila, 3));
+        prop.setDni((String) jtpropietarios.getValueAt(fila, 4));
+        prop.setDomicilio((String) jtpropietarios.getValueAt(fila, 5));
+        prop.setEstado((boolean) jtpropietarios.getValueAt(fila, 6));
+
+        propietariodata.actualizarPropietario(prop);
+        borrarDatos();
+        jtpalabra.setText("");
+
+        cargarTabla();
+
+
+    }//GEN-LAST:event_jbguardarcambiosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        PropietarioData propietariodata = new PropietarioData();
+
+        int fila = jtpropietarios.getSelectedRow();
+
+        Propietario prop = new Propietario();
+
+        prop.setIdPropietario((int) jtpropietarios.getValueAt(fila, 0));
+        prop.setNombre((String) jtpropietarios.getValueAt(fila, 1));
+        prop.setApellido((String) jtpropietarios.getValueAt(fila, 2));
+        prop.setTelefono((String) jtpropietarios.getValueAt(fila, 3));
+        prop.setDni((String) jtpropietarios.getValueAt(fila, 4));
+        prop.setDomicilio((String) jtpropietarios.getValueAt(fila, 5));
+        prop.setEstado(false);
+
+        propietariodata.actualizarPropietario(prop);
+        borrarDatos();
+        jtpalabra.setText("");
+        cargarTabla();
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbguardarcambios;
     private javax.swing.JButton jbsalir;
     private javax.swing.JComboBox<String> jcbusqueda;
     private javax.swing.JTextField jtpalabra;
@@ -233,6 +300,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         modelo.addColumn("Telefono");
+        modelo.addColumn("DNI");
         modelo.addColumn("Domicilio");
         modelo.addColumn("Estado");
         jtpropietarios.setModel(modelo);
@@ -253,7 +321,8 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
 
         PropietarioData propietariodata = new PropietarioData();
         for (Propietario prop : propietariodata.listarPropietarios()) {
-            modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDomicilio(), prop.isEstado()});
+
+            modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
         }
 
     }
@@ -264,7 +333,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
 
     private void borrarDatos() {
 
-        int f = jtpropietarios.getRowCount() - 1; //obtengo total de filas de la tabla
+        int f = modelo.getRowCount() - 1; //obtengo total de filas de la tabla
 
         for (; f >= 0; f--) { //recorro filas para borrar 1 por 1 en iteracion.
 
