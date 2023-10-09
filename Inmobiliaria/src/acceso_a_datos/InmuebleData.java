@@ -167,7 +167,6 @@ public class InmuebleData extends Conexion {
             listaInmuebles.add(inmueble);
         }
 
-        JOptionPane.showMessageDialog(null, "Se Muestra la lista de inmuebles correctamente");
         return listaInmuebles;
 
     } catch (SQLException ex) {

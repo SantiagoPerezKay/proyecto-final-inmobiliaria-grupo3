@@ -123,7 +123,7 @@ public class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble{" + "idInmueble=" + idInmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", disponibilidad=" + disponibilidad + ", propietario=" + propietario + '}';
+        return "ID: " + idInmueble + ". Direccion: " + direccion + ". Altura: " + altura + " Tipo: " + tipo + ". Superficie:" + superficie + ". Precio: " + precio + ". Disponibilidad: " + disponibilidad + ". Propietario: " + propietario + '}';
     }
 
 }
