@@ -11,9 +11,8 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
- DefaultTableModel modelo = new DefaultTableModel();
-
- 
+ DefaultTableModel modelo = new DefaultTableModel(){
+};
     public AdministracionInquilinoCBM() {
         initComponents();
         cargarCombo();
@@ -84,13 +83,18 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         jbeliminar.setText("ELIMINAR");
 
         jbsalir.setText("SALIR");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(182, Short.MAX_VALUE)
+                .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -106,12 +110,15 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                             .addComponent(jbsalir))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                             .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(26, 26, 26)
-                            .addComponent(jtpalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtpalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(152, 152, 152))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +138,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                     .addComponent(jbguardarcambios)
                     .addComponent(jbeliminar)
                     .addComponent(jbsalir))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,17 +149,32 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtpalabraActionPerformed
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
-//       
-//        InquilinoData inqui = new InquilinoData();
-//        Inquilino n = new Inquilino();
-//        
-//          String dato=String.valueOf(modelo.getValueAt(jtinquilinos.getSelectedRow(),0));
-//          inqui.actualizarInquilino(n); **VER 
+       
+       InquilinoData inquidata = new InquilinoData();
+
+        int fila = jtinquilinos.getSelectedRow();
+
+        Inquilino i = new Inquilino();
+        
+        i.setIdInquilino((int)jtinquilinos.getValueAt(fila, 0));
+        i.setNombre((String)jtinquilinos.getValueAt(fila,1));
+        i.setApellido((String)jtinquilinos.getValueAt(fila,2));
+        i.setCuit((String)jtinquilinos.getValueAt(fila,3)); 
+        i.setLugarTrabajo((String)jtinquilinos.getValueAt(fila,4));
+        i.setNombreGarante((String)jtinquilinos.getValueAt(fila,5));
+        i.setDniGarante((String)jtinquilinos.getValueAt(fila,6)); 
+
+        inquidata.actualizarInquilino(i);
+        borrarDatos();
+        jtpalabra.setText("");
+        cargarTabla();
+
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
     private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
            borrarDatos();
            cargarTabla();
+             jtpalabra.setText("");
     }//GEN-LAST:event_jbrestablecerActionPerformed
 
     private void jtpalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtpalabraKeyReleased
@@ -171,7 +193,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 break;
             case "nombre":
              for (Inquilino i:inqui.listarInquilinos()){
-                    if (String.valueOf(i.getNombre()).startsWith(jtpalabra.getText())){
+                    if (String.valueOf(i.getNombre()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
                         modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
                 }
                     
@@ -179,7 +201,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 break;    
              case "apellido":
              for (Inquilino i:inqui.listarInquilinos()){
-                    if (String.valueOf(i.getApellido()).startsWith(jtpalabra.getText())){
+                    if (String.valueOf(i.getApellido()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
                         modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
                 }
                     
@@ -188,7 +210,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 
                  case "cuit":
              for (Inquilino i:inqui.listarInquilinos()){
-                    if (String.valueOf(i.getCuit()).startsWith(jtpalabra.getText())){
+                    if (String.valueOf(i.getCuit()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
                         modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
                 }
                     
@@ -197,7 +219,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 
                  case "Lugar_trabajo":
              for (Inquilino i:inqui.listarInquilinos()){
-                    if (String.valueOf(i.getLugarTrabajo()).startsWith(jtpalabra.getText())){
+                    if (String.valueOf(i.getLugarTrabajo()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
                         modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
                 }
                     
@@ -206,7 +228,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 
                  case "nombre_garante":
              for (Inquilino i:inqui.listarInquilinos()){
-                    if (String.valueOf(i.getNombreGarante()).startsWith(jtpalabra.getText())){
+                    if (String.valueOf(i.getNombreGarante()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
                         modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
                 }
                     
@@ -221,7 +243,11 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         }
                 break;    
     }//GEN-LAST:event_jtpalabraKeyReleased
-} 
+ }
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbsalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -263,7 +289,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
 
         InquilinoData inqui = new InquilinoData();
         for (Inquilino inquilino : inqui.listarInquilinos()) {
-            modelo.addRow(new Object[]{inquilino.getIdInquilino(), inquilino.getNombre(),inquilino.getApellido(), inquilino.getLugarTrabajo(), inquilino.getNombreGarante(), inquilino.getDniGarante() });
+            modelo.addRow(new Object[]{inquilino.getIdInquilino(), inquilino.getNombre(),inquilino.getApellido(), inquilino.getCuit(), inquilino.getLugarTrabajo(), inquilino.getNombreGarante(), inquilino.getDniGarante() });
         }
 
     }
@@ -279,4 +305,5 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
 
 }
        
+        
 }
