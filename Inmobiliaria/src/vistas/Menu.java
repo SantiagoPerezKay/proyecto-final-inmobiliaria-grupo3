@@ -108,6 +108,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu3.add(jMenuItem3);
 
         jMenuItem7.setText("Consulta");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem7);
 
         jMenuBar1.add(jMenu3);
@@ -202,6 +207,17 @@ public class Menu extends javax.swing.JFrame {
         administracionInquilinoCBM.setLocation((Escritorio.getWidth() - administracionInquilinoCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInquilinoCBM.getHeight()) / 2);
         Escritorio.moveToFront(administracionInquilinoCBM);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionInmuebleCBM administracionInmuebleCBM = new AdministracionInmuebleCBM(); 
+        administracionInmuebleCBM.setVisible(true); 
+        Escritorio.add(administracionInmuebleCBM);
+        administracionInmuebleCBM.setLocation((Escritorio.getWidth() - administracionInmuebleCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInmuebleCBM.getHeight()) / 2);
+        Escritorio.moveToFront(administracionInmuebleCBM);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
