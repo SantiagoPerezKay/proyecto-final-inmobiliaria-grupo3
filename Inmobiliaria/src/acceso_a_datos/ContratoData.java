@@ -25,6 +25,7 @@ public class ContratoData extends Conexion{
         this.inquilino = inquilino;
     }
     
+    
     public ContratoData() {
     }
     

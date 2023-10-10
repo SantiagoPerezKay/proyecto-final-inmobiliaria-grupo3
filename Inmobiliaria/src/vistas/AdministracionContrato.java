@@ -11,35 +11,33 @@ import acceso_a_datos.InquilinoData;
 import inmobiliaria.entidades.Contrato;
 import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Inquilino;
-import inmobiliaria.entidades.Propietario;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import static java.time.temporal.TemporalQueries.localDate;
 
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
+import java.time.LocalDate;
+
+import java.time.ZoneId;
+import java.util.Date;
 
 public class AdministracionContrato extends javax.swing.JInternalFrame {
-    
+
     DefaultTableModel modelo = new DefaultTableModel();
-    
-    private ContratoData contData= new ContratoData();
+
+    private ContratoData contData = new ContratoData();
 
     public AdministracionContrato() {
         initComponents();
+
         rellenarInmuebles();
+
         rellenarInquilinos();
+
         cargarCabecera();
-        
-        jComboinquilinos.setSelectedIndex(-1);
-        
+        borrarFila();
+        // jComboinquilinos.setSelectedIndex(-1);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -58,9 +56,9 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jComboinquilinos = new javax.swing.JComboBox<>();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTinmueble = new javax.swing.JTable();
         jbalta = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTinmueble = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -89,6 +87,14 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Datos del inmueble");
 
+        jbalta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jbalta.setText("INGRESAR");
+        jbalta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbaltaActionPerformed(evt);
+            }
+        });
+
         jTinmueble.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -100,27 +106,24 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTinmueble);
-
-        jbalta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jbalta.setText("INGRESAR");
-        jbalta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbaltaActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setViewportView(jTinmueble);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(272, 272, 272))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(338, 338, 338)
+                        .addComponent(jbalta)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(382, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(128, 128, 128)
@@ -134,7 +137,10 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                             .addComponent(jtfechainicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jtfechafin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboinmuebles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboinquilinos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jComboinquilinos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,16 +148,9 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                         .addGap(315, 315, 315)
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(338, 338, 338)
-                        .addComponent(jbalta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(272, 272, 272))
+                        .addGap(105, 105, 105)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,69 +183,71 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaltaActionPerformed
+
         try {
-            
-           
+
             Date fechaInicio = (Date) jtfechainicio.getDate();
             Date fechaFin = (Date) jtfechafin.getDate();
-            
+
             LocalDate fecha1 = fechaInicio.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fecha2 = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            Inmueble inmueble = (Inmueble)jComboinmuebles.getSelectedItem();
-            Inquilino inquilino = (Inquilino)jComboinquilinos.getSelectedItem();
+            Inmueble inmueble = (Inmueble) jComboinmuebles.getSelectedItem();
+            Inquilino inquilino = (Inquilino) jComboinquilinos.getSelectedItem();
             double monto = inmueble.getPrecio();
             boolean estado = true;
-            
+
             Contrato cont = new Contrato(fecha1, fecha2, monto, estado, inquilino, inmueble);
             contData.crearContrato(cont);
-               
-        } catch (NumberFormatException nfe) {
 
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
         }
 
     }//GEN-LAST:event_jbaltaActionPerformed
 
     private void jComboinmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboinmueblesActionPerformed
-
+        if  ( modelo.getRowCount()>0){
+          modelo.removeRow(0);
+        }
         InmuebleData inmData = new InmuebleData();
 
         Inmueble inm = (Inmueble) jComboinmuebles.getSelectedItem();
-
+        
         modelo.addRow(new Object[]{inm.getIdInmueble(), inm.getDireccion(), inm.getAltura(), inm.getTipo(), inm.getSuperficie(), inm.getPrecio(), inm.getDisponibilidad(), inm.getPropid(), inm.isEstado()});
     }//GEN-LAST:event_jComboinmueblesActionPerformed
-    
+
     public void rellenarInmuebles() {
         InmuebleData inmData = new InmuebleData();
 
-        ArrayList<Inmueble> ListInm = new ArrayList(inmData.listarInmuebles());
+        ArrayList<Inmueble> ListInm = new ArrayList<>(inmData.listarInmuebles());
 
         for (Inmueble a : ListInm) {
             jComboinmuebles.addItem(a);
 
         }
     }
-    
-    public void rellenarInquilinos(){
+
+    public void rellenarInquilinos() {
         InquilinoData inquiData = new InquilinoData();
-        
-        ArrayList<Inquilino> ListInq = new ArrayList(inquiData.listarInquilinos());
-        
+
+        ArrayList<Inquilino> ListInq = new ArrayList<>(inquiData.listarInquilinos());
+
         for (Inquilino i : ListInq) {
             jComboinquilinos.addItem(i);
         }
     }
-    
+
     public void cargarCabecera() {
         modelo.addColumn("Id Inmueble");
         modelo.addColumn("Direccion");
@@ -259,7 +260,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         modelo.addColumn("Estado");
         jTinmueble.setModel(modelo);
     }
-    
+
     private void borrarFila() {
         int f = jTinmueble.getRowCount() - 1;
 
@@ -268,9 +269,8 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             modelo.removeRow(f);
         }
     }
-    
+
     //
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Inmueble> jComboinmuebles;
@@ -281,7 +281,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTinmueble;
@@ -290,5 +290,3 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser jtfechainicio;
     // End of variables declaration//GEN-END:variables
 }
-
-

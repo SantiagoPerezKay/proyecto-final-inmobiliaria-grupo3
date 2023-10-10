@@ -5,31 +5,33 @@ public class Propietario {
     private Integer idPropietario;
     private String nombre;
     private String apellido;
-    private String domicilio;
     private String telefono;
     private String dni;
+    private String domicilio;
     private boolean estado;
+
     public Propietario() {
     }
+
     ;
-    public Propietario(Integer idPropietario, String nombre, String apellido, String domicilio, String telefono, String dni,boolean estado) {
+    public Propietario(Integer idPropietario, String nombre, String apellido, String domicilio, String telefono, String dni, boolean estado) {
         this.idPropietario = idPropietario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.dni = dni;
-         this.estado=estado;
+        this.estado = estado;
     }
 
-    public Propietario(String nombre, String apellido, String domicilio, String telefono, String dni,boolean estado) {
+    public Propietario(String nombre, String apellido, String domicilio, String telefono, String dni, boolean estado) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.dni = dni;
-        this.estado=estado;
+        this.estado = estado;
     }
 
     public boolean isEstado() {
@@ -90,9 +92,7 @@ public class Propietario {
 
     @Override
     public String toString() {
-        return "id:"+ idPropietario + ", " + nombre + ", "  + apellido + ", " + dni ;
+        return "id:" + idPropietario + ", " + nombre + ", " + apellido + ", " + dni;
     }
 
-    
-    
 }
