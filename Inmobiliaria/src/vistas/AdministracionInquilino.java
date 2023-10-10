@@ -64,7 +64,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jLabel9.setText("NOMBRE :");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("DIN :");
+        jLabel10.setText("DNI :");
 
         jtCuit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,9 +115,8 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                                 .addComponent(jtNombreGarante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                                 .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jtLugarTrabajo, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jtDniGarante)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
