@@ -1,6 +1,6 @@
 package inmobiliaria.entidades;
 
-public class Propietario {
+public class Propietario extends Inmobiliaria {
 
     private Integer idPropietario;
     private String nombre;

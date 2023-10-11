@@ -9,7 +9,7 @@ package inmobiliaria.entidades;
  *
  * @author Agente Sosa
  */
-public class Inmueble {
+public class Inmueble extends Inmobiliaria {
 
     private int idInmueble;
     private String direccion;

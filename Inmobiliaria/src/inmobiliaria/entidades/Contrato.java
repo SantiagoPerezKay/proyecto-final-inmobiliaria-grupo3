@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 
 
-public class Contrato {
+public class Contrato extends Inmobiliaria{
     
     private int idContrato;
     private LocalDate fechaInicio;
