@@ -47,6 +47,8 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        jrb1 = new javax.swing.JRadioButton();
+        jrb2 = new javax.swing.JRadioButton();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("NOMBRE:");
@@ -72,6 +74,18 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
             }
         });
 
+        jtNombreGarante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreGaranteActionPerformed(evt);
+            }
+        });
+
+        jtDniGarante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDniGaranteActionPerformed(evt);
+            }
+        });
+
         jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jbIngresar.setText("REGISTRAR");
         jbIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,48 +100,61 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Garante");
 
+        jrb1.setText("ACTIVO ");
+        jrb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb1ActionPerformed(evt);
+            }
+        });
+
+        jrb2.setText("INACTIVO");
+        jrb2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(176, 176, 176)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(126, 126, 126)
                                 .addComponent(jLabel2))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8)
+                            .addComponent(jLabel10)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10))
+                            .addComponent(jLabel3))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jbIngresar)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jrb1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jrb2))
                                 .addComponent(jtNombreGarante, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                                 .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jtLugarTrabajo, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jtCuit, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtDniGarante)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(131, 131, 131))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(366, 366, 366))))
+                                .addComponent(jtDniGarante))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,22 +180,23 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtLugarTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrb1)
+                    .addComponent(jrb2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jtNombreGarante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtDniGarante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
                 .addComponent(jbIngresar)
                 .addGap(49, 49, 49))
         );
@@ -189,7 +217,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
             String lugarDeTrabajo = jtLugarTrabajo.getText(); 
             String nombreGarante = jtNombreGarante.getText();
             String dniGarante = jtDniGarante.getText();
-
+            boolean estado = jrb1.isSelected();
             if (cuit.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || lugarDeTrabajo.isEmpty() || nombreGarante.isEmpty() || dniGarante.isEmpty()) {
 
                 JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
@@ -197,7 +225,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
 
             } else {
                 
-                inquiActual = new Inquilino(cuit, nombre, apellido, lugarDeTrabajo, nombreGarante, dniGarante);
+                inquiActual = new Inquilino(cuit, nombre, apellido, lugarDeTrabajo, nombreGarante, dniGarante, estado);
                 inquiData.insertarInquilino(inquiActual);
                 
             }
@@ -210,6 +238,25 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jbIngresarActionPerformed
+
+    private void jtDniGaranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDniGaranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDniGaranteActionPerformed
+
+    private void jtNombreGaranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreGaranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNombreGaranteActionPerformed
+
+    private void jrb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb1ActionPerformed
+          jrb1.setSelected(true);
+          jrb2.setSelected(false);
+                                          
+    }//GEN-LAST:event_jrb1ActionPerformed
+
+    private void jrb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb2ActionPerformed
+        jrb1.setSelected(false);
+        jrb2.setSelected(true);
+    }//GEN-LAST:event_jrb2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -224,6 +271,8 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbIngresar;
+    private javax.swing.JRadioButton jrb1;
+    private javax.swing.JRadioButton jrb2;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTextField jtCuit;
     private javax.swing.JTextField jtDniGarante;

@@ -81,6 +81,11 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         });
 
         jbeliminar.setText("ELIMINAR");
+        jbeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbeliminarActionPerformed(evt);
+            }
+        });
 
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +168,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         i.setLugarTrabajo((String)jtinquilinos.getValueAt(fila,4));
         i.setNombreGarante((String)jtinquilinos.getValueAt(fila,5));
         i.setDniGarante((String)jtinquilinos.getValueAt(fila,6)); 
+        i.setEstado((boolean)jtinquilinos.getValueAt(fila,7)); 
 
         inquidata.actualizarInquilino(i);
         borrarDatos();
@@ -186,7 +192,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
             case "id_inquilino":
                 for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getIdInquilino()).startsWith(jtpalabra.getText())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(), i.isEstado()});
                 }
                     
         }
@@ -194,7 +200,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
             case "nombre":
              for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getNombre()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
                 }
                     
         }
@@ -202,7 +208,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
              case "apellido":
              for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getApellido()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
                 }
                     
         }
@@ -211,7 +217,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                  case "cuit":
              for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getCuit()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
                 }
                     
         }
@@ -220,7 +226,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                  case "Lugar_trabajo":
              for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getLugarTrabajo()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
                 }
                     
         }
@@ -229,7 +235,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                  case "nombre_garante":
              for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getNombreGarante()).toLowerCase().startsWith(jtpalabra.getText().toLowerCase())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
                 }
                     
         }
@@ -237,16 +243,52 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                  case "dni_garante":
              for (Inquilino i:inqui.listarInquilinos()){
                     if (String.valueOf(i.getDniGarante()).startsWith(jtpalabra.getText())){
-                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante()});
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
                 }
                     
         }
                 break;    
+                
+                 case "estado":
+              for (Inquilino i:inqui.listarInquilinos()){
+                  if (String.valueOf(i.isEstado()).startsWith(jtpalabra.getText())){
+                        modelo.addRow(new Object[]{i.getIdInquilino(), i.getNombre(), i.getApellido(), i.getCuit(), i.getLugarTrabajo(), i.getNombreGarante(), i.getDniGarante(),i.isEstado()});
+              }
     }//GEN-LAST:event_jtpalabraKeyReleased
- }
+ 
+        break;
+     }   
+     }
+        
+        
     private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
         dispose();
     }//GEN-LAST:event_jbsalirActionPerformed
+
+    private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
+         InquilinoData inquidata = new InquilinoData();
+
+        int fila = jtinquilinos.getSelectedRow();
+
+        Inquilino in = new Inquilino();
+        
+        in.setIdInquilino((int) jtinquilinos.getValueAt(fila, 0));
+        in.setNombre((String) jtinquilinos.getValueAt(fila, 1));
+        in.setApellido((String) jtinquilinos.getValueAt(fila, 2));
+        in.setCuit((String) jtinquilinos.getValueAt(fila, 3));
+        in.setLugarTrabajo((String) jtinquilinos.getValueAt(fila, 4));
+        in.setNombreGarante((String) jtinquilinos.getValueAt(fila, 5));
+        in.setDniGarante((String) jtinquilinos.getValueAt(fila, 6));
+        in.setEstado(false);
+
+        inquidata.actualizarInquilino(in);
+        borrarDatos();
+        jtpalabra.setText("");
+        cargarTabla();
+
+
+        
+    }//GEN-LAST:event_jbeliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,6 +313,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         jcbusqueda.addItem("Lugar_trabajo");
         jcbusqueda.addItem("nombre_garante");
         jcbusqueda.addItem("dni_garante");
+        jcbusqueda.addItem("estado");
 
 
 }
@@ -282,6 +325,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         modelo.addColumn("Lugar Trabajo");
         modelo.addColumn("Nombre Garante");
         modelo.addColumn("DNI Garante");
+        modelo.addColumn("Estado");
         jtinquilinos.setModel(modelo);
     }
     
@@ -289,7 +333,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
 
         InquilinoData inqui = new InquilinoData();
         for (Inquilino inquilino : inqui.listarInquilinos()) {
-            modelo.addRow(new Object[]{inquilino.getIdInquilino(), inquilino.getNombre(),inquilino.getApellido(), inquilino.getCuit(), inquilino.getLugarTrabajo(), inquilino.getNombreGarante(), inquilino.getDniGarante() });
+            modelo.addRow(new Object[]{inquilino.getIdInquilino(), inquilino.getNombre(),inquilino.getApellido(), inquilino.getCuit(), inquilino.getLugarTrabajo(), inquilino.getNombreGarante(), inquilino.getDniGarante(), inquilino.isEstado() });
         }
 
     }

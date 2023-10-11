@@ -18,11 +18,11 @@ public class Inquilino {
     private String lugarTrabajo;
     private String nombreGarante;
     private String dniGarante;
-
+    private boolean estado;
     public Inquilino() {
     }
     
-    public Inquilino(int idInquilino, String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante) {
+    public Inquilino(int idInquilino, String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante, boolean estado) {
         this.idInquilino = idInquilino;
         this.cuit = cuit;
         this.nombre = nombre;
@@ -30,9 +30,10 @@ public class Inquilino {
         this.lugarTrabajo = lugarTrabajo;
         this.nombreGarante = nombreGarante;
         this.dniGarante = dniGarante;
+        this.estado = estado;
     } 
     
-    public Inquilino(String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante) {
+    public Inquilino(String cuit, String nombre, String apellido, String lugarTrabajo, String nombreGarante, String dniGarante, boolean estado) {
     
         this.cuit = cuit;
         this.nombre = nombre;
@@ -40,6 +41,15 @@ public class Inquilino {
         this.lugarTrabajo = lugarTrabajo;
         this.nombreGarante = nombreGarante;
         this.dniGarante = dniGarante;
+        this.estado = estado;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     
     public int getIdInquilino() {
@@ -100,7 +110,7 @@ public class Inquilino {
 
     @Override
     public String toString() {
-        return "ID: " + idInquilino + ". Cuit: " + cuit + ". Nombre: " + nombre + ". Apellido: " + apellido + ". Lugar de Trabajo: " + lugarTrabajo + ". Nombre de Garante=" + nombreGarante + ". Dni de Garante=" + dniGarante;
+        return "ID: " + idInquilino + ". Cuit: " + cuit + ". Nombre: " + nombre + ". Apellido: " + apellido + ". Lugar de Trabajo: " + lugarTrabajo + ". Nombre de Garante=" + nombreGarante + ". Dni de Garante=" + dniGarante + ". Estado =" + estado;
     }
 
     
