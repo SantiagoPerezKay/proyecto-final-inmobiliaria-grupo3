@@ -16,7 +16,7 @@ public class Inmueble {
     private int altura;
     private String tipo;
     private double superficie;
-    private double precio;
+    private Double precio;
     private String disponibilidad;
     private Propietario propietario;
     private int propid;

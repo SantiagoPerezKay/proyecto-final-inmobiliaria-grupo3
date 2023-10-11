@@ -59,7 +59,7 @@ public class InmuebleData extends Conexion {
     
     public void actualizarInmueble(Inmueble inmueble) {
 
-        String sql = "UPDATE inmueble SET direccion=?, altura=?, tipo=?, superficie=?, precio=?, disponibilidad=?, id_propietario=? WHERE id_inmueble=?";
+        String sql = "UPDATE inmueble SET direccion=?, altura=?, tipo=?, superficie=?, precio=?, disponibilidad=?, id_propietario=?,estado=? WHERE id_inmueble=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -69,8 +69,11 @@ public class InmuebleData extends Conexion {
             ps.setDouble(4, inmueble.getSuperficie());
             ps.setDouble(5, inmueble.getPrecio());
             ps.setString(6, inmueble.getDisponibilidad());
-            ps.setInt(7, inmueble.getPropietario().getIdPropietario());
-            ps.setInt(8, inmueble.getIdInmueble());
+           
+            ps.setInt(7, inmueble.getPropid());
+            
+            ps.setBoolean(8, inmueble.isEstado());
+            ps.setInt(9, inmueble.getIdInmueble());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "se actualizo correctamente el inmueble ID: " + inmueble);
         } catch (SQLException ex) {

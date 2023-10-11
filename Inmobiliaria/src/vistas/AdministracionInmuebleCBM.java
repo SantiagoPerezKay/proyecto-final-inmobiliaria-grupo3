@@ -171,26 +171,34 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
 
-//        InmuebleData inmudata = new InmuebleData();
-//
-//        int fila = jtInmuebles.getSelectedRow();
-//
-//        Inmueble i = new Inmueble();
-//
-//        i.setIdInmueble((int)jtInmuebles.getValueAt(fila, 0));
-//        i.setDireccion((String)jtInmuebles.getValueAt(fila,1));
-//        i.setAltura((int)jtInmuebles.getValueAt(fila,2));
-//        i.setTipo((String)jtInmuebles.getValueAt(fila,3));
-//        i.setSuperficie((Double)jtInmuebles.getValueAt(fila,4));
-//        i.setPrecio((Double)jtInmuebles.getValueAt(fila,5));
-//        i.setDisponibilidad((String)jtInmuebles.getValueAt(fila,6));
-//        i.setPropid((int)jtInmuebles.getValueAt(fila,7));
-//        i.setEstado((boolean) jtInmuebles.getValueAt(fila, 8));
-//
-//        inmudata.actualizarInmueble(i);
-//        borrarDatos();
-//        jtLetra.setText("");
-//        cargarTabla();
+        InmuebleData inmudata = new InmuebleData();
+
+        int fila = jtInmuebles.getSelectedRow();
+
+        Inmueble i = new Inmueble();
+
+        i.setIdInmueble((int)jtInmuebles.getValueAt(fila, 0));
+        i.setDireccion((String)jtInmuebles.getValueAt(fila,1));
+        i.setAltura((int)jtInmuebles.getValueAt(fila,2));
+        i.setTipo((String)jtInmuebles.getValueAt(fila,3));
+        
+        String valor1=String.valueOf(jtInmuebles.getValueAt(fila,4));
+        
+        i.setSuperficie(Double.parseDouble(valor1));
+      
+        String valor2=String.valueOf(jtInmuebles.getValueAt(fila,5));
+        i.setPrecio(Double.parseDouble(valor2));
+      
+        i.setDisponibilidad((String)jtInmuebles.getValueAt(fila,6));
+        i.setPropid((int)jtInmuebles.getValueAt(fila,7));
+        i.setEstado((boolean) jtInmuebles.getValueAt(fila, 8));
+        
+        System.out.println(i);
+        
+        inmudata.actualizarInmueble(i);
+        borrarDatos();
+        jtLetra.setText("");
+        cargarTabla();
         
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
