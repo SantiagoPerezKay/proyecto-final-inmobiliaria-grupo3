@@ -51,12 +51,12 @@ public class Inmobiliaria {
         //System.out.println( inquiData.listarInquilinos());
         //Inmueble imb = new Inmueble("Carrasco", 255, "D", 52, 25000, "string", prop,true);
         //inmData.agregarInmueble(imb);
-        Propietario prop = new Propietario("juan", "gomez", "aaa", "222", "22222", true);
-        Inquilino inqui2 = new Inquilino(3, "2767788", "Caimila", "Lopez", "PintureriaPro", "Marcos Remos", "444567543");
-        Inmueble imb = new Inmueble("Carrasco", 255, "D", 52, 25000, "string", prop, true);
-        Contrato cont = new Contrato(LocalDate.of(2020, 10, 24), LocalDate.of(2022, 11, 24), 10000.500, true, inqui2, imb);
+        //Propietario prop = new Propietario("juan", "gomez", "aaa", "222", "22222", true);
+        //Inquilino inqui2 = new Inquilino(3, "2767788", "Caimila", "Lopez", "PintureriaPro", "Marcos Remos", "444567543");
+        //Inmueble imb = new Inmueble("Carrasco", 255, "D", 52, 25000, "string", prop, true);
+        //Contrato cont = new Contrato(LocalDate.of(2020, 10, 24), LocalDate.of(2022, 11, 24), 10000.500, true, inqui2, imb);
 
-        contData.crearContrato(cont);
+        //contData.crearContrato(cont);
      
     }
 
