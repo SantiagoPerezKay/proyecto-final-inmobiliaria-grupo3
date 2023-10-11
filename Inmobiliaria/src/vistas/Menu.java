@@ -27,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem8 = new javax.swing.JMenuItem();
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -40,7 +41,10 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+
+        jMenuItem8.setText("jMenuItem8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,6 +130,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jMenuItem4);
+
+        jMenuItem9.setText("Consulta");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem9);
 
         jMenuBar1.add(jMenu4);
 
@@ -219,6 +231,16 @@ public class Menu extends javax.swing.JFrame {
         Escritorio.moveToFront(administracionInmuebleCBM);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+       Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionContratoCBM AdministracionContratoCBM = new AdministracionContratoCBM(); 
+        AdministracionContratoCBM.setVisible(true); 
+        Escritorio.add(AdministracionContratoCBM);
+        AdministracionContratoCBM.setLocation((Escritorio.getWidth() - AdministracionContratoCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionContratoCBM.getHeight()) / 2);
+        Escritorio.moveToFront(AdministracionContratoCBM);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,5 +294,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }
