@@ -15,7 +15,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
 
-    DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modelo = new DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int a, int c) {
+            return (c != 0) && (c != 8);
+        }
+    };
     
     public AdministracionInmuebleCBM() {
         initComponents();
@@ -282,26 +287,26 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
 
     private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
         
-//        InmuebleData inmudata = new InmuebleData();
-//
-//        int fila = jtInmuebles.getSelectedRow();
-//
-//        Inmueble inm = new Inmueble();
-//
-//        inm.setIdInmueble((int)jtInmuebles.getValueAt(fila, 0));
-//        inm.setDireccion((String)jtInmuebles.getValueAt(fila,1));
-//        inm.setAltura((int)jtInmuebles.getValueAt(fila,2));
-//        inm.setTipo((String)jtInmuebles.getValueAt(fila,3));
-//        inm.setSuperficie((Double)jtInmuebles.getValueAt(fila,4));
-//        inm.setPrecio((Double)jtInmuebles.getValueAt(fila,5));
-//        inm.setDisponibilidad((String)jtInmuebles.getValueAt(fila,6));
-//        inm.setPropid((int)jtInmuebles.getValueAt(fila,7));
-//        inm.setEstado(false);
-//
-//        inmudata.actualizarInmueble(inm);
-//        borrarDatos();
-//        jtLetra.setText("");
-//        cargarTabla();
+        InmuebleData inmudata = new InmuebleData();
+
+        int fila = jtInmuebles.getSelectedRow();
+
+        Inmueble inm = new Inmueble();
+
+        inm.setIdInmueble((int)jtInmuebles.getValueAt(fila, 0));
+        inm.setDireccion((String)jtInmuebles.getValueAt(fila,1));
+        inm.setAltura((int)jtInmuebles.getValueAt(fila,2));
+        inm.setTipo((String)jtInmuebles.getValueAt(fila,3));
+        inm.setSuperficie((Double)jtInmuebles.getValueAt(fila,4));
+        inm.setPrecio((Double)jtInmuebles.getValueAt(fila,5));
+        inm.setDisponibilidad((String)jtInmuebles.getValueAt(fila,6));
+        inm.setPropid((int)jtInmuebles.getValueAt(fila,7));
+        inm.setEstado(false);
+
+        inmudata.actualizarInmueble(inm);
+        borrarDatos();
+        jtLetra.setText("");
+        cargarTabla();
         
     }//GEN-LAST:event_jbeliminarActionPerformed
 

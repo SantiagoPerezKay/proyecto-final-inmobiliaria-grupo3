@@ -222,6 +222,7 @@ public class ContratoData extends Conexion{
                 inqui.setLugarTrabajo(rs.getString("lugar_trabajo"));
                 inqui.setNombreGarante(rs.getString("nombre_garante"));
                 inqui.setDniGarante("dni_garante");
+                
                 inqui.setIdInquilino(rs.getInt("id_inquilino"));
                 
             } else {

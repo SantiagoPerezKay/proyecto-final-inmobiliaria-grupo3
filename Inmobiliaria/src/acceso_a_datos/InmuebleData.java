@@ -168,7 +168,7 @@ public class InmuebleData extends Conexion {
             inmueble.setDisponibilidad(rs.getString("disponibilidad"));
             inmueble.setPropid(rs.getInt("id_propietario"));
             inmueble.setIdInmueble(rs.getInt("id_inmueble"));
-            
+            inmueble.setEstado(rs.getBoolean("estado"));
             listaInmuebles.add(inmueble);
         }
 
