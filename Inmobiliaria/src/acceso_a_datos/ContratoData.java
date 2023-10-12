@@ -134,45 +134,6 @@ public class ContratoData extends Conexion{
         }
     }
     
-    public ArrayList<Contrato> listarContratosX(String x, int id) {
-        
-        ArrayList<Contrato>contratos=new ArrayList<>();
-
-        
-        String sql = "SELECT * FROM contrato WHERE id_"+x+"="+id;
-
-        try {
-
-            Statement statement = con.createStatement();
-            ResultSet rs = statement.executeQuery(sql);
-
-            while (rs.next()) {
-                
-                Contrato contrato = new Contrato();
-                
-                Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
-                Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
-                
-                contrato.setFechaInicio(getLocalDate("fecha_inicio"));
-                contrato.setFechaFin(getLocalDate("fecha_fin"));
-                contrato.setMonto(rs.getInt("monto"));
-                contrato.setEstado(rs.getBoolean("estado"));
-                contrato.setInmueble(imb);
-                contrato.setInquilino(inq);
-                
-                
-                contratos.add(contrato);         
-            }
-            
-            JOptionPane.showMessageDialog(null, "se actualizo la lista correctamente");
-            return contratos;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "no se pudieron listar los contratos " + "\n error:" + ex.getMessage());
-            return contratos;
-        }
-    }
-    
     public Contrato buscarContrato(int id){
         
         String sql = "SELECT * FROM contrato WHERE id_contrato=?";
@@ -271,6 +232,10 @@ public class ContratoData extends Conexion{
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de inquilinos" + ex.getMessage());
         }
         return inqui;
+    }
+
+    private LocalDate getLocalDate(String fecha_inicio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

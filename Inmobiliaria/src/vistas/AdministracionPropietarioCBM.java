@@ -148,7 +148,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                     .addComponent(jbsalir)
                     .addComponent(jbguardarcambios)
                     .addComponent(jButton1))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         pack();

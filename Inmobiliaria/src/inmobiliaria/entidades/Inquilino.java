@@ -9,7 +9,7 @@ package inmobiliaria.entidades;
  *
  * @author Agente Sosa
  */
-public class Inquilino extends Inmobiliaria {
+public class Inquilino {
     
     private int idInquilino;
     private String cuit;
@@ -110,7 +110,7 @@ public class Inquilino extends Inmobiliaria {
 
     @Override
     public String toString() {
-        return "ID: " + idInquilino + ". Cuit: " + cuit + ". Nombre: " + nombre + ". Apellido: " + apellido;
+        return "ID: " + idInquilino + ". Cuit: " + cuit + ". Nombre: " + nombre + ". Apellido: " + apellido + ". Lugar de Trabajo: " + lugarTrabajo + ". Nombre de Garante=" + nombreGarante + ". Dni de Garante=" + dniGarante + ". Estado =" + estado;
     }
 
     
