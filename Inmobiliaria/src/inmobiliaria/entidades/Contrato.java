@@ -12,12 +12,14 @@ public class Contrato {
     private int idContrato;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private double monto;
-    private boolean estado; 
+    private double monto; 
     private Inquilino inquilino;
+    private int idinq;
     private Inmueble inmueble;
+    private int idimb;
+    private boolean estado;
 
-    public Contrato(int idContrato, LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado, Inquilino inquilino, Inmueble inmueble) {
+    public Contrato(int idContrato, LocalDate fechaInicio, LocalDate fechaFin, double monto, Inquilino inquilino, Inmueble inmueble, boolean estado) {
         this.idContrato = idContrato;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -30,7 +32,7 @@ public class Contrato {
     public Contrato() {
     }
 
-    public Contrato(LocalDate fechaInicio, LocalDate fechaFin, double monto, boolean estado, Inquilino inquilino, Inmueble inmueble) {
+    public Contrato(LocalDate fechaInicio, LocalDate fechaFin, double monto, Inquilino inquilino, Inmueble inmueble, boolean estado) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.monto = monto;
@@ -39,6 +41,22 @@ public class Contrato {
         this.inmueble = inmueble;
     }
 
+    public int getIdinq() {
+        return idinq;
+    }
+
+    public void setIdinq(int idinq) {
+        this.idinq = idinq;
+    }
+
+    public int getIdimb() {
+        return idimb;
+    }
+
+    public void setIdimb(int idimb) {
+        this.idimb = idimb;
+    }
+    
     public int getIdContrato() {
         return idContrato;
     }
@@ -97,7 +115,15 @@ public class Contrato {
 
     @Override
     public String toString() {
-        return "Contrato{" + "idContrato=" + idContrato + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto + ", estado=" + estado + ", inquilino=" + inquilino.getIdInquilino() + ", inmueble=" + inmueble.getIdInmueble() + '}';
+        return  
+                "ID: " + idContrato 
+              + ". Inicio: " + fechaInicio 
+              + ". Fin: " + fechaFin 
+              + ". Monto: " + monto 
+              + ". Inquilino: " + idinq 
+              + ". Inmueble: " + idimb 
+              + ". Estado: " + estado 
+              ;
     }
     
     
