@@ -9,8 +9,14 @@ import inmobiliaria.entidades.Inmobiliaria;
 import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Inquilino;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -25,6 +31,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     public AdministracionContratoCBM() {
         initComponents();
         cargarCabecera();
+        rellenarTabla();
     }
 
     
@@ -43,6 +50,17 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         jbrestablecer = new javax.swing.JButton();
         jbguardarcambios = new javax.swing.JButton();
         jbeliminar = new javax.swing.JButton();
+        jtdesde = new com.toedter.calendar.JDateChooser();
+        jthasta = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jRfecha = new javax.swing.JRadioButton();
+        jRmonto = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jtminimo = new javax.swing.JTextField();
+        jtmaximo = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -105,21 +123,75 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel4.setText("Desde :");
+
+        jLabel5.setText("Hasta :");
+
+        jRfecha.setText("Fecha");
+        jRfecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRfechaActionPerformed(evt);
+            }
+        });
+
+        jRmonto.setText("Monto");
+
+        jLabel6.setText("Min :");
+
+        jLabel7.setText("Max :");
+
+        jButton1.setText("APLICAR FILTROS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 65, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(0, 57, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jCopciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRfecha)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtdesde, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jRmonto)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton1)
+                                            .addComponent(jtminimo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jthasta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtmaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)
+                                .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(65, 65, 65))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -147,13 +219,31 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jtdesde, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jthasta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRfecha)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
+                    .addComponent(jRmonto)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtminimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtmaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(80, 80, 80)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbrestablecer)
                     .addComponent(jbguardarcambios)
@@ -209,7 +299,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             Inquilino inqui = (Inquilino)jCopciones.getSelectedItem();
             ContratoData contData = new ContratoData();
             
-            if (inqui != null && contData != null) {
+            if (inqui != null) {
                 borrarDatos();
                 Listcont = contData.listarContratosX(opc, inqui.getIdInquilino());
             } else {
@@ -226,7 +316,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             Inmueble inm = (Inmueble)jCopciones.getSelectedItem();
             ContratoData contData = new ContratoData();
             
-             if (inm != null && contData != null) {
+             if (inm != null) {
                 borrarDatos();
                 Listcont = (contData.listarContratosX(opc, inm.getIdInmueble()));
             } else {
@@ -245,7 +335,8 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbsalirActionPerformed
 
     private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
-        borrarDatos();
+        rellenarTabla();
+        limpiarCampos();
     }//GEN-LAST:event_jbrestablecerActionPerformed
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
@@ -285,15 +376,116 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         
         ContratoData contData = new ContratoData();
         contData.borrarContrato(id);
-
     }//GEN-LAST:event_jbeliminarActionPerformed
 
-    public void rellenarTaba(){
-        ContratoData contData = new ContratoData();
-        contData.listarContratos();
+    private void jRfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRfechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRfechaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if(!jRfecha.isSelected() && !jRmonto.isSelected()){
+           JOptionPane.showMessageDialog(null, "Por favor indique al menos un filtro para aplicar");
+        }
         
+        if (jRfecha.isSelected() && !jRmonto.isSelected())   {
+            if (jtdesde.getDate() == null || jthasta.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de fecha para realizar la busqueda");
+            }else{
+                LocalDate desde = jtdesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate hasta = jthasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                
+                if (desde.isAfter(hasta)) {
+                    JOptionPane.showMessageDialog(null, "La fecha final no puede ser anterior a la inicial. Ingrese una fecha correcta.");
+                }
+
+                ContratoData contData = new ContratoData();
+                ArrayList<Contrato> Listcont = new ArrayList<>();
+                
+                Listcont = contData.listarContratosXfecha(desde,hasta);
+                
+                if (Listcont.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                } else {
+                    borrarDatos();
+                    for (Contrato c : Listcont) {
+                        modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                    }     
+                }
+            }
+        }
+        
+        if (jRmonto.isSelected() && !jRfecha.isSelected()){
+            if (jtminimo == null || jtmaximo == null){
+                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de monto para realizar la busqueda");
+            } else  {
+                double min = Double.parseDouble(jtminimo.getText());
+                double max = Double.parseDouble(jtmaximo.getText());
+                
+                if (min>max) {
+                    JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
+                }
+                
+                ContratoData contData = new ContratoData();
+                ArrayList<Contrato> Listcont = new ArrayList<>();
+                
+                Listcont = contData.listarContratosXmonto(min,max);
+                
+                if (Listcont.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                } else {
+                    borrarDatos();
+                    for (Contrato c : Listcont) {
+                        modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                    }     
+                }
+            } 
+        }
+        
+        if (jRfecha.isSelected() && jRmonto.isSelected()){
+            if ((jtdesde.getDate() == null || jthasta.getDate() == null) && (jtminimo == null || jtmaximo == null))  {
+                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de fecha y monto para realizar la busqueda");
+            }else{
+                LocalDate desde = jtdesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate hasta = jthasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                
+                double min = Double.parseDouble(jtminimo.getText());
+                double max = Double.parseDouble(jtmaximo.getText());
+                
+                if (desde.isAfter(hasta)) {
+                    JOptionPane.showMessageDialog(null, "La fecha final no puede ser anterior a la inicial. Ingrese una fecha correcta.");
+                }
+                if (min>max) {
+                    JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
+                }
+
+                ContratoData contData = new ContratoData();
+                ArrayList<Contrato> Listcont = new ArrayList<>();
+                
+                Listcont = contData.listarContratosXfiltros(desde,hasta,min,max);
+                
+                if (Listcont.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                } else {
+                    borrarDatos();
+                    for (Contrato c : Listcont) {
+                        modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                    }     
+                }
+            }
+            
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void rellenarTabla(){
+        ContratoData contData = new ContratoData();
+        
+        for(Contrato c : contData.listarContratos()){
+            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(),c.getIdinq(), c.getIdimb(), c.isEstado()});
+            }
         
     }
+    
     public void cargarCabecera() {
         modelo.addColumn("Id Contrato");
         modelo.addColumn("Fecha de inicio");
@@ -313,14 +505,29 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
             modelo.removeRow(f);// remuevo valor por indice en la tabla "jcTable"
         }
-
+    }
+    
+    private void limpiarCampos(){
+         jtdesde.setDate(null);
+        jthasta.setDate(null);
+        jtminimo.setText("");
+        jtmaximo.setText("");
+        jRfecha.setSelected(false);
+        jRmonto.setSelected(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JTable jContratos;
     private javax.swing.JComboBox<Inmobiliaria> jCopciones;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JRadioButton jRfecha;
+    private javax.swing.JRadioButton jRmonto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbeliminar;
@@ -328,5 +535,9 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbrestablecer;
     private javax.swing.JButton jbsalir;
     private javax.swing.JComboBox<String> jcbusqueda;
+    private com.toedter.calendar.JDateChooser jtdesde;
+    private com.toedter.calendar.JDateChooser jthasta;
+    private javax.swing.JTextField jtmaximo;
+    private javax.swing.JTextField jtminimo;
     // End of variables declaration//GEN-END:variables
 }
