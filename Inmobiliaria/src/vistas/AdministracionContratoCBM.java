@@ -8,6 +8,7 @@ import inmobiliaria.entidades.Contrato;
 import inmobiliaria.entidades.Inmobiliaria;
 import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Inquilino;
+import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +17,10 @@ import javax.swing.table.DefaultTableModel;
 public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
     DefaultTableModel modelo = new DefaultTableModel();
+    
+    public boolean isCellEditable(int a, int c) {
+            return (c != 0) && (c != 6);
+    }
     
     public AdministracionContratoCBM() {
         initComponents();
@@ -34,6 +39,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jContratos = new javax.swing.JTable();
         jCopciones = new javax.swing.JComboBox<>();
+        jbsalir = new javax.swing.JButton();
+        jbrestablecer = new javax.swing.JButton();
+        jbguardarcambios = new javax.swing.JButton();
+        jbeliminar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -68,21 +77,40 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             }
         });
 
+        jbsalir.setText("SALIR");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
+
+        jbrestablecer.setText("RESTABLECER");
+        jbrestablecer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbrestablecerActionPerformed(evt);
+            }
+        });
+
+        jbguardarcambios.setText("GUARDAR CAMBIOS");
+        jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbguardarcambiosActionPerformed(evt);
+            }
+        });
+
+        jbeliminar.setText("ELIMINAR");
+        jbeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbeliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 68, Short.MAX_VALUE)
+                .addGap(0, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -92,6 +120,24 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         .addComponent(jCopciones, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jbrestablecer)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbguardarcambios)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbeliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbsalir)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,68 +153,140 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                     .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(230, 230, 230))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbrestablecer)
+                    .addComponent(jbguardarcambios)
+                    .addComponent(jbeliminar)
+                    .addComponent(jbsalir))
+                .addGap(85, 85, 85))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbusquedaActionPerformed
-        String opc = (String)jcbusqueda.getSelectedItem();
+        
+        if (jCopciones != null) {
+            jCopciones.removeAllItems();
+        }
+        
+        String opc = (String) jcbusqueda.getSelectedItem();
         
         if (opc.equals("Inquilino")){
-            jCopciones.removeAllItems();
             
             InquilinoData inquiData = new InquilinoData();
 
-            ArrayList<Inquilino> ListInq = new ArrayList<>(inquiData.listarInquilinos());
+            ArrayList<Inmobiliaria> ListInq = new ArrayList<>(inquiData.listarInquilinos());
 
-            for (Inquilino i : ListInq) {
+            for (Inmobiliaria i : ListInq) {
+
                 jCopciones.addItem(i);
-            }
-            
-        } else {
-            
-            jCopciones.removeAllItems();
+            }   
+        }   
+        
+        if (opc.equals("Inmueble")) {
              
             InmuebleData inmData = new InmuebleData();
 
-            ArrayList<Inmueble> ListInm = new ArrayList<>(inmData.listarInmuebles());
+            ArrayList<Inmobiliaria> ListInm = new ArrayList<>(inmData.listarInmuebles());
 
-            for (Inmueble a : ListInm) {
+            for (Inmobiliaria a : ListInm) {
+
                 jCopciones.addItem(a);
             }
         }
     }//GEN-LAST:event_jcbusquedaActionPerformed
 
     private void jCopcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCopcionesActionPerformed
+        ArrayList<Contrato> Listcont = new ArrayList<>();
+        
         String opc = (String)jcbusqueda.getSelectedItem();
         
         if (opc.equals("Inquilino")){
+            
             opc="inquilino";
             Inquilino inqui = (Inquilino)jCopciones.getSelectedItem();
             ContratoData contData = new ContratoData();
             
-            ArrayList<Contrato> Listcont = new ArrayList<>(contData.listarContratosX(opc, inqui.getIdInquilino()));
+            if (inqui != null && contData != null) {
+                borrarDatos();
+                Listcont = contData.listarContratosX(opc, inqui.getIdInquilino());
+            } else {
+                System.out.println("Alguno de los elementos es nulo");
+            }
             
             for(Contrato c : Listcont){
-            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio(), c.getFechaFin(), c.getMonto(),c.getInquilino(), c.getInmueble(), c.isEstado()});
+            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio(), c.getFechaFin(), c.getMonto(),c.getIdinq(), c.getIdimb(), c.isEstado()});
             }
             
         } else {
-            
+           
             opc="inmueble";
             Inmueble inm = (Inmueble)jCopciones.getSelectedItem();
             ContratoData contData = new ContratoData();
             
-            ArrayList<Contrato> Listcont = new ArrayList<>(contData.listarContratosX(opc, inm.getIdInmueble()));
+             if (inm != null && contData != null) {
+                borrarDatos();
+                Listcont = (contData.listarContratosX(opc, inm.getIdInmueble()));
+            } else {
+                System.out.println("Alguno de los elementos es nulo");
+            }
             
             for(Contrato c : Listcont){
-            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio(), c.getFechaFin(), c.getMonto(),c.getInquilino(), c.getInmueble(), c.isEstado()});
+            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(),c.getIdinq(), c.getIdimb(), c.isEstado()});
             }
             
         }
     }//GEN-LAST:event_jCopcionesActionPerformed
+
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbsalirActionPerformed
+
+    private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
+        borrarDatos();
+    }//GEN-LAST:event_jbrestablecerActionPerformed
+
+    private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
+
+        ContratoData contdata = new ContratoData();
+
+        int fila = jContratos.getSelectedRow();
+
+        Contrato c = new Contrato();
+
+        c.setIdContrato((int)jContratos.getValueAt(fila,0));
+        
+        String valorinicio = String.valueOf(jContratos.getValueAt(fila,1));
+        c.setFechaInicio(Date.valueOf(valorinicio).toLocalDate());
+        
+        String valorFin = String.valueOf(jContratos.getValueAt(fila,2));
+        c.setFechaFin(Date.valueOf(valorFin).toLocalDate());
+        
+        String valor = String.valueOf(jContratos.getValueAt(fila,3));
+        c.setMonto(Double.parseDouble(valor));
+
+        c.setIdinq((int)jContratos.getValueAt(fila,4));
+
+        c.setIdimb((int)jContratos.getValueAt(fila,5));
+
+        c.setEstado((boolean) jContratos.getValueAt(fila, 6));
+
+        System.out.println(c);
+
+        contdata.actualizarContrato(c);
+        borrarDatos();
+    }//GEN-LAST:event_jbguardarcambiosActionPerformed
+
+    private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
+        int fila = jContratos.getSelectedRow();
+        int id = (int)jContratos.getValueAt(fila,0);
+        
+        ContratoData contData = new ContratoData();
+        contData.borrarContrato(id);
+
+    }//GEN-LAST:event_jbeliminarActionPerformed
 
     public void rellenarTaba(){
         ContratoData contData = new ContratoData();
@@ -205,6 +323,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton jbeliminar;
+    private javax.swing.JButton jbguardarcambios;
+    private javax.swing.JButton jbrestablecer;
+    private javax.swing.JButton jbsalir;
     private javax.swing.JComboBox<String> jcbusqueda;
     // End of variables declaration//GEN-END:variables
 }

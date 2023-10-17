@@ -222,12 +222,14 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             double monto = inmueble.getPrecio();
             boolean estado = true;
 
-            Contrato cont = new Contrato(fecha1, fecha2, monto, estado, inquilino, inmueble);
+            Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
             contData.crearContrato(cont);
 
         } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
         }
+        
+        
 
     }//GEN-LAST:event_jbaltaActionPerformed
 

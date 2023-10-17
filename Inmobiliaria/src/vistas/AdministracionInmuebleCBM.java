@@ -306,8 +306,7 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         inmudata.actualizarInmueble(inm);
         borrarDatos();
         jtLetra.setText("");
-        cargarTabla();
-        
+        cargarTabla();      
     }//GEN-LAST:event_jbeliminarActionPerformed
 
 

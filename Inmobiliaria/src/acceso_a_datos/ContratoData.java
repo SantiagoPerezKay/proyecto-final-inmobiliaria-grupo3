@@ -57,7 +57,7 @@ public class ContratoData extends Conexion{
     
     public void borrarContrato(int idcontrato) {
 
-        String sql = "DELETE FROM contrato WHERE id_contrato=?";
+        String sql = "UPDATE contrato SET estado=0 WHERE id_contrato=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -83,15 +83,15 @@ public class ContratoData extends Conexion{
             ps.setDate(2, Date.valueOf(contrato.getFechaFin()));
             ps.setBoolean(3, contrato.isEstado());
             ps.setDouble(4, contrato.getMonto());
-            ps.setInt(5, contrato.getInmueble().getIdInmueble());
-            ps.setInt(6, contrato.getInquilino().getIdInquilino());
+            ps.setInt(5, contrato.getIdimb());
+            ps.setInt(6, contrato.getIdinq());
             ps.setInt(7, contrato.getIdContrato());
             
             ps.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "se actualizo correctamente el contrato ID: " + contrato);
+            JOptionPane.showMessageDialog(null, "se actualizo correctamente el contrato: " + contrato);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "no se pudo actualizar el contrato de ID " + contrato.getIdContrato() + "\n error:" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "no se pudo actualizar el contrato ID: " + contrato.getIdContrato() + "\n error:" + ex.getMessage());
         }
     }
     
@@ -114,18 +114,16 @@ public class ContratoData extends Conexion{
                 Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
                 Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
                 
-                contrato.setFechaInicio(getLocalDate("fecha_inicio"));
-                contrato.setFechaFin(getLocalDate("fecha_fin"));
+                contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
                 contrato.setMonto(rs.getInt("monto"));
                 contrato.setEstado(rs.getBoolean("estado"));
-                contrato.setInmueble(imb);
-                contrato.setInquilino(inq);
+                contrato.setIdimb(imb.getIdInmueble());
+                contrato.setIdinq(inq.getIdInquilino());
                 
                 
                 contratos.add(contrato);         
             }
-            
-            JOptionPane.showMessageDialog(null, "se actualizo la lista correctamente");
             return contratos;
 
         } catch (SQLException ex) {
@@ -153,18 +151,17 @@ public class ContratoData extends Conexion{
                 Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
                 Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
                 
-                contrato.setFechaInicio(getLocalDate("fecha_inicio"));
-                contrato.setFechaFin(getLocalDate("fecha_fin"));
+                contrato.setIdContrato(rs.getInt("id_contrato"));
+                contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
                 contrato.setMonto(rs.getInt("monto"));
                 contrato.setEstado(rs.getBoolean("estado"));
-                contrato.setInmueble(imb);
-                contrato.setInquilino(inq);
+                contrato.setIdimb(imb.getIdInmueble());
+                contrato.setIdinq(inq.getIdInquilino());
                 
                 
                 contratos.add(contrato);         
             }
-            
-            JOptionPane.showMessageDialog(null, "se actualizo la lista correctamente");
             return contratos;
 
         } catch (SQLException ex) {
