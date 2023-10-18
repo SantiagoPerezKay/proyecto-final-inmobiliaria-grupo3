@@ -1,4 +1,4 @@
-package inmobiliaria;
+
 
 import acceso_a_datos.Conexion;
 import acceso_a_datos.ContratoData;
