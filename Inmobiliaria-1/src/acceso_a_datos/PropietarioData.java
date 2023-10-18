@@ -196,4 +196,7 @@ public class PropietarioData extends Conexion {
         }
 
     }
+
+
+
 }

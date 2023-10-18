@@ -3,6 +3,7 @@ package vistas;
 import acceso_a_datos.PropietarioData;
 import inmobiliaria.entidades.Propietario;
 import javafx.beans.value.ObservableObjectValue;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
@@ -238,14 +239,22 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         int fila = jtpropietarios.getSelectedRow();
 
         PropietarioData propietariodata = new PropietarioData();
-
         Propietario prop = new Propietario();
+
+        String nombre = (String) jtpropietarios.getValueAt(fila, 1);
+        String apellido = (String) jtpropietarios.getValueAt(fila, 2);
+        String telefono = (String) jtpropietarios.getValueAt(fila, 3);
+        String dni = (String) jtpropietarios.getValueAt(fila, 4);
+        String domicilio=(String) jtpropietarios.getValueAt(fila, 5);
+       
+     
+
         prop.setIdPropietario((int) jtpropietarios.getValueAt(fila, 0));
-        prop.setNombre((String) jtpropietarios.getValueAt(fila, 1));
-        prop.setApellido((String) jtpropietarios.getValueAt(fila, 2));
-        prop.setTelefono((String) jtpropietarios.getValueAt(fila, 3));
-        prop.setDni((String) jtpropietarios.getValueAt(fila, 4));
-        prop.setDomicilio((String) jtpropietarios.getValueAt(fila, 5));
+        prop.setNombre(nombre);
+        prop.setApellido(apellido);
+        prop.setTelefono(telefono);
+        prop.setDni(dni);
+        prop.setDomicilio(domicilio);
         prop.setEstado((boolean) jtpropietarios.getValueAt(fila, 6));
 
         propietariodata.actualizarPropietario(prop);
@@ -340,6 +349,13 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
             modelo.removeRow(f);// remuevo valor por indice en la tabla "jcTable"
         }
 
+    }
+
+    public boolean validarCadena(String cadena) {
+        // Utilizamos una expresión regular para verificar si la cadena contiene solo letras y espacios en blanco
+        // ^ indica el inicio de la cadena, [a-zA-Z ]+ permite letras mayúsculas y minúsculas y espacios en blanco,
+        // y $ indica el final de la cadena.
+        return cadena.matches("^[a-zA-Z ]+$");
     }
 
 }
