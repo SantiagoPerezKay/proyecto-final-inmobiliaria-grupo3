@@ -42,17 +42,17 @@
                                       <Component id="jComboinmuebles" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="alertafechas" min="-2" pref="517" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
+                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jtfechainicio" min="-2" pref="163" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jtfechafin" min="-2" pref="163" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="alertafechas" min="-2" pref="426" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                   </Group>
@@ -192,12 +192,12 @@
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jtfechainicio">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jtfechainicio.addPropertyChangeListener(new PropertyChangeListener() {&#xa;            @Override&#xa;            public void propertyChange(PropertyChangeEvent e) {&#xa;                if (&quot;date&quot;.equals(e.getPropertyName())){&#xa;                    if (jtfechafin.getDate()!=null){&#xa;                        if(jtfechainicio.getDate().after(jtfechafin.getDate())){&#xa;                            alertafechas.setText(&quot;La fecha de inicio del contrato no puede ser posterior a la final. Ingrese una fecha correcta.&quot;);    &#xa;                        }else{&#xa;                            alertafechas.setText(&quot;&quot;);  &#xa;                        }   &#xa;                    }&#xa;                }&#xa;            }&#xa;    });"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jtfechainicio.addPropertyChangeListener(new PropertyChangeListener() {&#xa;            @Override&#xa;            public void propertyChange(PropertyChangeEvent e) {&#xa;                if (&quot;date&quot;.equals(e.getPropertyName())){&#xa;                    Date fechaActual = new Date();&#xa;                    if (jtfechainicio.getDate().before(fechaActual)){&#xa;                       alertafechas.setText(&quot;La fecha de inicio del contrato no puede ser anterior al dia de hoy. Ingrese una fecha correcta.&quot;); &#xa;                    }else{&#xa;                        alertafechas.setText(null);  &#xa;                    }&#xa;                    if (jtfechafin.getDate()!=null){&#xa;                        if(jtfechainicio.getDate().after(jtfechafin.getDate())){&#xa;                            alertafechas.setText(&quot;La fecha de inicio del contrato no puede ser posterior a la final. Ingrese una fecha correcta.&quot;);    &#xa;                        }else{&#xa;                            alertafechas.setText(null);  &#xa;                        }   &#xa;                    }&#xa;                }&#xa;            }&#xa;    });"/>
       </AuxValues>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jtfechafin">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jtfechafin.addPropertyChangeListener(new PropertyChangeListener() {&#xa;            @Override&#xa;            public void propertyChange(PropertyChangeEvent e) {&#xa;                if (&quot;date&quot;.equals(e.getPropertyName())){&#xa;                    if (jtfechainicio.getDate()!=null){&#xa;                        if(jtfechainicio.getDate().after(jtfechafin.getDate())){&#xa;                            alertafechas.setText(&quot;La fecha final del contrato no puede ser anterior a la inicial. Ingrese una fecha correcta.&quot;);    &#xa;                        }else{&#xa;                            alertafechas.setText(&quot;&quot;);  &#xa;                        }   &#xa;                    }&#xa;                }&#xa;            }&#xa;    });"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jtfechafin.addPropertyChangeListener(new PropertyChangeListener() {&#xa;            @Override&#xa;            public void propertyChange(PropertyChangeEvent e) {&#xa;                if (&quot;date&quot;.equals(e.getPropertyName())){&#xa;                    if (jtfechainicio.getDate()!=null){&#xa;                        if(jtfechainicio.getDate().after(jtfechafin.getDate())){&#xa;                            alertafechas.setText(&quot;La fecha final del contrato no puede ser anterior a la inicial. Ingrese una fecha correcta.&quot;);    &#xa;                        }else{&#xa;                            alertafechas.setText(null);  &#xa;                        }   &#xa;                    }&#xa;                }&#xa;            }&#xa;    });"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboinmuebles">
@@ -285,9 +285,6 @@
     <Component class="javax.swing.JTextField" name="alertafechas">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f0" green="f0" red="f0" type="rgb"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

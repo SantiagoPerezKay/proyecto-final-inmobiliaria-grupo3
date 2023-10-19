@@ -129,7 +129,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTinquilino);
 
         alertafechas.setEditable(false);
-        alertafechas.setBackground(new java.awt.Color(240, 240, 240));
         alertafechas.setBorder(null);
 
         alertainmueble.setBackground(new java.awt.Color(240, 240, 240));
@@ -161,16 +160,16 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jComboinmuebles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(alertafechas, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jtfechainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel6)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jtfechafin, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(alertafechas, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jtfechafin, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(6, 6, 6))))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -244,11 +243,17 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
                 if ("date".equals(e.getPropertyName())){
+                    Date fechaActual = new Date();
+                    if (jtfechainicio.getDate().before(fechaActual)){
+                        alertafechas.setText("La fecha de inicio del contrato no puede ser anterior al dia de hoy. Ingrese una fecha correcta.");
+                    }else{
+                        alertafechas.setText(null);
+                    }
                     if (jtfechafin.getDate()!=null){
                         if(jtfechainicio.getDate().after(jtfechafin.getDate())){
                             alertafechas.setText("La fecha de inicio del contrato no puede ser posterior a la final. Ingrese una fecha correcta.");
                         }else{
-                            alertafechas.setText("");
+                            alertafechas.setText(null);
                         }
                     }
                 }
@@ -262,7 +267,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                         if(jtfechainicio.getDate().after(jtfechafin.getDate())){
                             alertafechas.setText("La fecha final del contrato no puede ser anterior a la inicial. Ingrese una fecha correcta.");
                         }else{
-                            alertafechas.setText("");
+                            alertafechas.setText(null);
                         }
                     }
                 }
@@ -273,11 +278,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
    
    
-    private void jtfechainicioactionPerformed(java.awt.event.ActionEvent evt){
-        if(jtfechainicio.getDate().after(jtfechafin.getDate())){
-           alertafechas.setText("ingrese fecha correcta");
-        }
-    }
     private void jbaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaltaActionPerformed
 
         try {
@@ -291,11 +291,12 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             double monto = inmueble.getPrecio();
             boolean estado = true;
 
-            if(alertafechas.getText()!=null){
+            if(alertafechas.getText()!=null || alertafechas.getText()==""){
                 alertaingresar.setText("Verifique los datos para continuar.");
             }else{
-            Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
-            contData.crearContrato(cont);
+                alertaingresar.setText("");
+                Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
+                contData.crearContrato(cont);
             }
               
         } catch (NumberFormatException e) {
@@ -311,7 +312,10 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
 
         Inmueble inm = (Inmueble) jComboinmuebles.getSelectedItem();
         
-        modelo.addRow(new Object[]{inm.getIdInmueble(), inm.getTipo(), inm.getSuperficie(), inm.getPrecio(), inm.getDisponibilidad(), inm.getPropid(), inm.isEstado()});    
+        modelo.addRow(new Object[]{inm.getIdInmueble(), inm.getTipo(), inm.getSuperficie(), inm.getPrecio(), inm.getDisponibilidad(), inm.getPropid(), inm.isEstado()}); 
+        
+        
+        
     }//GEN-LAST:event_jComboinmueblesActionPerformed
 
     private void jComboinquilinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboinquilinosActionPerformed
