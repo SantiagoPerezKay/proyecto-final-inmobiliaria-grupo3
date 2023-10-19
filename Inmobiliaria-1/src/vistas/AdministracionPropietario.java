@@ -9,7 +9,13 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
 import inmobiliaria.entidades.Propietario;
+import java.awt.Event;
+import java.awt.event.KeyEvent;
+import javax.swing.InputMap;
 import javax.swing.JDesktopPane;
+import javax.swing.JTextField;
+import javax.swing.KeyStroke;
+import jdk.nashorn.internal.scripts.JO;
 
 /**
  *
@@ -23,6 +29,13 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
     public AdministracionPropietario() {
         initComponents();
         jractivo.setSelected(true);
+        
+        evitarPegar(jtdni);
+        evitarPegar(jtapellido);
+        evitarPegar(jtnombre);
+        evitarPegar(jtdomicilio);
+        evitarPegar(jttelefono);
+       
     }
 
     /**
@@ -75,6 +88,11 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jLabel5.setText("DNI :");
 
         jtdni.setPreferredSize(new java.awt.Dimension(10, 20));
+        jtdni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtdniFocusLost(evt);
+            }
+        });
         jtdni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtdniActionPerformed(evt);
@@ -84,24 +102,30 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("DOMICILIO :");
 
+        jtnombre.setToolTipText("");
         jtnombre.setPreferredSize(new java.awt.Dimension(10, 20));
         jtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtnombreActionPerformed(evt);
             }
         });
+        jtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtnombreKeyTyped(evt);
+            }
+        });
 
         jtapellido.setPreferredSize(new java.awt.Dimension(10, 20));
-        jtapellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtapellidoActionPerformed(evt);
+        jtapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtapellidoKeyTyped(evt);
             }
         });
 
         jttelefono.setPreferredSize(new java.awt.Dimension(10, 20));
-        jttelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jttelefonoActionPerformed(evt);
+        jttelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jttelefonoKeyTyped(evt);
             }
         });
 
@@ -273,14 +297,6 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtnombreActionPerformed
 
-    private void jtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtapellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtapellidoActionPerformed
-
-    private void jttelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jttelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jttelefonoActionPerformed
-
     private void jtdomicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtdomicilioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtdomicilioActionPerformed
@@ -298,6 +314,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
             if (dni.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || domicilio.isEmpty()) {
 
                 JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+                
                 return;
 
             } else {
@@ -353,6 +370,48 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jrinactivo.setSelected(true);
     }//GEN-LAST:event_jrinactivoActionPerformed
 
+    private void jtdniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtdniFocusLost
+        validarCampoDni(jtdni.getText());
+    }//GEN-LAST:event_jtdniFocusLost
+
+    private void jtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtnombreKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+
+        if (!(minusculas || mayusculas || espacio)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtnombreKeyTyped
+
+    private void jtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtapellidoKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean mayusculas = key >= 65 && key <= 90;
+        boolean minusculas = key >= 97 && key <= 122;
+        boolean espacio = key == 32;
+
+        if (!(minusculas || mayusculas || espacio)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtapellidoKeyTyped
+
+    private void jttelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jttelefonoKeyTyped
+        int key = evt.getKeyChar();
+
+        boolean numeros = key >= 48 && key <= 57;
+
+        if (!numeros) {
+            evt.consume();
+        }
+
+        if (jttelefono.getText().trim().length() == 10) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jttelefonoKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -385,4 +444,38 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jtdomicilio.setText("");
     }
 
+    public void validarCampoDni(String dni) {
+        Integer dniNumerico = null;
+        try {
+            if (dni.length() != 8) {
+                JOptionPane.showMessageDialog(null, "Ingrese 8 digitos");
+                jtdni.setText("");
+                jtdni.requestFocus();
+            }
+
+            dniNumerico = Integer.parseInt(dni);
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "ingrese un valor numerico");
+            jtdni.setText("");
+            jtdni.requestFocus();
+        }
+
+    }
+
+    public static void evitarPegar(JTextField campo) {
+ 
+    InputMap map2 = campo.getInputMap(JTextField.WHEN_FOCUSED);
+    map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null");
+ 
+}
+    
+//    public void validarCampoString(String palabra) {
+//
+//        for (int i;i=0) {
+//            if (!Character.isLetter(c) && c != ' ') {
+//                
+//            }
+//        }
+//    }
 }

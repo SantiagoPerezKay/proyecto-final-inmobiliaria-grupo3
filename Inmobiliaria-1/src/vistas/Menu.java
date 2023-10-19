@@ -54,7 +54,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setText("Propietario");
 
-        jMenuItem1.setText("Alta");
+        jMenuItem1.setText("Ingresar Propietario");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -62,7 +62,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem5.setText("Consulta");
+        jMenuItem5.setText("Modificar Propietario");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);

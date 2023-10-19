@@ -1,4 +1,4 @@
-package inmobiliaria;
+
 
 import acceso_a_datos.Conexion;
 import acceso_a_datos.ContratoData;
@@ -57,7 +57,7 @@ public class Inmobiliaria {
         //Contrato cont = new Contrato(LocalDate.of(2020, 10, 24), LocalDate.of(2022, 11, 24), 10000.500, true, inqui2, imb);
 
         //contData.crearContrato(cont);
-     
+      
     }
 
 }

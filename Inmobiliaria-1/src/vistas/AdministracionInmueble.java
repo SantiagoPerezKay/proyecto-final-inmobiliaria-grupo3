@@ -8,6 +8,8 @@ import acceso_a_datos.InmuebleData;
 import acceso_a_datos.PropietarioData;
 import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Propietario;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -302,29 +304,79 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
 
         InmuebleData inmuebledata = new InmuebleData();
 
-        String direccion = jtdireccion.getText();
-        int altura = Integer.parseInt(jtaltura.getText());
-        String tipo = jttipo.getText();
-        double superficie = Double.parseDouble(jtsuperficie.getText());
-        double precio = Double.parseDouble(jtprecio.getText());
-        String disponibilidad = jtdisponibilidad.getText();
-        Propietario propietario = (Propietario) jcpropietario.getSelectedItem();// mi alumno
-        int idpropietario = propietario.getIdPropietario();
-        
-        boolean estado;
-        
-        if (jractivo.isSelected()) {
-            estado = true;
-        } else {
-            estado = false;
+        try {
+            validarCampoTexto(jtdisponibilidad);
+            validarCampoTexto(jttipo);
+            validarCampoTexto(jtdireccion);
+//        if (direccion.isEmpty() || tipo.isEmpty() || disponibilidad.isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+//        } else if (!direccion.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+//            JOptionPane.showMessageDialog(null, "El campo Dirección solo puede contener letras.");
+//            jtdireccion.setText("");
+//            jtdireccion.requestFocus();
+//        } else if (!tipo.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+//            JOptionPane.showMessageDialog(null, "El campo Tipo solo puede contener letras.");
+//            jttipo.setText("");
+//            jttipo.requestFocus();
+//        } else if (!disponibilidad.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+//            JOptionPane.showMessageDialog(null, "El campo Disponibilidad solo puede contener letras.");
+//            jtdisponibilidad.setText("");
+//            jtdisponibilidad.requestFocus();
+//        } else 
+
+            int altura = Integer.parseInt(jtaltura.getText());
+            double superficie = Double.parseDouble(jtsuperficie.getText());
+            double precio = Double.parseDouble(jtprecio.getText());
+
+            Propietario propietario = (Propietario) jcpropietario.getSelectedItem();
+            int idpropietario = propietario.getIdPropietario();
+
+            boolean estado;
+            if (jractivo.isSelected()) {
+                estado = true;
+            } else {
+                estado = false;
+            }
+
+            Inmueble inmueble = new Inmueble(jtdireccion.getText(), altura, jttipo.getText(), superficie, precio, jtdisponibilidad.getText(), propietario, estado);
+
+            inmuebledata.agregarInmueble(inmueble);
+            limpiarCampos();
+
+        } catch (NumberFormatException e) {
+
+            validarCampoNumerico(jtprecio);
+            validarCampoNumerico(jtsuperficie);
+            validarCampoNumerico(jtaltura);
+
         }
-    
-        Inmueble inmueble = new Inmueble(direccion, altura, tipo, superficie, precio, disponibilidad, propietario, estado);
 
-        inmuebledata.agregarInmueble(inmueble);
-       limpiarCampos();
     }//GEN-LAST:event_jbaltaActionPerformed
+    public void validarCampoNumerico(JTextField textfield) {
+        if (textfield.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+            textfield.requestFocus();
+            return;
+        } else if (!textfield.getText().matches("^[0-9]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo Altura solo puede contener numeros.");
+            textfield.setText("");
+            textfield.requestFocus();
+            return;
+        }
+    }
 
+    public void validarCampoTexto(JTextField textfield) {
+        if (textfield.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+            textfield.requestFocus();
+            return;
+        } else if (!textfield.getText().matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo Dirección solo puede contener letras.");
+            jtdireccion.setText("");
+            jtdireccion.requestFocus();
+            return;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
@@ -357,16 +409,16 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         }
 
     }
-    
-      private void limpiarCampos() {
 
-         jtdireccion.setText("");
-         jtaltura.setText("");
+    private void limpiarCampos() {
+
+        jtdireccion.setText("");
+        jtaltura.setText("");
         jtdisponibilidad.setText("");
         jtprecio.setText("");
-        jtsuperficie.setText(""); 
+        jtsuperficie.setText("");
         jttipo.setText("");
-        
+
     }
 
 }
