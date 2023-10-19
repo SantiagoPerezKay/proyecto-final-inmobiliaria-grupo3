@@ -178,8 +178,43 @@ public class InmuebleData extends Conexion {
         JOptionPane.showMessageDialog(null, "No se pudo listar los inmuebles" + "\nError: " + ex.getMessage());
         return listaInmuebles;
     }
-}
     
+    
+}
+    public ArrayList<Inmueble> listarInmueblesDisponibles() {
+    ArrayList<Inmueble> listaInmuebles = new ArrayList<>();
+    
+    String sql = "SELECT * FROM Inmueble WHERE disponibilidad=0";
+    
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            
+            Inmueble inmueble = new Inmueble();
+            
+            inmueble.setDireccion(rs.getString("direccion"));
+            inmueble.setAltura(rs.getInt("altura"));
+            inmueble.setTipo(rs.getString("tipo"));
+            inmueble.setSuperficie(rs.getDouble("superficie"));
+            inmueble.setPrecio(rs.getDouble("precio"));
+            inmueble.setDisponibilidad(rs.getString("disponibilidad"));
+            inmueble.setPropid(rs.getInt("id_propietario"));
+            inmueble.setIdInmueble(rs.getInt("id_inmueble"));
+            inmueble.setEstado(rs.getBoolean("estado"));
+            listaInmuebles.add(inmueble);
+        }
+
+        return listaInmuebles;
+
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "No se pudo listar los inmuebles" + "\nError: " + ex.getMessage());
+        return listaInmuebles;
+    }
+    
+    
+    }    
 
     
 }

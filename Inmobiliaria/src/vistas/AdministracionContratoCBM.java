@@ -5,7 +5,6 @@ import acceso_a_datos.ContratoData;
 import acceso_a_datos.InmuebleData;
 import acceso_a_datos.InquilinoData;
 import inmobiliaria.entidades.Contrato;
-import inmobiliaria.entidades.Inmobiliaria;
 import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Inquilino;
 import java.sql.Date;
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 
 
 public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
@@ -267,9 +267,9 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             
             InquilinoData inquiData = new InquilinoData();
 
-            ArrayList<Inmobiliaria> ListInq = new ArrayList<>(inquiData.listarInquilinos());
+            ArrayList<Inquilino> ListInq = new ArrayList<>(inquiData.listarInquilinos());
 
-            for (Inmobiliaria i : ListInq) {
+            for (Inquilino i : ListInq) {
 
                 jCopciones.addItem(i);
             }   
@@ -279,9 +279,9 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
              
             InmuebleData inmData = new InmuebleData();
 
-            ArrayList<Inmobiliaria> ListInm = new ArrayList<>(inmData.listarInmuebles());
+            ArrayList<Inmueble> ListInm = new ArrayList<>(inmData.listarInmuebles());
 
-            for (Inmobiliaria a : ListInm) {
+            for (Inmueble a : ListInm) {
 
                 jCopciones.addItem(a);
             }
@@ -519,7 +519,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JTable jContratos;
-    private javax.swing.JComboBox<Inmobiliaria> jCopciones;
+    private javax.swing.JComboBox<Object> jCopciones;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

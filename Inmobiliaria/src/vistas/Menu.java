@@ -48,7 +48,7 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Escritorio.setPreferredSize(new java.awt.Dimension(1000, 800));
+        Escritorio.setPreferredSize(new java.awt.Dimension(1000, 1000));
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
@@ -60,6 +60,8 @@ public class Menu extends javax.swing.JFrame {
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 577, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
 
         jMenu1.setText("Propietario");
 
@@ -252,7 +254,7 @@ public class Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
