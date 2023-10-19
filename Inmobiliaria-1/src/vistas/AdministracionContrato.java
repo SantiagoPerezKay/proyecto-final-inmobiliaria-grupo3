@@ -291,12 +291,12 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             double monto = inmueble.getPrecio();
             boolean estado = true;
 
-            if(alertafechas.getText()!=null || alertafechas.getText()==""){
-                alertaingresar.setText("Verifique los datos para continuar.");
-            }else{
-                alertaingresar.setText("");
+            if ("".equals(alertafechas.getText()) || alertafechas.getText()==null ){
+                alertaingresar.setText(null);
                 Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
                 contData.crearContrato(cont);
+            }else{
+                alertaingresar.setText("Verifique los datos para continuar.");
             }
               
         } catch (NumberFormatException e) {
