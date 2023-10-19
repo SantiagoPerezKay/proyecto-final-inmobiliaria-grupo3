@@ -17,6 +17,8 @@ import java.time.format.DateTimeFormatter;
 public class Inmobiliaria {
 
     public static void main(String[] args) {
+        
+        
         //*************ABM  PROPIETARIO***********
 //        Propietario prop = new Propietario("francisco", "cordoba", "av la paz", "3468-22411", "43000002");
         //   PropietarioData propData = new PropietarioData();
