@@ -24,7 +24,7 @@ public class InmuebleData extends Conexion {
             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1, inmueble.getDireccion());
             ps.setInt(2, inmueble.getAltura());
-            ps.setString(3, String.valueOf(inmueble.getTipo().charAt(0)));
+            ps.setString(3, String.valueOf(inmueble.getTipo()));
             ps.setDouble(4, inmueble.getSuperficie());
             ps.setDouble(5, inmueble.getPrecio());
             ps.setString(6, inmueble.getDisponibilidad());

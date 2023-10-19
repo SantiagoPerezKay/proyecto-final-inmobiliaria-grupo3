@@ -327,9 +327,16 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
                 limpiarCampos();
             }
         } catch (NumberFormatException e) {
-            validarCampoNumerico(jtprecio);
-            validarCampoNumerico(jtsuperficie);
-            validarCampoNumerico(jtaltura);
+            if (!validarCampoNumerico(jtaltura)) {
+                return;
+            }
+            if (!validarCampoNumerico(jtsuperficie)) {
+                return;
+            }
+            if (!validarCampoNumerico(jtprecio)) {
+                return;
+            }
+
         }
 
     }//GEN-LAST:event_jbaltaActionPerformed
@@ -340,7 +347,7 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
             return false;
 
         } else if (!textfield.getText().matches("^[0-9]+$")) {
-            JOptionPane.showMessageDialog(null, "El campo Altura solo puede contener numeros.");
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener numeros.");
             textfield.setText("");
             textfield.requestFocus();
             return false;
