@@ -37,6 +37,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         borrarFila();
         // jComboinquilinos.setSelectedIndex(-1);
 
+        
     }
 
     @SuppressWarnings("unchecked")
