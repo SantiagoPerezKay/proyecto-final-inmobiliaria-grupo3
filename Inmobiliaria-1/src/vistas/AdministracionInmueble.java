@@ -8,7 +8,12 @@ import acceso_a_datos.InmuebleData;
 import acceso_a_datos.PropietarioData;
 import inmobiliaria.entidades.Inmueble;
 import inmobiliaria.entidades.Propietario;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 /**
@@ -41,13 +46,11 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jtaltura = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jttipo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jtsuperficie = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jtprecio = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jtdisponibilidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jbalta = new javax.swing.JButton();
@@ -56,6 +59,8 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jcpropietario = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jttipo = new javax.swing.JComboBox<>();
+        jtdisponibilidad = new javax.swing.JComboBox<>();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("DIRECCION:");
@@ -80,13 +85,6 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("TIPO:");
 
-        jttipo.setPreferredSize(new java.awt.Dimension(10, 20));
-        jttipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jttipoActionPerformed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("SUPERFICIE:");
 
@@ -109,13 +107,6 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("DISPONIBILIDAD:");
-
-        jtdisponibilidad.setPreferredSize(new java.awt.Dimension(10, 20));
-        jtdisponibilidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtdisponibilidadActionPerformed(evt);
-            }
-        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("PROPIETARIO:");
@@ -148,63 +139,71 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("ALTA DE INMUEBLE");
 
+        jttipo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jttipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "casa", "local", "depto", "terreno" }));
+
+        jtdisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "disponible", "no disponible" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel12))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtdisponibilidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcpropietario, 0, 272, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jractivo)
-                        .addGap(29, 29, 29)
-                        .addComponent(jrinactivo)))
-                .addGap(268, 268, 268))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(jtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(jractivo)
+                                .addGap(29, 29, 29)
+                                .addComponent(jrinactivo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jcpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(153, 153, 153)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                            .addComponent(jtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(22, 22, 22)
+                                            .addComponent(jtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addGap(22, 22, 22)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jtsuperficie, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                                                .addComponent(jttipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel9)
                                         .addGap(22, 22, 22)
-                                        .addComponent(jtsuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jttipo, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(22, 22, 22)
-                                        .addComponent(jtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(293, 293, 293)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(343, 343, 343)
-                        .addComponent(jbalta)))
-                .addGap(153, 153, 153))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jtdisponibilidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jtprecio, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(293, 293, 293)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(343, 343, 343)
+                            .addComponent(jbalta))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel10)
+                            .addGap(405, 405, 405))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,54 +211,59 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
                 .addGap(34, 34, 34)
                 .addComponent(jLabel2)
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jttipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jtsuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20)
-                        .addComponent(jtdisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jractivo)
-                    .addComponent(jrinactivo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jttipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jtsuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jtprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jcpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jractivo)
+                            .addComponent(jrinactivo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtdisponibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -273,10 +277,6 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtalturaActionPerformed
 
-    private void jttipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jttipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jttipoActionPerformed
-
     private void jtsuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtsuperficieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtsuperficieActionPerformed
@@ -284,10 +284,6 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private void jtprecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtprecioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtprecioActionPerformed
-
-    private void jtdisponibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtdisponibilidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtdisponibilidadActionPerformed
 
     private void jrinactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrinactivoActionPerformed
         jractivo.setSelected(false);
@@ -303,26 +299,12 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private void jbaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaltaActionPerformed
 
         InmuebleData inmuebledata = new InmuebleData();
-
         try {
-            validarCampoTexto(jtdisponibilidad);
-            validarCampoTexto(jttipo);
-            validarCampoTexto(jtdireccion);
-//        if (direccion.isEmpty() || tipo.isEmpty() || disponibilidad.isEmpty()) {
-//            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
-//        } else if (!direccion.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
-//            JOptionPane.showMessageDialog(null, "El campo Dirección solo puede contener letras.");
-//            jtdireccion.setText("");
-//            jtdireccion.requestFocus();
-//        } else if (!tipo.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
-//            JOptionPane.showMessageDialog(null, "El campo Tipo solo puede contener letras.");
-//            jttipo.setText("");
-//            jttipo.requestFocus();
-//        } else if (!disponibilidad.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
-//            JOptionPane.showMessageDialog(null, "El campo Disponibilidad solo puede contener letras.");
-//            jtdisponibilidad.setText("");
-//            jtdisponibilidad.requestFocus();
-//        } else 
+//            validarCampoTexto(jtdireccion);
+//
+//            validarCampoNumerico(jtprecio);
+//            validarCampoNumerico(jtsuperficie);
+//            validarCampoNumerico(jtaltura);
 
             int altura = Integer.parseInt(jtaltura.getText());
             double superficie = Double.parseDouble(jtsuperficie.getText());
@@ -337,45 +319,48 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
             } else {
                 estado = false;
             }
+            if (validarCampoTexto(jtdireccion) && validarCampoNumerico(jtprecio) && validarCampoNumerico(jtsuperficie) && validarCampoNumerico(jtaltura)) {
+                //creo inmueble
+                Inmueble inmueble = new Inmueble(jtdireccion.getText(), altura, (String) jttipo.getSelectedItem(), superficie, precio, (String) jtdisponibilidad.getSelectedItem(), propietario, estado);
+                inmuebledata.agregarInmueble(inmueble);
 
-            Inmueble inmueble = new Inmueble(jtdireccion.getText(), altura, jttipo.getText(), superficie, precio, jtdisponibilidad.getText(), propietario, estado);
-
-            inmuebledata.agregarInmueble(inmueble);
-            limpiarCampos();
-
+                limpiarCampos();
+            }
         } catch (NumberFormatException e) {
-
             validarCampoNumerico(jtprecio);
             validarCampoNumerico(jtsuperficie);
             validarCampoNumerico(jtaltura);
-
         }
 
     }//GEN-LAST:event_jbaltaActionPerformed
-    public void validarCampoNumerico(JTextField textfield) {
+    public boolean validarCampoNumerico(JTextField textfield) {
         if (textfield.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
             textfield.requestFocus();
-            return;
+            return false;
+
         } else if (!textfield.getText().matches("^[0-9]+$")) {
             JOptionPane.showMessageDialog(null, "El campo Altura solo puede contener numeros.");
             textfield.setText("");
             textfield.requestFocus();
-            return;
+            return false;
         }
+        return true;
     }
 
-    public void validarCampoTexto(JTextField textfield) {
+    //metodos validadores de texto
+    public boolean validarCampoTexto(JTextField textfield) {
         if (textfield.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
             textfield.requestFocus();
-            return;
+            return false;
         } else if (!textfield.getText().matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
             JOptionPane.showMessageDialog(null, "El campo Dirección solo puede contener letras.");
             jtdireccion.setText("");
             jtdireccion.requestFocus();
-            return;
+            return false;
         }
+        return true;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -395,10 +380,10 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jrinactivo;
     private javax.swing.JTextField jtaltura;
     private javax.swing.JTextField jtdireccion;
-    private javax.swing.JTextField jtdisponibilidad;
+    private javax.swing.JComboBox<String> jtdisponibilidad;
     private javax.swing.JTextField jtprecio;
     private javax.swing.JTextField jtsuperficie;
-    private javax.swing.JTextField jttipo;
+    private javax.swing.JComboBox<String> jttipo;
     // End of variables declaration//GEN-END:variables
 
     public void cargarPropietarios() {
@@ -414,10 +399,10 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
 
         jtdireccion.setText("");
         jtaltura.setText("");
-        jtdisponibilidad.setText("");
+        jtdisponibilidad.setSelectedItem(0);
         jtprecio.setText("");
         jtsuperficie.setText("");
-        jttipo.setText("");
+        jttipo.setSelectedItem(0);
 
     }
 
