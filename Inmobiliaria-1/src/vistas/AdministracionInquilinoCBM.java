@@ -12,6 +12,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
  DefaultTableModel modelo = new DefaultTableModel(){
+         @Override
+        public boolean isCellEditable(int a, int c) {
+            return (c != 0) && (c != 7);
+        }
 };
     public AdministracionInquilinoCBM() {
         initComponents();

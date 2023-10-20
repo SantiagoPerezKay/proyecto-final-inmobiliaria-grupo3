@@ -7,6 +7,7 @@ package vistas;
 import acceso_a_datos.InquilinoData;
 import inmobiliaria.entidades.Inquilino;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -87,7 +88,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         });
 
         jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jbIngresar.setText("REGISTRAR");
+        jbIngresar.setText("INGRESAR");
         jbIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbIngresarActionPerformed(evt);
@@ -95,7 +96,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("ALTA DE PROPIETARIO");
+        jLabel2.setText("ALTA DE INQUILINO");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Garante");
@@ -218,24 +219,22 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
             String nombreGarante = jtNombreGarante.getText();
             String dniGarante = jtDniGarante.getText();
             boolean estado = jrb1.isSelected();
-            if (cuit.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || lugarDeTrabajo.isEmpty() || nombreGarante.isEmpty() || dniGarante.isEmpty()) {
-
-                JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
-                return;
-
-            } else {
+           
+            if (( validarCampoNumerico(jtCuit)) && (validarCampoNumerico(jtDniGarante)) && (validarCampoTexto(jtNombre)) && (validarCampoTexto(jtApellido)) && (validarCampoTexto(jtNombreGarante)) && (validarCampoTexto(jtLugarTrabajo))) {
+                //creo inquilino
                 
-                inquiActual = new Inquilino(cuit, nombre, apellido, lugarDeTrabajo, nombreGarante, dniGarante, estado);
-                inquiData.insertarInquilino(inquiActual);
-                
-            }
-            
-            
-            limpiarCampos();
+                Inquilino inquilino = new Inquilino (cuit,nombre, apellido, lugarDeTrabajo, nombreGarante, dniGarante, estado);
+                inquiData.insertarInquilino(inquilino);
+                 
+                limpiarCampos();
+            } 
+               
             
         } catch (NumberFormatException nfe) {
 
         }
+        
+       
         
     }//GEN-LAST:event_jbIngresarActionPerformed
 
@@ -292,4 +291,32 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         
     }
 
+       public boolean validarCampoTexto(JTextField textfield) {
+        if (textfield.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+            textfield.requestFocus();
+            return false;
+        } else if (!textfield.getText().matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener letras.");
+            textfield.setText("");
+            textfield.requestFocus();
+            return false;
+        }
+        return true;
+    }
+       
+         public boolean validarCampoNumerico(JTextField textfield) {
+        if (textfield.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+            textfield.requestFocus();
+            return false;
+
+        } else if (!textfield.getText().matches("^[0-9]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener numeros.");
+            textfield.setText("");
+            textfield.requestFocus();
+            return false;
+        }
+        return true;
+    }
 }
