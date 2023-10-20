@@ -43,6 +43,11 @@ public class ContratoData extends Conexion{
             ps.setDouble(4, contrato.getMonto());
             ps.setInt(5, contrato.getInmueble().getIdInmueble());
             ps.setInt(6, contrato.getInquilino().getIdInquilino());
+            
+            InmuebleData inmData = new InmuebleData();
+            int id= contrato.getInmueble().getIdInmueble();
+            inmData.obtenerInmueblePorId(id);
+            inmData.actualizarDisponibilidadInmueble(id);
 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();

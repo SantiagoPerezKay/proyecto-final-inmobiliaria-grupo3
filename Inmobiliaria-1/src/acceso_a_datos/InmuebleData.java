@@ -79,8 +79,20 @@ public class InmuebleData extends Conexion {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "no se pudo actualizar el inmueble de ID " + inmueble.getIdInmueble()+ "\n error:" + ex.getMessage());
         }
-
     }
+    
+    public void actualizarDisponibilidadInmueble(int id) {
+
+        String sql = "UPDATE inmueble SET disponibilidad=1 WHERE id_inmueble="+id;
+        try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudo actualizar el inmueble");
+        }
+    }
+    
+    
     
     public Inmueble obtenerInmueblePorId(int idprop) {
 
