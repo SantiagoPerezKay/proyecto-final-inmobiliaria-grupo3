@@ -20,6 +20,10 @@ import javax.swing.table.DefaultTableModel;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.*;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
 
 
 
@@ -27,14 +31,28 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
     DefaultTableModel modelo = new DefaultTableModel();
     
+    
     public boolean isCellEditable(int a, int c) {
             return (c != 0) && (c != 5) && (c != 6);
     }
+    
+    
     
     public AdministracionContratoCBM() {
         initComponents();
         cargarCabecera();
         rellenarTabla();
+        centrarTexto();
+    }
+    
+    public void centrarTexto(){
+       
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+
+        centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        for (int i = 0; i < modelo.getColumnCount(); i++) {
+            jContratos.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
     }
  
     @SuppressWarnings("unchecked")
@@ -883,6 +901,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }
     
     public void cargarCabecera() {
+        JTableHeader headerinq = jContratos.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerinq.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        
         modelo.addColumn("Id Contrato");
         modelo.addColumn("Fecha de inicio");
         modelo.addColumn("Fecha de fin");
