@@ -36,8 +36,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         cargarCabecera();
         rellenarTabla();
     }
-
-    
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -69,6 +68,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         alertamonto = new javax.swing.JTextField();
         alertas = new javax.swing.JTextField();
         alertas2 = new javax.swing.JTextField();
+        jOrden = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jEstado = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -179,70 +182,48 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         alertas.setBackground(new java.awt.Color(240, 240, 240));
         alertas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         alertas.setBorder(null);
+        alertas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alertasActionPerformed(evt);
+            }
+        });
 
         alertas2.setBackground(new java.awt.Color(240, 240, 240));
         alertas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         alertas2.setBorder(null);
+
+        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Fecha inicio", "Fecha fin", "Monto" }));
+        jOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Ordenar lista por: ");
+
+        jLabel9.setText("Mostrar estado :");
+
+        jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
+        jEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEstadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 53, Short.MAX_VALUE)
+                .addGap(0, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRfecha)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtdesde, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jthasta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jtmaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRmonto)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtminimo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(alertafechas)
-                                    .addComponent(alertamonto))))
-                        .addGap(65, 65, 65))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(alertas)
+                        .addGap(55, 55, 55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(alertas2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(alertas, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jbrestablecer)
                                 .addGap(18, 18, 18)
@@ -250,10 +231,62 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jbeliminar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jbsalir))
+                                .addComponent(jbsalir)))
+                        .addGap(176, 176, 176))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(alertas2)))))
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jRfecha)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jtdesde, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(41, 41, 41)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel5)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jthasta, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel7)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jtmaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(23, 23, 23)
+                                    .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jRmonto)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jtminimo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(alertafechas)
+                                        .addComponent(alertamonto)))))
+                        .addGap(65, 65, 65))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -298,24 +331,30 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         .addComponent(alertafechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(alertamonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(alertas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(alertas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbrestablecer)
                     .addComponent(jbguardarcambios)
                     .addComponent(jbeliminar)
                     .addComponent(jbsalir))
-                .addGap(67, 67, 67))
+                .addGap(165, 165, 165))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(219, 219, 219)
                     .addComponent(alertafecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(365, Short.MAX_VALUE)))
+                    .addContainerGap(477, Short.MAX_VALUE)))
         );
 
         jtdesde.addPropertyChangeListener(new PropertyChangeListener() {
@@ -428,7 +467,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
         borrarDatos();
         rellenarTabla();
-        limpiarCampos();
+        limpiarCampos();   
     }//GEN-LAST:event_jbrestablecerActionPerformed
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
@@ -501,11 +540,11 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRfechaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       if(!jRfecha.isSelected() && !jRmonto.isSelected()){ //ningun filtro seleccionado
+       if(!jRfecha.isSelected() && !jRmonto.isSelected()){  //---------------------------------------------------------------------------------------------ningun filtro seleccionado
            JOptionPane.showMessageDialog(null, "Por favor indique al menos un filtro para aplicar");
         }
         
-        if (jRfecha.isSelected() && !jRmonto.isSelected()){  // filtro fecha seleccionado          
+        if (jRfecha.isSelected() && !jRmonto.isSelected()){  //------------------------------------------------------------------------------------------- filtro fecha seleccionado          
             if ("".equals(alertafechas.getText()) || alertafechas.getText()==null) {
                 LocalDate desde = jtdesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate hasta = jthasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -514,11 +553,11 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "La fecha final no puede ser anterior a la inicial. Ingrese una fecha correcta.");
                 }
                 
-                if(jCopciones.getSelectedItem()!= null){ 
+                if(jCopciones.getSelectedItem()!= null){ //----- Si hay una opcion seleccionada:
                     ArrayList<Contrato> Listcont = new ArrayList<>();        
                     String opc = (String)jcbusqueda.getSelectedItem();
 
-                    if (opc.equals("Inquilino")){ // si hay un inquilino seleccionado
+                    if (opc.equals("Inquilino")){//----------------------------- si hay un inquilino seleccionado
 
                         opc="inquilino";
                         Inquilino inqui = (Inquilino)jCopciones.getSelectedItem();
@@ -526,12 +565,11 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
                         if (inqui != null) {
                             borrarDatos();
-                            Listcont = contData.listarContratosX(opc, inqui.getIdInquilino());
+                            Listcont = contData.listarContratosXfechaANDid(desde,hasta,opc, inqui.getIdInquilino());
+                            System.out.println(Listcont);
                         } else {
                             System.out.println("Alguno de los elementos es nulo");
                         }
-
-                        Listcont = contData.listarContratosXfecha(desde,hasta);
 
                         if (Listcont.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
@@ -541,7 +579,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                                 modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
                             }     
                         } 
-                    } else { // si hay un inmueble seleccionado
+                    } else { // ----------------------------------------------si hay un inmueble seleccionado
 
                         opc="inmueble";
                         Inmueble inm = (Inmueble)jCopciones.getSelectedItem();
@@ -549,12 +587,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
                          if (inm != null) {
                             borrarDatos();
-                            Listcont = contData.listarContratosX(opc, inm.getIdInmueble());
+                            Listcont = contData.listarContratosXfechaANDid(desde,hasta,opc, inm.getIdInmueble());
                         } else {
                             System.out.println("Alguno de los elementos es nulo");
                         }
-
-                        Listcont = contData.listarContratosXfecha(desde,hasta);
 
                         if (Listcont.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
@@ -565,7 +601,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                             }     
                         }     
                     }            
-                }else{
+                }else{ //----- Si NO hay una opcion seleccionada:
                 
                     ContratoData contData = new ContratoData();
                     ArrayList<Contrato> Listcont = new ArrayList<>();
@@ -586,7 +622,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             }
         }
         
-        if (jRmonto.isSelected() && !jRfecha.isSelected()){ // filtro monto sleccionado
+        if (jRmonto.isSelected() && !jRfecha.isSelected()){ //------------------------------------------------------------------------------------------------ filtro monto seleccionado    
             if ("".equals(alertamonto.getText()) || alertamonto.getText()==null){
                 double min = Double.parseDouble(jtminimo.getText());
                 double max = Double.parseDouble(jtmaximo.getText());
@@ -595,25 +631,75 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
                 }
                 
-                ContratoData contData = new ContratoData();
-                ArrayList<Contrato> Listcont = new ArrayList<>();
-                
-                Listcont = contData.listarContratosXmonto(min,max);
-                
-                if (Listcont.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
-                } else {
-                    borrarDatos();
-                    for (Contrato c : Listcont) {
-                        modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
-                    }     
+                if(jCopciones.getSelectedItem()!= null){ //----- Si hay una opcion seleccionada:
+                    ArrayList<Contrato> Listcont = new ArrayList<>();        
+                    String opc = (String)jcbusqueda.getSelectedItem();
+
+                    if (opc.equals("Inquilino")){//----------------------------- si hay un inquilino seleccionado
+
+                        opc="inquilino";
+                        Inquilino inqui = (Inquilino)jCopciones.getSelectedItem();
+                        ContratoData contData = new ContratoData();
+
+                        if (inqui != null) {
+                            borrarDatos();
+                            Listcont = contData.listarContratosXmontoANDid(min,max,opc, inqui.getIdInquilino());
+                            System.out.println(Listcont);
+                        } else {
+                            System.out.println("Alguno de los elementos es nulo");
+                        }
+
+                        if (Listcont.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                        } else {
+                            borrarDatos();
+                            for (Contrato c : Listcont) {
+                                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                            }     
+                        } 
+                    } else { // ----------------------------------------------si hay un inmueble seleccionado
+
+                        opc="inmueble";
+                        Inmueble inm = (Inmueble)jCopciones.getSelectedItem();
+                        ContratoData contData = new ContratoData();
+
+                        if (inm != null) {
+                            borrarDatos();
+                            Listcont = contData.listarContratosXmontoANDid(min,max,opc,inm.getIdInmueble());
+                        } else {
+                            System.out.println("Alguno de los elementos es nulo");
+                        }
+
+                        if (Listcont.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                        } else {
+                            borrarDatos();
+                            for (Contrato c : Listcont) {
+                                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                            }     
+                        }     
+                    }             
+                }else{ //----- Si NO hay una opcion seleccionada:
+                    ContratoData contData = new ContratoData();
+                    ArrayList<Contrato> Listcont = new ArrayList<>();
+
+                    Listcont = contData.listarContratosXmonto(min,max);
+
+                    if (Listcont.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                    } else {
+                        borrarDatos();
+                        for (Contrato c : Listcont) {
+                            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                        }     
+                    }
                 }
             } else {    
                 JOptionPane.showMessageDialog(null, "Por favor verifique los campos de monto para realizar la busqueda");
             } 
         }
         
-        if (jRfecha.isSelected() && jRmonto.isSelected()) {
+        if (jRfecha.isSelected() && jRmonto.isSelected()) { //------------------------------------------------------------------------------------------------- filtro fecha y monto seleccionado    
             if (("".equals(alertafechas.getText()) || alertafechas.getText() == null) || ("".equals(alertamonto.getText()) || alertamonto.getText() == null)) {
                 LocalDate desde = jtdesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate hasta = jthasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -628,7 +714,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
                 }
 
-                if (jCopciones.getSelectedItem() != null) {
+                if (jCopciones.getSelectedItem() != null) { //----- Si hay una opcion seleccionada:
                     ArrayList<Contrato> Listcont = new ArrayList<>();
                     String opc = (String) jcbusqueda.getSelectedItem();
 
@@ -640,12 +726,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
                         if (inqui != null) {
                             borrarDatos();
-                            Listcont = contData.listarContratosX(opc, inqui.getIdInquilino());
+                            Listcont = contData.listarContratosXfiltrosANDid(desde, hasta, min, max, opc, inqui.getIdInquilino());
                         } else {
                             System.out.println("Alguno de los elementos es nulo");
                         }
-
-                        Listcont = contData.listarContratosXfecha(desde, hasta);
 
                         if (Listcont.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
@@ -663,13 +747,11 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
                         if (inm != null) {
                             borrarDatos();
-                            Listcont = contData.listarContratosX(opc, inm.getIdInmueble());
+                            Listcont = contData.listarContratosXfiltrosANDid(desde, hasta, min, max, opc, inm.getIdInmueble());
                         } else {
                             System.out.println("Alguno de los elementos es nulo");
                         }
-
-                        Listcont = contData.listarContratosXfecha(desde, hasta);
-
+                        
                         if (Listcont.isEmpty()) {
                             JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
                         } else {
@@ -678,8 +760,8 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                                 modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
                             }
                         }
-                    }
-                } else {
+                    }                    
+                } else { //----- Si NO hay una opcion seleccionada:
 
                     ContratoData contData = new ContratoData();
                     ArrayList<Contrato> Listcont = new ArrayList<>();
@@ -699,33 +781,6 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Por favor verifique los campos de fecha para realizar la busqueda");
             }
         }
-
-        if (jRmonto.isSelected() && !jRfecha.isSelected()) { // filtro monto sleccionado
-            if ("".equals(alertamonto.getText()) || alertamonto.getText() == null) {
-                double min = Double.parseDouble(jtminimo.getText());
-                double max = Double.parseDouble(jtmaximo.getText());
-
-                if (min > max) {
-                    JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
-                }
-
-                ContratoData contData = new ContratoData();
-                ArrayList<Contrato> Listcont = new ArrayList<>();
-
-                Listcont = contData.listarContratosXmonto(min, max);
-
-                if (Listcont.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
-                } else {
-                    borrarDatos();
-                    for (Contrato c : Listcont) {
-                        modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de fecha y monto para realizar la busqueda");
-            }
-        }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jtminimoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtminimoKeyReleased
@@ -761,6 +816,63 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             alertamonto.setText("Ingrese solo numeros, por favor.");
         }
     }//GEN-LAST:event_jtmaximoKeyReleased
+
+    private void jOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jOrdenActionPerformed
+        ordenarTabla();
+    }//GEN-LAST:event_jOrdenActionPerformed
+
+    private void jEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEstadoActionPerformed
+       ordenarTabla();
+    }//GEN-LAST:event_jEstadoActionPerformed
+
+    private void alertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alertasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alertasActionPerformed
+    
+    private void ordenarTabla(){
+        String eleccion = (String) jOrden.getSelectedItem();
+        String estado = (String) jEstado.getSelectedItem();
+        int act = 3;
+        
+        if (jEstado.getSelectedItem()!=null){
+            if (estado=="Activo"){
+                act = 1;
+            }else if (estado=="Inactivo"){
+                act = 0;
+            }else{
+                act = 3;
+            }
+        }
+        
+        ContratoData contData = new ContratoData();
+
+        switch (eleccion){
+            case "Id" :
+            borrarDatos();
+            for (Contrato c : contData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+            }
+            break;
+            case "Fecha inicio":
+            borrarDatos();
+            for (Contrato c : contData.ordenarX(eleccion, act)) {
+               modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+            }
+            break;
+            case "Fecha fin":
+            borrarDatos();
+            for (Contrato c : contData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+            }
+            break;
+            case "Monto":
+            borrarDatos();
+            for (Contrato c : contData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+            }
+            break;
+        }
+    }
 
     public void rellenarTabla(){
         ContratoData contData = new ContratoData();
@@ -799,9 +911,11 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         jRmonto.setSelected(false);
         jtdesde.setDate(null);
         jthasta.setDate(null);
-        
+        jCopciones.setSelectedIndex(-1);
+        jOrden.setSelectedIndex(0);
+        jEstado.setSelectedIndex(0);
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alertafecha;
     private javax.swing.JTextField alertafechas;
@@ -811,12 +925,16 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JTable jContratos;
     private javax.swing.JComboBox<Object> jCopciones;
+    private javax.swing.JComboBox<String> jEstado;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jOrden;
     private javax.swing.JRadioButton jRfecha;
     private javax.swing.JRadioButton jRmonto;
     private javax.swing.JScrollPane jScrollPane1;

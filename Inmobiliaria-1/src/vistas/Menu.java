@@ -114,7 +114,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu4.setText("Contratos");
 
-        jMenuItem4.setText("Administracion");
+        jMenuItem4.setText("Alta");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);

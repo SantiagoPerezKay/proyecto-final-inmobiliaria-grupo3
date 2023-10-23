@@ -49,6 +49,10 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         jbguardarcambios = new javax.swing.JButton();
         jbeliminar = new javax.swing.JButton();
         jtLetra = new javax.swing.JTextField();
+        jOrden = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jEstado = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -109,6 +113,24 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
             }
         });
 
+        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Direccion", "Tipo", "Superficie", "Precio", "Disponibilidad" }));
+        jOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Ordenar lista por: ");
+
+        jLabel9.setText("Mostrar estado :");
+
+        jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
+        jEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEstadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,27 +140,37 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(273, 273, 273)
                         .addComponent(jLabel1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(187, 187, 187)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(38, 38, 38)
-                            .addComponent(jtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(162, 162, 162)
-                            .addComponent(jbrestablecer)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jbguardarcambios)
+                            .addComponent(jLabel9)
                             .addGap(18, 18, 18)
-                            .addComponent(jbeliminar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                            .addComponent(jbsalir)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                            .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(jtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(162, 162, 162)
+                                .addComponent(jbrestablecer)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbguardarcambios)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbeliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                                .addComponent(jbsalir)))))
+                .addContainerGap(185, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 113, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,15 +182,21 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2)
                     .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbrestablecer)
                     .addComponent(jbguardarcambios)
                     .addComponent(jbeliminar)
                     .addComponent(jbsalir))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();
@@ -172,6 +210,8 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         borrarDatos();
         cargarTabla();
         jtLetra.setText("");
+        jEstado.setSelectedIndex(0);
+        jOrden.setSelectedIndex(0);
     }//GEN-LAST:event_jbrestablecerActionPerformed
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
@@ -309,10 +349,22 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         cargarTabla();      
     }//GEN-LAST:event_jbeliminarActionPerformed
 
+    private void jOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jOrdenActionPerformed
+        ordenarTabla();
+    }//GEN-LAST:event_jOrdenActionPerformed
+
+    private void jEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEstadoActionPerformed
+        ordenarTabla();
+    }//GEN-LAST:event_jEstadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jOrden;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbeliminar;
     private javax.swing.JButton jbguardarcambios;
@@ -323,6 +375,63 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtLetra;
     // End of variables declaration//GEN-END:variables
 
+    private void ordenarTabla(){
+        String eleccion = (String) jOrden.getSelectedItem();
+        String estado = (String) jEstado.getSelectedItem();
+        int act = 3;
+        
+        if (jEstado.getSelectedItem()!=null){
+            if (estado=="Activo"){
+                act = 1;
+            }else if (estado=="Inactivo"){
+                act = 0;
+            }else{
+                act = 3;
+            }
+        }
+        
+        InmuebleData inmData = new InmuebleData();
+
+        switch (eleccion){
+            case "Id" :
+            borrarDatos();
+            for (Inmueble i : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});
+            }
+            break;
+            case "Direccion":
+            borrarDatos();
+            for (Inmueble i : inmData.ordenarX(eleccion, act)) {
+               modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});
+            }
+            break;
+            case "Tipo":
+            borrarDatos();
+            for (Inmueble i : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});
+            }
+            break;
+            case "Superficie":
+            borrarDatos();
+            for (Inmueble i : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});
+            }
+            break;
+            case "Precio":
+            borrarDatos();
+            for (Inmueble i : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});
+            }
+            break;
+            case "Disponibilidad":
+            borrarDatos();
+            for (Inmueble i : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});
+            }
+            break;
+        }
+    }
+    
     public void cargarCombo (){
         
         jcbusqueda.addItem("id_inmueble");

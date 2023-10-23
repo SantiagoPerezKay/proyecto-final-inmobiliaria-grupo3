@@ -10,6 +10,7 @@ import inmobiliaria.entidades.Propietario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -192,4 +193,100 @@ public class InquilinoData extends Conexion {
         
     }
     
+    public ArrayList<Inquilino> ordenarX(String x, int act){
+        ArrayList<Inquilino> Inquilinos = new ArrayList<>();
+        
+        switch (x){
+            case "Id": x= "id_inquilino"; break;
+            case "Cuit": x="cuit"; break;
+            case "Nombre": x= "nombre"; break;
+            case "Apellido": x= "apellido"; break;
+        }
+        try {
+            if(act==1 || act==0){
+                String sql = "SELECT * FROM inquilino WHERE estado ="+act+" ORDER BY lower("+x+") ASC";
+
+                Statement ps = con.createStatement();
+
+                ResultSet rs = ps.executeQuery(sql);
+
+                while (rs.next()) {
+                    Inquilino inqui = new Inquilino();
+                
+                    inqui.setNombre(rs.getString("nombre"));
+                    inqui.setCuit(rs.getString("cuit"));
+                    inqui.setApellido(rs.getString("apellido"));
+                    inqui.setLugarTrabajo(rs.getString("lugar_trabajo"));
+                    inqui.setNombreGarante(rs.getString("nombre_garante"));
+                    inqui.setDniGarante(rs.getString("dni_garante"));
+                    inqui.setIdInquilino(rs.getInt("id_inquilino"));
+                    inqui.setEstado(rs.getBoolean("estado"));
+                    Inquilinos.add(inqui);     
+                }
+
+                ps.close();
+            }else{
+               String sql = "SELECT * FROM inquilino ORDER BY lower("+x+") ASC";
+
+                Statement ps = con.createStatement();
+
+                ResultSet rs = ps.executeQuery(sql);
+
+                while (rs.next()) {
+                    Inquilino inqui = new Inquilino();
+                
+                    inqui.setNombre(rs.getString("nombre"));
+                    inqui.setCuit(rs.getString("cuit"));
+                    inqui.setApellido(rs.getString("apellido"));
+                    inqui.setLugarTrabajo(rs.getString("lugar_trabajo"));
+                    inqui.setNombreGarante(rs.getString("nombre_garante"));
+                    inqui.setDniGarante(rs.getString("dni_garante"));
+                    inqui.setIdInquilino(rs.getInt("id_inquilino"));
+                    inqui.setEstado(rs.getBoolean("estado"));
+                    Inquilinos.add(inqui);       
+                }
+
+                ps.close(); 
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error" + e.getMessage());
+        }
+        return Inquilinos;
+    }
+    
+    public  ArrayList<Inquilino> MostrarEstado(String x) {
+         ArrayList<Inquilino> Inquilinos = new ArrayList<>();
+        switch (x){
+            case "Activo": x= "1"; break;
+            case "Inactivo": x="0"; break;
+        }
+        try {
+
+            String sql = "SELECT * FROM inquilino WHERE estado="+x+"";
+
+            Statement ps = con.createStatement();
+
+            ResultSet rs = ps.executeQuery(sql);
+            
+            while (rs.next()) {
+                Inquilino inqui = new Inquilino();
+                
+                inqui.setNombre(rs.getString("nombre"));
+                inqui.setCuit(rs.getString("cuit"));
+                inqui.setApellido(rs.getString("apellido"));
+                inqui.setLugarTrabajo(rs.getString("lugar_trabajo"));
+                inqui.setNombreGarante(rs.getString("nombre_garante"));
+                inqui.setDniGarante(rs.getString("dni_garante"));
+                inqui.setIdInquilino(rs.getInt("id_inquilino"));
+                inqui.setEstado(rs.getBoolean("estado"));
+                Inquilinos.add(inqui);  
+            }
+
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error: " + e.getMessage());
+        }
+        return Inquilinos;
+    }
 }

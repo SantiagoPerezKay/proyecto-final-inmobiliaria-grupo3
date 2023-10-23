@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 
@@ -219,6 +220,47 @@ public class ContratoData extends Conexion{
         }  
     }
     
+    public ArrayList<Contrato> listarContratosXfechaANDid(LocalDate x, LocalDate y, String z, int id) {
+ 
+        ArrayList<Contrato>contratos=new ArrayList<>();
+
+        
+        String sql = "SELECT * FROM contrato WHERE fecha_inicio > '"+x+"' AND fecha_fin < '"+y+"' AND id_"+z+"="+id;
+
+        System.out.println(sql);
+        
+        try {
+
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                
+                Contrato contrato = new Contrato();
+                
+                Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+                Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
+                
+                contrato.setIdContrato(rs.getInt("id_contrato"));
+                contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                contrato.setMonto(rs.getInt("monto"));
+                contrato.setEstado(rs.getBoolean("estado"));
+                contrato.setIdimb(imb.getIdInmueble());
+                contrato.setIdinq(inq.getIdInquilino());
+                
+                
+                contratos.add(contrato);         
+            }
+            
+            return contratos;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudieron listar los contratos " + "\n error:" + ex.getMessage());
+            return contratos;
+        }  
+    }
+    
     public ArrayList<Contrato> listarContratosXmonto(double x, double y) {
         ArrayList<Contrato>contratos=new ArrayList<>();
 
@@ -259,6 +301,46 @@ public class ContratoData extends Conexion{
         }  
     } 
     
+    public ArrayList<Contrato> listarContratosXmontoANDid(double x, double y, String z, int id) {
+        ArrayList<Contrato>contratos=new ArrayList<>();
+
+        
+        String sql = "SELECT * FROM contrato WHERE monto > '"+x+"' AND monto < '"+y+"' AND id_"+z+"="+id;
+
+        System.out.println(sql);
+        
+        try {
+
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                
+                Contrato contrato = new Contrato();
+                
+                Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+                Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
+                
+                contrato.setIdContrato(rs.getInt("id_contrato"));
+                contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                contrato.setMonto(rs.getInt("monto"));
+                contrato.setEstado(rs.getBoolean("estado"));
+                contrato.setIdimb(imb.getIdInmueble());
+                contrato.setIdinq(inq.getIdInquilino());
+                
+                
+                contratos.add(contrato);         
+            }
+            
+            return contratos;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudieron listar los contratos " + "\n error:" + ex.getMessage());
+            return contratos;
+        }  
+    }
+    
     public ArrayList<Contrato> listarContratosXfiltros(LocalDate a, LocalDate b, double c, double d){
         ArrayList<Contrato>contratos=new ArrayList<>();
 
@@ -298,7 +380,46 @@ public class ContratoData extends Conexion{
             return contratos;
         }
     }
-  
+    
+    public ArrayList<Contrato> listarContratosXfiltrosANDid(LocalDate a, LocalDate b, double c, double d, String z, int id){
+        ArrayList<Contrato>contratos=new ArrayList<>();
+
+        
+        String sql = "SELECT * FROM contrato WHERE (fecha_inicio > '"+a+"' AND fecha_fin < '"+b+"') AND(monto > '"+c+"' AND monto < '"+d+"') AND id_"+z+"="+id;
+
+        System.out.println(sql);
+        
+        try {
+
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                
+                Contrato contrato = new Contrato();
+                
+                Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+                Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
+                
+                contrato.setIdContrato(rs.getInt("id_contrato"));
+                contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                contrato.setMonto(rs.getInt("monto"));
+                contrato.setEstado(rs.getBoolean("estado"));
+                contrato.setIdimb(imb.getIdInmueble());
+                contrato.setIdinq(inq.getIdInquilino());
+                
+                
+                contratos.add(contrato);         
+            }
+            
+            return contratos;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no se pudieron listar los contratos " + "\n error:" + ex.getMessage());
+            return contratos;
+        }
+    }
     
     public Contrato buscarContrato(int id){
         
@@ -400,5 +521,106 @@ public class ContratoData extends Conexion{
         return inqui;
     }
     
+    public ArrayList<Contrato> ordenarX(String x, int act){
+        ArrayList<Contrato> contratos = new ArrayList<>();
+        
+        switch (x){
+            case "Id": x= "id_contrato"; break;
+            case "Fecha inicio": x="fecha_inicio"; break;
+            case "Fecha fin": x= "fecha_fin"; break;
+            case "Monto": x= "monto"; break;
+        }
+        try {
+            if(act==1 || act==0){
+                String sql = "SELECT * FROM contrato WHERE estado ="+act+" ORDER BY lower("+x+") ASC";
+
+                Statement ps = con.createStatement();
+
+                ResultSet rs = ps.executeQuery(sql);
+
+                while (rs.next()) {
+                    Contrato contrato = new Contrato();
+
+                    Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+                    Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
+
+                    contrato.setIdContrato(rs.getInt("id_contrato"));
+                    contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                    contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                    contrato.setMonto(rs.getInt("monto"));
+                    contrato.setEstado(rs.getBoolean("estado"));
+                    contrato.setIdimb(imb.getIdInmueble());
+                    contrato.setIdinq(inq.getIdInquilino());
+                    contratos.add(contrato);       
+                }
+
+                ps.close();
+            }else{
+               String sql = "SELECT * FROM contrato ORDER BY lower("+x+") ASC";
+
+                Statement ps = con.createStatement();
+
+                ResultSet rs = ps.executeQuery(sql);
+
+                while (rs.next()) {
+                    Contrato contrato = new Contrato();
+
+                    Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+                    Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
+
+                    contrato.setIdContrato(rs.getInt("id_contrato"));
+                    contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                    contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                    contrato.setMonto(rs.getInt("monto"));
+                    contrato.setEstado(rs.getBoolean("estado"));
+                    contrato.setIdimb(imb.getIdInmueble());
+                    contrato.setIdinq(inq.getIdInquilino());
+                    contratos.add(contrato);       
+                }
+
+                ps.close(); 
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error" + e.getMessage());
+        }
+        return contratos;
+    }
     
+    public ArrayList<Contrato> MostrarEstado(String x) {
+        ArrayList<Contrato> contratos = new ArrayList<>();
+        switch (x){
+            case "Activo": x= "1"; break;
+            case "Inactivo": x="0"; break;
+        }
+        try {
+
+            String sql = "SELECT * FROM contrato WHERE estado="+x+"";
+
+            Statement ps = con.createStatement();
+
+            ResultSet rs = ps.executeQuery(sql);
+            
+            while (rs.next()) {
+                Contrato contrato = new Contrato();
+
+                    Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+                    Inmueble imb = buscarInmueble(rs.getInt("id_inmueble")); 
+
+                    contrato.setIdContrato(rs.getInt("id_contrato"));
+                    contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+                    contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+                    contrato.setMonto(rs.getInt("monto"));
+                    contrato.setEstado(rs.getBoolean("estado"));
+                    contrato.setIdimb(imb.getIdInmueble());
+                    contrato.setIdinq(inq.getIdInquilino());
+                    contratos.add(contrato);
+            }
+
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ocurrio un error: " + e.getMessage());
+        }
+        return contratos;
+    }
 }

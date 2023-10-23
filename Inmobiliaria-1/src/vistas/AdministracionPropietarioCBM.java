@@ -42,6 +42,10 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jbsalir = new javax.swing.JButton();
         jbguardarcambios = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jOrden = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jEstado = new javax.swing.JComboBox<>();
 
         jLabel1.setText("CONSULTA BAJA MODIFICACION");
 
@@ -100,12 +104,34 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
             }
         });
 
+        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre", "Apellido", "Telefono", "Dni", "Domicilio" }));
+        jOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Ordenar lista por: ");
+
+        jLabel9.setText("Mostrar estado :");
+
+        jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
+        jEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEstadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
+                .addContainerGap(141, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -115,22 +141,27 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                         .addComponent(jtpalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(230, 230, 230))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(301, 301, 301)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(196, 196, 196)
-                .addComponent(jtrestablecer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbguardarcambios)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(72, 72, 72)
-                .addComponent(jbsalir)
-                .addGap(97, 97, 97))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jtrestablecer)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbguardarcambios)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbsalir)
+                                .addGap(59, 59, 59)))
+                        .addGap(129, 129, 129))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(175, 175, 175))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +173,13 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtpalabra)
                     .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -150,7 +187,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                     .addComponent(jbsalir)
                     .addComponent(jbguardarcambios)
                     .addComponent(jButton1))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,6 +197,8 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         borrarDatos();
         cargarTabla();
         jtpalabra.setText("");
+        jEstado.setSelectedIndex(0);
+        jOrden.setSelectedIndex(0);
     }//GEN-LAST:event_jtrestablecerActionPerformed
 
     private void jtpalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtpalabraKeyReleased
@@ -295,11 +334,23 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jOrdenActionPerformed
+        ordenarTabla();
+    }//GEN-LAST:event_jOrdenActionPerformed
+
+    private void jEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEstadoActionPerformed
+        ordenarTabla();
+    }//GEN-LAST:event_jEstadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> jOrden;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbguardarcambios;
     private javax.swing.JButton jbsalir;
@@ -309,6 +360,63 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
     private javax.swing.JButton jtrestablecer;
     // End of variables declaration//GEN-END:variables
 
+    private void ordenarTabla(){
+        String eleccion = (String) jOrden.getSelectedItem();
+        String estado = (String) jEstado.getSelectedItem();
+        int act = 3;
+        
+        if (jEstado.getSelectedItem()!=null){
+            if (estado=="Activo"){
+                act = 1;
+            }else if (estado=="Inactivo"){
+                act = 0;
+            }else{
+                act = 3;
+            }
+        }
+        
+       PropietarioData inmData = new PropietarioData();
+
+        switch (eleccion){
+            case "Id" :
+            borrarDatos();
+            for (Propietario prop : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+            }
+            break;
+            case "Nombre":
+            borrarDatos();
+            for (Propietario prop : inmData.ordenarX(eleccion, act)) {
+                modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+            }
+            break;
+            case "Apellido":
+            borrarDatos();
+            for (Propietario prop : inmData.ordenarX(eleccion, act)) {
+               modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+            }
+            break;
+            case "Telefono":
+            borrarDatos();
+            for (Propietario prop : inmData.ordenarX(eleccion, act)) {
+              modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+            }
+            break;
+            case "Dni":
+            borrarDatos();
+            for (Propietario prop : inmData.ordenarX(eleccion, act)) {
+              modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+            }
+            break;
+            case "Domicilio":
+            borrarDatos();
+            for (Propietario prop : inmData.ordenarX(eleccion, act)) {
+              modelo.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+            }
+            break;
+        }
+    }
+    
     public void cargarCabecera() {
         modelo.addColumn("Id Propietario");
         modelo.addColumn("Nombre");
