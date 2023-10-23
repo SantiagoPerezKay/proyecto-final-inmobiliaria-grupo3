@@ -47,7 +47,7 @@ public class ContratoData extends Conexion{
             InmuebleData inmData = new InmuebleData();
             int id= contrato.getInmueble().getIdInmueble();
             inmData.obtenerInmueblePorId(id);
-            inmData.actualizarDisponibilidadInmueble(id);
+            inmData.actualizarDisponibilidadInmueble(id, 1);
 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -95,7 +95,7 @@ public class ContratoData extends Conexion{
             
             ps.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "se actualizo correctamente el contrato: " + contrato);
+            JOptionPane.showMessageDialog(null, "se actualizo correctamente el contrato ID " + contrato.getIdContrato());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "no se pudo actualizar el contrato ID: " + contrato.getIdContrato() + "\n error:" + ex.getMessage());
         }

@@ -28,7 +28,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     public boolean isCellEditable(int a, int c) {
-            return (c != 0) && (c != 6);
+            return (c != 0) && (c != 5) && (c != 6);
     }
     
     public AdministracionContratoCBM() {
@@ -67,6 +67,8 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         alertafechas = new javax.swing.JTextField();
         alertafecha = new javax.swing.JTextField();
         alertamonto = new javax.swing.JTextField();
+        alertas = new javax.swing.JTextField();
+        alertas2 = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
@@ -146,9 +148,15 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Max :");
 
-        jtmaximo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtmaximoActionPerformed(evt);
+        jtminimo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtminimoKeyReleased(evt);
+            }
+        });
+
+        jtmaximo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtmaximoKeyReleased(evt);
             }
         });
 
@@ -159,14 +167,22 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             }
         });
 
-        alertafechas.setBackground(new java.awt.Color(240, 240, 245));
+        alertafechas.setBackground(new java.awt.Color(240, 240, 240));
         alertafechas.setBorder(null);
 
         alertafecha.setBackground(new java.awt.Color(240, 240, 240));
         alertafecha.setBorder(null);
 
-        alertamonto.setBackground(new java.awt.Color(240, 240, 245));
+        alertamonto.setBackground(new java.awt.Color(240, 240, 240));
         alertamonto.setBorder(null);
+
+        alertas.setBackground(new java.awt.Color(240, 240, 240));
+        alertas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        alertas.setBorder(null);
+
+        alertas2.setBackground(new java.awt.Color(240, 240, 240));
+        alertas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        alertas2.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,9 +191,6 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,7 +227,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(alertafechas)
                                     .addComponent(alertamonto))))
-                        .addGap(65, 65, 65))))
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -225,13 +241,19 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(172, 172, 172)
-                        .addComponent(jbrestablecer)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbguardarcambios)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbeliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbsalir)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(alertas)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbrestablecer)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbguardarcambios)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbeliminar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbsalir))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(alertas2)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -276,15 +298,19 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         .addComponent(alertafechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(alertamonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(68, 68, 68)
+                .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(alertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(alertas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbrestablecer)
                     .addComponent(jbguardarcambios)
                     .addComponent(jbeliminar)
                     .addComponent(jbsalir))
-                .addGap(85, 85, 85))
+                .addGap(67, 67, 67))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(219, 219, 219)
@@ -300,7 +326,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         if(jtdesde.getDate().after(jthasta.getDate())){
                             alertafechas.setText("La fecha de inicio del contrato no puede ser posterior a la final. Ingrese una fecha correcta.");
                         }else{
-                            alertafechas.setText("");
+                            alertafechas.setText(null);
                         }
                     }
                 }
@@ -314,7 +340,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         if(jtdesde.getDate().after(jthasta.getDate())){
                             alertafechas.setText("La fecha final del contrato no puede ser anterior a la inicial. Ingrese una fecha correcta.");
                         }else{
-                            alertafechas.setText("");
+                            alertafechas.setText(null);
                         }
                     }
                 }
@@ -329,13 +355,11 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         if (jCopciones != null) {
             jCopciones.removeAllItems();
         }
-        
         String opc = (String) jcbusqueda.getSelectedItem();
         
         if (opc.equals("Inquilino")){
             
             InquilinoData inquiData = new InquilinoData();
-
             ArrayList<Inquilino> ListInq = new ArrayList<>(inquiData.listarInquilinos());
 
             for (Inquilino i : ListInq) {
@@ -347,7 +371,6 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         if (opc.equals("Inmueble")) {
              
             InmuebleData inmData = new InmuebleData();
-
             ArrayList<Inmueble> ListInm = new ArrayList<>(inmData.listarInmuebles());
 
             for (Inmueble a : ListInm) {
@@ -358,8 +381,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jcbusquedaActionPerformed
 
     private void jCopcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCopcionesActionPerformed
-        ArrayList<Contrato> Listcont = new ArrayList<>();
-        
+        ArrayList<Contrato> Listcont = new ArrayList<>();        
         String opc = (String)jcbusqueda.getSelectedItem();
         
         if (opc.equals("Inquilino")){
@@ -404,6 +426,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbsalirActionPerformed
 
     private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
+        borrarDatos();
         rellenarTabla();
         limpiarCampos();
     }//GEN-LAST:event_jbrestablecerActionPerformed
@@ -416,27 +439,53 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
         Contrato c = new Contrato();
 
-        c.setIdContrato((int)jContratos.getValueAt(fila,0));
-        
-        String valorinicio = String.valueOf(jContratos.getValueAt(fila,1));
-        c.setFechaInicio(Date.valueOf(valorinicio).toLocalDate());
-         
-        String valorFin = String.valueOf(jContratos.getValueAt(fila,2));
-        c.setFechaFin(Date.valueOf(valorFin).toLocalDate());
-        
-        String valor = String.valueOf(jContratos.getValueAt(fila,3));
-        c.setMonto(Double.parseDouble(valor));
+        c.setIdContrato((int)jContratos.getValueAt(fila,0));       
 
         c.setIdinq((int)jContratos.getValueAt(fila,4));
-
         c.setIdimb((int)jContratos.getValueAt(fila,5));
-
         c.setEstado((boolean) jContratos.getValueAt(fila, 6));
 
         System.out.println(c);
-
-        contdata.actualizarContrato(c);
-        borrarDatos();
+        
+        
+  
+        try{
+            String valorInicio = String.valueOf(jContratos.getValueAt(fila,1));
+            c.setFechaInicio(Date.valueOf(valorInicio).toLocalDate()); 
+            
+            String valorFin = String.valueOf(jContratos.getValueAt(fila,2));
+            c.setFechaFin(Date.valueOf(valorFin).toLocalDate());
+            
+            alertas.setText("");
+            
+            if(Date.valueOf(valorInicio).toLocalDate().isAfter(Date.valueOf(valorFin).toLocalDate())){
+            alertas.setText("La fecha de inicio no puede ser posterior a la del fin del contrato.");
+            } else{
+                alertas.setText("");
+            }   
+        }catch (IllegalArgumentException e){
+            alertas.setText("Ingrese una fecha valida. YYYY-MM-DD.");
+        }
+        
+        
+        
+        try{
+            String valor = String.valueOf(jContratos.getValueAt(fila,3));
+            c.setMonto(Double.parseDouble(valor));
+            alertas2.setText("");
+        } catch (NumberFormatException e){
+            alertas2.setText("El monto solo puede contener numeros.");
+        }
+        
+        if (("".equals(alertas.getText()) || alertas.getText()==null) && ("".equals(alertas2.getText()) || alertas2.getText()==null)){
+            
+            contdata.actualizarContrato(c);
+            borrarDatos();
+            rellenarTabla();
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor verifique que los campos sean correctos para continuar.");
+        } 
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
     private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
@@ -452,41 +501,93 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRfechaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       if(!jRfecha.isSelected() && !jRmonto.isSelected()){
+       if(!jRfecha.isSelected() && !jRmonto.isSelected()){ //ningun filtro seleccionado
            JOptionPane.showMessageDialog(null, "Por favor indique al menos un filtro para aplicar");
         }
         
-        if (jRfecha.isSelected() && !jRmonto.isSelected())   {
-            if (jtdesde.getDate() == null || jthasta.getDate() == null) {
-                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de fecha para realizar la busqueda");
-            }else{
+        if (jRfecha.isSelected() && !jRmonto.isSelected()){  // filtro fecha seleccionado          
+            if ("".equals(alertafechas.getText()) || alertafechas.getText()==null) {
                 LocalDate desde = jtdesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate hasta = jthasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 
                 if (desde.isAfter(hasta)) {
                     JOptionPane.showMessageDialog(null, "La fecha final no puede ser anterior a la inicial. Ingrese una fecha correcta.");
                 }
+                
+                if(jCopciones.getSelectedItem()!= null){ 
+                    ArrayList<Contrato> Listcont = new ArrayList<>();        
+                    String opc = (String)jcbusqueda.getSelectedItem();
 
-                ContratoData contData = new ContratoData();
-                ArrayList<Contrato> Listcont = new ArrayList<>();
+                    if (opc.equals("Inquilino")){ // si hay un inquilino seleccionado
+
+                        opc="inquilino";
+                        Inquilino inqui = (Inquilino)jCopciones.getSelectedItem();
+                        ContratoData contData = new ContratoData();
+
+                        if (inqui != null) {
+                            borrarDatos();
+                            Listcont = contData.listarContratosX(opc, inqui.getIdInquilino());
+                        } else {
+                            System.out.println("Alguno de los elementos es nulo");
+                        }
+
+                        Listcont = contData.listarContratosXfecha(desde,hasta);
+
+                        if (Listcont.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                        } else {
+                            borrarDatos();
+                            for (Contrato c : Listcont) {
+                                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                            }     
+                        } 
+                    } else { // si hay un inmueble seleccionado
+
+                        opc="inmueble";
+                        Inmueble inm = (Inmueble)jCopciones.getSelectedItem();
+                        ContratoData contData = new ContratoData();
+
+                         if (inm != null) {
+                            borrarDatos();
+                            Listcont = contData.listarContratosX(opc, inm.getIdInmueble());
+                        } else {
+                            System.out.println("Alguno de los elementos es nulo");
+                        }
+
+                        Listcont = contData.listarContratosXfecha(desde,hasta);
+
+                        if (Listcont.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                        } else {
+                            borrarDatos();
+                            for (Contrato c : Listcont) {
+                                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                            }     
+                        }     
+                    }            
+                }else{
                 
-                Listcont = contData.listarContratosXfecha(desde,hasta);
-                
-                if (Listcont.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
-                } else {
-                    borrarDatos();
-                    for (Contrato c : Listcont) {
-                        modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
-                    }     
+                    ContratoData contData = new ContratoData();
+                    ArrayList<Contrato> Listcont = new ArrayList<>();
+
+                    Listcont = contData.listarContratosXfecha(desde,hasta);
+
+                    if (Listcont.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                    } else {
+                        borrarDatos();
+                        for (Contrato c : Listcont) {
+                            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                        }     
+                    } 
                 }
+            }else{ 
+                JOptionPane.showMessageDialog(null, "Por favor verifique los campos de fecha para realizar la busqueda");
             }
         }
         
-        if (jRmonto.isSelected() && !jRfecha.isSelected()){
-            if (jtminimo == null || jtmaximo == null){
-                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de monto para realizar la busqueda");
-            } else  {
+        if (jRmonto.isSelected() && !jRfecha.isSelected()){ // filtro monto sleccionado
+            if ("".equals(alertamonto.getText()) || alertamonto.getText()==null){
                 double min = Double.parseDouble(jtminimo.getText());
                 double max = Double.parseDouble(jtmaximo.getText());
                 
@@ -507,58 +608,166 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                         modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
                     }     
                 }
+            } else {    
+                JOptionPane.showMessageDialog(null, "Por favor verifique los campos de monto para realizar la busqueda");
             } 
         }
         
-        if (jRfecha.isSelected() && jRmonto.isSelected()){
-            if ((jtdesde.getDate() == null || jthasta.getDate() == null) && (jtminimo == null || jtmaximo == null))  {
-                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de fecha y monto para realizar la busqueda");
-            }else{
+        if (jRfecha.isSelected() && jRmonto.isSelected()) {
+            if (("".equals(alertafechas.getText()) || alertafechas.getText() == null) || ("".equals(alertamonto.getText()) || alertamonto.getText() == null)) {
                 LocalDate desde = jtdesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate hasta = jthasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                
+
                 double min = Double.parseDouble(jtminimo.getText());
                 double max = Double.parseDouble(jtmaximo.getText());
-                
+
                 if (desde.isAfter(hasta)) {
                     JOptionPane.showMessageDialog(null, "La fecha final no puede ser anterior a la inicial. Ingrese una fecha correcta.");
                 }
-                if (min>max) {
+                if (min > max) {
+                    JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
+                }
+
+                if (jCopciones.getSelectedItem() != null) {
+                    ArrayList<Contrato> Listcont = new ArrayList<>();
+                    String opc = (String) jcbusqueda.getSelectedItem();
+
+                    if (opc.equals("Inquilino")) { // si hay un inquilino seleccionado
+
+                        opc = "inquilino";
+                        Inquilino inqui = (Inquilino) jCopciones.getSelectedItem();
+                        ContratoData contData = new ContratoData();
+
+                        if (inqui != null) {
+                            borrarDatos();
+                            Listcont = contData.listarContratosX(opc, inqui.getIdInquilino());
+                        } else {
+                            System.out.println("Alguno de los elementos es nulo");
+                        }
+
+                        Listcont = contData.listarContratosXfecha(desde, hasta);
+
+                        if (Listcont.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                        } else {
+                            borrarDatos();
+                            for (Contrato c : Listcont) {
+                                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                            }
+                        }
+                    } else { // si hay un inmueble seleccionado
+
+                        opc = "inmueble";
+                        Inmueble inm = (Inmueble) jCopciones.getSelectedItem();
+                        ContratoData contData = new ContratoData();
+
+                        if (inm != null) {
+                            borrarDatos();
+                            Listcont = contData.listarContratosX(opc, inm.getIdInmueble());
+                        } else {
+                            System.out.println("Alguno de los elementos es nulo");
+                        }
+
+                        Listcont = contData.listarContratosXfecha(desde, hasta);
+
+                        if (Listcont.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                        } else {
+                            borrarDatos();
+                            for (Contrato c : Listcont) {
+                                modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                            }
+                        }
+                    }
+                } else {
+
+                    ContratoData contData = new ContratoData();
+                    ArrayList<Contrato> Listcont = new ArrayList<>();
+
+                    Listcont = contData.listarContratosXfecha(desde, hasta);
+
+                    if (Listcont.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
+                    } else {
+                        borrarDatos();
+                        for (Contrato c : Listcont) {
+                            modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                        }
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor verifique los campos de fecha para realizar la busqueda");
+            }
+        }
+
+        if (jRmonto.isSelected() && !jRfecha.isSelected()) { // filtro monto sleccionado
+            if ("".equals(alertamonto.getText()) || alertamonto.getText() == null) {
+                double min = Double.parseDouble(jtminimo.getText());
+                double max = Double.parseDouble(jtmaximo.getText());
+
+                if (min > max) {
                     JOptionPane.showMessageDialog(null, "El monto máximo no puede ser menor que el minimo. Por favor ingrese un monto correcto.");
                 }
 
                 ContratoData contData = new ContratoData();
                 ArrayList<Contrato> Listcont = new ArrayList<>();
-                
-                Listcont = contData.listarContratosXfiltros(desde,hasta,min,max);
-                
+
+                Listcont = contData.listarContratosXmonto(min, max);
+
                 if (Listcont.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "No se encontraron resultados para la busqueda");
                 } else {
                     borrarDatos();
                     for (Contrato c : Listcont) {
                         modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
-                    }     
+                    }
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor rellene los campos de fecha y monto para realizar la busqueda");
             }
-            
-        }
-        
+        }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jtmaximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtmaximoActionPerformed
-      // if ((int)jtminimo.getText()!=null || (int)jtminimo.getText()>jtmaximo.getText()){
-           
-      // }
-    }//GEN-LAST:event_jtmaximoActionPerformed
+    private void jtminimoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtminimoKeyReleased
+        try{    
+            Double minimo = Double.parseDouble(jtminimo.getText());
+            Double maximo = Double.parseDouble(jtmaximo.getText());
+        
+            if (maximo!=null){
+                if(minimo>maximo){
+                    alertamonto.setText("El valor mínimo no puede ser mayor que el máximo. Ingrese un valor correcto.");
+                }else{
+                    alertamonto.setText(null);
+                }          
+            }
+        }catch (NumberFormatException e){
+            alertamonto.setText("Ingrese solo numeros, por favor.");
+        }
+    }//GEN-LAST:event_jtminimoKeyReleased
+
+    private void jtmaximoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtmaximoKeyReleased
+        try{
+            Double minimo = Double.parseDouble(jtminimo.getText());
+            Double maximo = Double.parseDouble(jtmaximo.getText());
+
+            if (minimo!=null){
+                if(minimo>maximo){
+                    alertamonto.setText("El valor máximo no puede ser menos que el mínimo. Ingrese un valor correcto.");
+                }else{
+                    alertamonto.setText(null);
+                }
+            }
+        }catch (NumberFormatException e){
+            alertamonto.setText("Ingrese solo numeros, por favor.");
+        }
+    }//GEN-LAST:event_jtmaximoKeyReleased
 
     public void rellenarTabla(){
         ContratoData contData = new ContratoData();
         
         for(Contrato c : contData.listarContratos()){
             modelo.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(),c.getIdinq(), c.getIdimb(), c.isEstado()});
-            }
-        
+        }    
     }
     
     public void cargarCabecera() {
@@ -583,18 +792,22 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     }
     
     private void limpiarCampos(){
-         jtdesde.setDate(null);
-        jthasta.setDate(null);
+      
         jtminimo.setText("");
         jtmaximo.setText("");
         jRfecha.setSelected(false);
         jRmonto.setSelected(false);
+        jtdesde.setDate(null);
+        jthasta.setDate(null);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alertafecha;
     private javax.swing.JTextField alertafechas;
     private javax.swing.JTextField alertamonto;
+    private javax.swing.JTextField alertas;
+    private javax.swing.JTextField alertas2;
     private javax.swing.JButton jButton1;
     private javax.swing.JTable jContratos;
     private javax.swing.JComboBox<Object> jCopciones;

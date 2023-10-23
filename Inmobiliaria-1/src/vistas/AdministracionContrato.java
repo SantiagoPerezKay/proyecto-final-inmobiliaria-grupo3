@@ -160,8 +160,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jComboinmuebles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(alertafechas, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -169,7 +168,10 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel6)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jtfechafin, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jtfechafin, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(107, 107, 107)
+                                                .addComponent(alertafechas)))
                                         .addGap(6, 6, 6))))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -293,6 +295,10 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
 
             if ("".equals(alertafechas.getText()) || alertafechas.getText()==null ){
                 alertaingresar.setText(null);
+                
+                //InmuebleData inmData = new InmuebleData();
+                //inmData.actualizarDisponibilidadInmueble(inmueble.getIdInmueble(), 1);
+                
                 Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
                 contData.crearContrato(cont);
             }else{
@@ -332,7 +338,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     public void rellenarInmuebles() {
         InmuebleData inmData = new InmuebleData();
 
-        ArrayList<Inmueble> ListInm = new ArrayList<>(inmData.listarInmuebles());
+        ArrayList<Inmueble> ListInm = new ArrayList<>(inmData.listarInmueblesDisponibles());
 
         for (Inmueble a : ListInm) {
             jComboinmuebles.addItem(a);

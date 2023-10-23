@@ -81,9 +81,9 @@ public class InmuebleData extends Conexion {
         }
     }
     
-    public void actualizarDisponibilidadInmueble(int id) {
+    public void actualizarDisponibilidadInmueble(int id, int disp) {
 
-        String sql = "UPDATE inmueble SET disponibilidad=1 WHERE id_inmueble="+id;
+        String sql = "UPDATE inmueble SET disponibilidad="+1+" WHERE id_inmueble="+id;
         try {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.executeUpdate();
@@ -114,11 +114,8 @@ public class InmuebleData extends Conexion {
                 inmueble.setPrecio(rs.getDouble("precio"));
                 inmueble.setDisponibilidad(rs.getString("disponibilidad"));
                
-                inmueble.setIdInmueble(rs.getInt("id_inmueble"));
-                
+                inmueble.setIdInmueble(rs.getInt("id_inmueble"));    
             }
-
-            JOptionPane.showMessageDialog(null, "se obtuvo el inmueble correctamente");
             return inmueble;
 
         } catch (SQLException ex) {
