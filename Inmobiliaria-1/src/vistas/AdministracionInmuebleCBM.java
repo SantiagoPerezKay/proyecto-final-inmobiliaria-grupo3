@@ -7,6 +7,7 @@ package vistas;
 
 import acceso_a_datos.InmuebleData;
 import inmobiliaria.entidades.Inmueble;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -216,35 +217,51 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
 
-        InmuebleData inmudata = new InmuebleData();
-
         int fila = jtInmuebles.getSelectedRow();
+        
+        InmuebleData inmudata = new InmuebleData();
+        Inmueble inm = new Inmueble(); 
+        
+        try {
+            //int idinmueble = (int) jtInmuebles.getValueAt(fila, 0);
+            //String idinmuebleStr = String.valueOf(idinmueble);
+            String direccion = (String) jtInmuebles.getValueAt(fila, 1);
+            int altura = (int) jtInmuebles.getValueAt(fila, 2);
+            String alturaSrt = String.valueOf(altura);
+            String tipo = (String) jtInmuebles.getValueAt(fila, 3);
+            double superficie = (double) jtInmuebles.getValueAt(fila, 4);
+            String superficieStr = Double.toString(superficie);
+            double precio = (double) jtInmuebles.getValueAt(fila, 5);
+            String precioSrt = Double.toString(precio);
+            String disponibidad = (String) jtInmuebles.getValueAt(fila, 6);
+            //int propid = (int) jtInmuebles.getValueAt(fila, 7);
+            //String propIdSrt = String.valueOf(propid);
+            //boolean estado = (boolean) jtInmuebles.getValueAt(fila, 8); 
+            
+            if ((validarCampoTexto(direccion)) && (validarCampoTexto(tipo) && (validarCampoTexto(disponibidad) && (validarCampoNumerico(alturaSrt)) && validarCampoNumerico(superficieStr) && (validarCampoNumerico(precioSrt))))){ 
+                
+                inm.setIdInmueble((int) jtInmuebles.getValueAt(fila, 0));
+                inm.setDireccion(direccion);
+                inm.setAltura(altura);
+                inm.setTipo(tipo); 
+                inm.setSuperficie(superficie);
+                inm.setPrecio(precio);
+                inm.setDisponibilidad(disponibidad);
+                inm.setPropid((int) jtInmuebles.getValueAt(fila, 7));
+                inm.setEstado((boolean) jtInmuebles.getValueAt(fila, 8));
+                
+                System.out.println(inm);
 
-        Inmueble i = new Inmueble();
-
-        i.setIdInmueble((int)jtInmuebles.getValueAt(fila, 0));
-        i.setDireccion((String)jtInmuebles.getValueAt(fila,1));
-        i.setAltura((int)jtInmuebles.getValueAt(fila,2));
-        i.setTipo((String)jtInmuebles.getValueAt(fila,3));
-        
-        String valor1=String.valueOf(jtInmuebles.getValueAt(fila,4));
-        
-        i.setSuperficie(Double.parseDouble(valor1));
-      
-        String valor2=String.valueOf(jtInmuebles.getValueAt(fila,5));
-        i.setPrecio(Double.parseDouble(valor2));
-      
-        i.setDisponibilidad((String)jtInmuebles.getValueAt(fila,6));
-        i.setPropid((int)jtInmuebles.getValueAt(fila,7));
-        i.setEstado((boolean) jtInmuebles.getValueAt(fila, 8));
-        
-        System.out.println(i);
-        
-        inmudata.actualizarInmueble(i);
-        borrarDatos();
-        jtLetra.setText("");
-        cargarTabla();
-        
+                inmudata.actualizarInmueble(inm);
+                borrarDatos();
+                jtLetra.setText("");
+                cargarTabla();
+                
+            }
+            
+        } catch (Exception e) {
+            System.out.println("erro:" + e.getMessage());
+        }
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
     private void jcbusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbusquedaActionPerformed
@@ -477,6 +494,42 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         for (Inmueble i : inmo.listarInmuebles()) {
         modelo.addRow(new Object[]{i.getIdInmueble(), i.getDireccion(), i.getAltura(), i.getTipo(), i.getSuperficie(), i.getPrecio(), i.getDisponibilidad(), i.getPropid(), i.isEstado()});        }
 
+    }
+    
+    public boolean validarCadena(String cadena) {
+        // Utilizamos una expresión regular para verificar si la cadena contiene solo letras y espacios en blanco
+        // ^ indica el inicio de la cadena, [a-zA-Z ]+ permite letras mayúsculas y minúsculas y espacios en blanco,
+        // y $ indica el final de la cadena.
+        return cadena.matches("^[a-zA-Z ]+$");
+    }
+
+    //metodos validadores de numeros
+    public boolean validarCampoNumerico(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+
+            return false;
+
+        } else if (!textfield.matches("^[0-9]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener numeros.");
+
+            return false;
+        }
+        return true;
+    }
+
+    //metodos validadores de texto
+    public boolean validarCampoTexto(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+
+            return false;
+        } else if (!textfield.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener letras.");
+
+            return false;
+        }
+        return true;
     }
     
 }
