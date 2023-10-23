@@ -420,7 +420,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         
         String valorinicio = String.valueOf(jContratos.getValueAt(fila,1));
         c.setFechaInicio(Date.valueOf(valorinicio).toLocalDate());
-        
+         
         String valorFin = String.valueOf(jContratos.getValueAt(fila,2));
         c.setFechaFin(Date.valueOf(valorFin).toLocalDate());
         

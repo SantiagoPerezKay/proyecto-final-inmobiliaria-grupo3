@@ -4,6 +4,7 @@ import acceso_a_datos.PropietarioData;
 import inmobiliaria.entidades.Propietario;
 import javafx.beans.value.ObservableObjectValue;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
@@ -241,13 +242,14 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         PropietarioData propietariodata = new PropietarioData();
         Propietario prop = new Propietario();
 
+       try {
         String nombre = (String) jtpropietarios.getValueAt(fila, 1);
         String apellido = (String) jtpropietarios.getValueAt(fila, 2);
         String telefono = (String) jtpropietarios.getValueAt(fila, 3);
         String dni = (String) jtpropietarios.getValueAt(fila, 4);
         String domicilio=(String) jtpropietarios.getValueAt(fila, 5);
        
-     
+     if ((validarCampoTexto(nombre)) && (validarCampoTexto(apellido) && (validarCampoNumerico(telefono))&& (validarCampoNumerico(dni))&&(validarCampoTexto(domicilio)))){
 
         prop.setIdPropietario((int) jtpropietarios.getValueAt(fila, 0));
         prop.setNombre(nombre);
@@ -262,7 +264,10 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jtpalabra.setText("");
 
         cargarTabla();
-
+     }
+       }catch (Exception e){
+           System.out.println("erro:"+e.getMessage());
+       }
 
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
@@ -356,6 +361,35 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         // ^ indica el inicio de la cadena, [a-zA-Z ]+ permite letras mayúsculas y minúsculas y espacios en blanco,
         // y $ indica el final de la cadena.
         return cadena.matches("^[a-zA-Z ]+$");
+    }
+ public boolean validarCampoNumerico(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+            
+            return false;
+
+        } else if (!textfield.matches("^[0-9]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener numeros.");
+          
+          
+            return false;
+        }
+        return true;
+    }
+
+    //metodos validadores de texto
+    public boolean validarCampoTexto(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+           
+            return false;
+        } else if (!textfield.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener letras.");
+           
+           
+            return false;
+        }
+        return true;
     }
 
 }
