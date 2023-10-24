@@ -7,6 +7,7 @@ package vistas;
 
 import acceso_a_datos.InquilinoData;
 import inmobiliaria.entidades.Inquilino;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -203,20 +204,36 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
 
         Inquilino i = new Inquilino();
         
-        i.setIdInquilino((int)jtinquilinos.getValueAt(fila, 0));
-        i.setNombre((String)jtinquilinos.getValueAt(fila,1));
-        i.setApellido((String)jtinquilinos.getValueAt(fila,2));
-        i.setCuit((String)jtinquilinos.getValueAt(fila,3)); 
-        i.setLugarTrabajo((String)jtinquilinos.getValueAt(fila,4));
-        i.setNombreGarante((String)jtinquilinos.getValueAt(fila,5));
-        i.setDniGarante((String)jtinquilinos.getValueAt(fila,6)); 
+         try {
+        String Nombre = (String) jtinquilinos.getValueAt(fila,1);
+        String Apellido= (String)jtinquilinos.getValueAt(fila,2);
+        String Cuit= (String)jtinquilinos.getValueAt(fila,3); 
+        String LugarTrabajo =(String)jtinquilinos.getValueAt(fila,4);
+        String NombreGarante = (String)jtinquilinos.getValueAt(fila,5);
+        String DniGarante= (String)jtinquilinos.getValueAt(fila,6);
+        
+        if ((validarCampoTexto(Nombre)) && (validarCampoTexto(Apellido) && (validarCampoNumerico(Cuit))&& (validarCampoTexto(LugarTrabajo))&&(validarCampoTexto(NombreGarante))&& (validarCampoNumerico(DniGarante)))){
+     
+        i.setIdInquilino ((int) jtinquilinos.getValueAt(fila,0));
+        i.setNombre(Nombre);
+        i.setApellido(Apellido);
+        i.setCuit(Cuit); 
+        i.setLugarTrabajo(LugarTrabajo); 
+        i.setNombreGarante(NombreGarante);
+        i.setDniGarante(DniGarante); 
         i.setEstado((boolean)jtinquilinos.getValueAt(fila,7)); 
-
+        
         inquidata.actualizarInquilino(i);
         borrarDatos();
         jtpalabra.setText("");
         cargarTabla();
-
+        
+        cargarTabla();
+         }
+       }catch (Exception e){
+           System.out.println("erro:"+e.getMessage());
+           
+  }
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
     private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
@@ -322,6 +339,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         borrarDatos();
         jtpalabra.setText("");
         cargarTabla();
+
 
 
         
@@ -443,6 +461,40 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         }
 
 }
-       
-        
+         public boolean validarCadena(String cadena) {
+        // Utilizamos una expresión regular para verificar si la cadena contiene solo letras y espacios en blanco
+        // ^ indica el inicio de la cadena, [a-zA-Z ]+ permite letras mayúsculas y minúsculas y espacios en blanco,
+        // y $ indica el final de la cadena.
+        return cadena.matches("^[a-zA-Z ]+$");
+    }
+        public boolean validarCampoNumerico(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+            
+            return false;
+
+        } else if (!textfield.matches("^[0-9]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener numeros.");
+          
+          
+            return false;
+        }
+        return true;
+    }
+
+    //metodos validadores de texto
+    public boolean validarCampoTexto(String textfield) {
+        if (textfield.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
+           
+            return false;
+        } else if (!textfield.matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+            JOptionPane.showMessageDialog(null, "El campo solo puede contener letras.");
+           
+           
+            return false;
+        }
+        return true;
+}
+    
 }
