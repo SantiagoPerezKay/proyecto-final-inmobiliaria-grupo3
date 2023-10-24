@@ -47,6 +47,8 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jEstado = new javax.swing.JComboBox<>();
 
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
+
         jLabel1.setText("CONSULTA BAJA MODIFICACION");
 
         jtpalabra.addKeyListener(new java.awt.event.KeyAdapter() {

@@ -1,14 +1,25 @@
 
 package vistas;
 
+import java.awt.Color;
+import static javafx.scene.paint.Color.color;
+
 
 public class Menu extends javax.swing.JFrame {
 
   
     public Menu() {
         initComponents();
+        loadICons();
         this.setLocationRelativeTo(null);
+        
+     
         //metodo o sentencias para obtener la fecha actual y actualizar el estado de "en alquiler" a "para alquilar" automaticamente
+    }
+    
+    private void loadICons(){
+        Portada miImagen = new Portada(jLpropietarios);
+        jLpropietarios.add(miImagen);
     }
 
   
@@ -18,6 +29,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuItem8 = new javax.swing.JMenuItem();
         Escritorio = new javax.swing.JDesktopPane();
+        jLpropietarios = new javax.swing.JPanel();
+        jLpropietario = new javax.swing.JLabel();
+        jLinquilino = new javax.swing.JLabel();
+        jLinmueble = new javax.swing.JLabel();
+        jLcontratos = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -36,25 +52,92 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem8.setText("jMenuItem8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
 
         Escritorio.setPreferredSize(new java.awt.Dimension(1000, 1000));
+
+        jLpropietarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLpropietarios.setPreferredSize(new java.awt.Dimension(1280, 1024));
+
+        jLpropietario.setText(".");
+        jLpropietario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLpropietarioMouseClicked(evt);
+            }
+        });
+
+        jLinquilino.setText(".");
+        jLinquilino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLinquilinoMouseClicked(evt);
+            }
+        });
+
+        jLinmueble.setText(".");
+        jLinmueble.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLinmuebleMouseClicked(evt);
+            }
+        });
+
+        jLcontratos.setText(".");
+        jLcontratos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLcontratosMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jLpropietariosLayout = new javax.swing.GroupLayout(jLpropietarios);
+        jLpropietarios.setLayout(jLpropietariosLayout);
+        jLpropietariosLayout.setHorizontalGroup(
+            jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLpropietariosLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jLpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLinquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(551, Short.MAX_VALUE))
+        );
+        jLpropietariosLayout.setVerticalGroup(
+            jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLpropietariosLayout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLinquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(921, Short.MAX_VALUE))
+        );
+
+        Escritorio.setLayer(jLpropietarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(EscritorioLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLpropietarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addComponent(jLpropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setForeground(new java.awt.Color(204, 204, 204));
+        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jMenu1.setText("Propietario");
+        jMenu1.setBackground(new java.awt.Color(0, 0, 0));
+        jMenu1.setText("PROPIETARIO");
+        jMenu1.setToolTipText("");
 
-        jMenuItem1.setText("Ingresar Propietario");
+        jMenuItem1.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuItem1.setText("Nuevo Propietario");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -62,7 +145,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem5.setText("Modificar Propietario");
+        jMenuItem5.setText("Buscar Propietario");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -74,7 +157,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Inquilino");
 
-        jMenuItem2.setText("Alta");
+        jMenuItem2.setText("Nuevo Inquilino");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -82,7 +165,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem2);
 
-        jMenuItem6.setText("Consulta");
+        jMenuItem6.setText("Buscar Inquilino");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -94,7 +177,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu3.setText("Inmuebles");
 
-        jMenuItem3.setText("Alta");
+        jMenuItem3.setText("Ingresar Inmueble");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -102,7 +185,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
-        jMenuItem7.setText("Consulta");
+        jMenuItem7.setText("Buscar Inmueble");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -114,7 +197,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu4.setText("Contratos");
 
-        jMenuItem4.setText("Alta");
+        jMenuItem4.setText("Nuevo Contrato");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -122,7 +205,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem4);
 
-        jMenuItem9.setText("Consulta");
+        jMenuItem9.setText("Buscar Contrato");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -141,11 +224,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1262, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
         );
 
         pack();
@@ -232,6 +315,47 @@ public class Menu extends javax.swing.JFrame {
         Escritorio.moveToFront(AdministracionContratoCBM);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jLpropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLpropietarioMouseClicked
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionPropietario administracionpropietario = new AdministracionPropietario();
+        administracionpropietario.setVisible(true);
+        Escritorio.add(administracionpropietario);
+        administracionpropietario.setLocation((Escritorio.getWidth() - administracionpropietario.getWidth()) / 2, (Escritorio.getHeight() - administracionpropietario.getHeight()) / 2);
+        Escritorio.moveToFront(administracionpropietario);
+                                              
+    }//GEN-LAST:event_jLpropietarioMouseClicked
+
+    private void jLinquilinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinquilinoMouseClicked
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionInquilino administracioninquilino = new AdministracionInquilino();
+        administracioninquilino.setVisible(true);
+        Escritorio.add(administracioninquilino);
+        administracioninquilino.setLocation((Escritorio.getWidth() - administracioninquilino.getWidth()) / 2, (Escritorio.getHeight() - administracioninquilino.getHeight()) / 2);
+        Escritorio.moveToFront(administracioninquilino);
+    }//GEN-LAST:event_jLinquilinoMouseClicked
+
+    private void jLinmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinmuebleMouseClicked
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionInmueble administracioninmueble = new AdministracionInmueble();
+        administracioninmueble.setVisible(true);
+        Escritorio.add(administracioninmueble);
+        administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
+        Escritorio.moveToFront(administracioninmueble);  
+    }//GEN-LAST:event_jLinmuebleMouseClicked
+
+    private void jLcontratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLcontratosMouseClicked
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        AdministracionContrato administracioncontrato = new AdministracionContrato();
+        administracioncontrato.setVisible(true);
+        Escritorio.add(administracioncontrato);
+        administracioncontrato.setLocation((Escritorio.getWidth() - administracioncontrato.getWidth()) / 2, (Escritorio.getHeight() - administracioncontrato.getHeight()) / 2);
+        Escritorio.moveToFront(administracioncontrato);      
+    }//GEN-LAST:event_jLcontratosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -272,6 +396,11 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JLabel jLcontratos;
+    private javax.swing.JLabel jLinmueble;
+    private javax.swing.JLabel jLinquilino;
+    private javax.swing.JLabel jLpropietario;
+    private javax.swing.JPanel jLpropietarios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

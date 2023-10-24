@@ -77,7 +77,12 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTinquilino = new javax.swing.JTable();
 
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        try {
+            setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("ALTA DE CONTRATO");
@@ -127,7 +132,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jTinmueble.setGridColor(new java.awt.Color(204, 204, 204));
         jTinmueble.setMinimumSize(new java.awt.Dimension(60, 26));
         jTinmueble.setRowHeight(26);
-        jTinmueble.setRowSorter(null);
         jTinmueble.setSelectionBackground(java.awt.SystemColor.activeCaption);
         jTinmueble.setShowHorizontalLines(false);
         jScrollPane2.setViewportView(jTinmueble);

@@ -62,6 +62,9 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jttipo = new javax.swing.JComboBox<>();
         jtdisponibilidad = new javax.swing.JComboBox<>();
 
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        setVerifyInputWhenFocusTarget(false);
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("DIRECCION:");
 

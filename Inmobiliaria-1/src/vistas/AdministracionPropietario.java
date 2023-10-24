@@ -70,7 +70,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("INGRESAR INMUEBLE");
 
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("ALTA DE PROPIETARIO");

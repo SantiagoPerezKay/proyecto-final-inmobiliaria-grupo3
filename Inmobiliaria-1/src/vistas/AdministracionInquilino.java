@@ -51,6 +51,8 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jrb1 = new javax.swing.JRadioButton();
         jrb2 = new javax.swing.JRadioButton();
 
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("NOMBRE:");
 

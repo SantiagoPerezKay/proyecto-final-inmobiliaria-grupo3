@@ -45,7 +45,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jEstado = new javax.swing.JComboBox<>();
 
-        setPreferredSize(new java.awt.Dimension(814, 603));
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
 
         jLabel1.setText("CONSULTA ALTA  BAJA MODIFICIACION");
 
@@ -197,11 +197,10 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtpalabraActionPerformed
 
     private void jbguardarcambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbguardarcambiosActionPerformed
-       
+        int fila = jtinquilinos.getSelectedRow();
        InquilinoData inquidata = new InquilinoData();
 
-        int fila = jtinquilinos.getSelectedRow();
-
+       
         Inquilino i = new Inquilino();
         
          try {

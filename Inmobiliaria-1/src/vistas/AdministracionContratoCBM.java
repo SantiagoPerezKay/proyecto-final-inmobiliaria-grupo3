@@ -91,7 +91,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jEstado = new javax.swing.JComboBox<>();
 
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("CONTRATO - CONSULTA Y MODIFICACION ");

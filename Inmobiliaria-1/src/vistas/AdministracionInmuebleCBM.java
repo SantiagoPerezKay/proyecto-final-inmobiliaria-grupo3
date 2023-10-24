@@ -55,7 +55,12 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jEstado = new javax.swing.JComboBox<>();
 
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        try {
+            setSelected(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
 
         jLabel1.setText("CONSULTA ALTA  BAJA MODIFICIACION");
 
