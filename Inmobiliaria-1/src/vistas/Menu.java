@@ -34,6 +34,7 @@ public class Menu extends javax.swing.JFrame {
         jLinquilino = new javax.swing.JLabel();
         jLinmueble = new javax.swing.JLabel();
         jLcontratos = new javax.swing.JLabel();
+        jLsalir = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -87,6 +88,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLsalir.setText(".");
+        jLsalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLsalirMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jLpropietariosLayout = new javax.swing.GroupLayout(jLpropietarios);
         jLpropietarios.setLayout(jLpropietariosLayout);
         jLpropietariosLayout.setHorizontalGroup(
@@ -97,10 +105,12 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLinquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addComponent(jLsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(191, 191, 191))
         );
         jLpropietariosLayout.setVerticalGroup(
             jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +120,8 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLinquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(921, Short.MAX_VALUE))
         );
 
@@ -356,6 +367,10 @@ public class Menu extends javax.swing.JFrame {
         Escritorio.moveToFront(administracioncontrato);      
     }//GEN-LAST:event_jLcontratosMouseClicked
 
+    private void jLsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLsalirMouseClicked
+       System.exit(0);
+    }//GEN-LAST:event_jLsalirMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -401,6 +416,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLinquilino;
     private javax.swing.JLabel jLpropietario;
     private javax.swing.JPanel jLpropietarios;
+    private javax.swing.JLabel jLsalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
