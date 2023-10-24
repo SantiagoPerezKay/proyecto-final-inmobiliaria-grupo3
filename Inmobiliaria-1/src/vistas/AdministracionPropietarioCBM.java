@@ -55,13 +55,16 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jtpalabraKeyReleased(evt);
             }
         });
-        getContentPane().add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 240, 20));
+        getContentPane().add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, 240, 30));
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("BUSCAR POR");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, 30));
 
+        jtpropietarios.setBackground(new java.awt.Color(204, 204, 204));
+        jtpropietarios.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 12)); // NOI18N
+        jtpropietarios.setForeground(new java.awt.Color(51, 51, 51));
         jtpropietarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -75,15 +78,17 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtpropietarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 528, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 528, 150));
 
+        jtrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
+        jtrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jtrestablecer.setText("RESTABLECER");
         jtrestablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtrestablecerActionPerformed(evt);
             }
         });
-        getContentPane().add(jtrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 560, -1, -1));
+        getContentPane().add(jtrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, 200, 40));
 
         jcbusqueda.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
         jcbusqueda.setForeground(new java.awt.Color(51, 51, 51));
@@ -92,55 +97,65 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jcbusquedaActionPerformed(evt);
             }
         });
-        getContentPane().add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 270, 120, 20));
+        getContentPane().add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 150, 30));
 
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
+        jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbsalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, -1, -1));
+        getContentPane().add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 580, 130, 40));
 
-        jbguardarcambios.setText("GUARAR CAMBIOS");
+        jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 24)); // NOI18N
+        jbguardarcambios.setForeground(new java.awt.Color(51, 51, 51));
+        jbguardarcambios.setText("GUARDAR CAMBIOS");
         jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbguardarcambiosActionPerformed(evt);
             }
         });
-        getContentPane().add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
+        getContentPane().add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 530, 40));
 
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("ELIMINAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 170, 40));
 
+        jOrden.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
         jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre", "Apellido", "Telefono", "Dni", "Domicilio" }));
         jOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 153, -1));
+        getContentPane().add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 170, -1));
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Ordenar lista por: ");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
+        jLabel8.setText("ORDENAR LISTA POR");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 150, -1));
 
-        jLabel9.setText("Mostrar estado :");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 330, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("MOSTRAR ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 331, -1, 20));
 
+        jEstado.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
         jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
         jEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, 76, -1));
+        getContentPane().add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(916, 330, 100, -1));
 
         jLimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/BUSCARpropietario.jpg"))); // NOI18N
         jLimagen.setText("jLabel1");
