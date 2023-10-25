@@ -130,6 +130,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 20)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
         jButton2.setText("INGRESAR INMUEBLE");
+        jButton2.setBorderPainted(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -146,6 +147,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jblimpiar.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 20)); // NOI18N
         jblimpiar.setForeground(new java.awt.Color(51, 51, 51));
         jblimpiar.setText("LIMPIAR CAMPOS");
+        jblimpiar.setBorderPainted(false);
         jblimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jblimpiarActionPerformed(evt);
@@ -157,6 +159,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 20)); // NOI18N
         jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
+        jbsalir.setBorderPainted(false);
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbsalirActionPerformed(evt);
@@ -172,7 +175,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jractivoActionPerformed(evt);
             }
         });
-        getContentPane().add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 390, -1, -1));
+        getContentPane().add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, -1));
 
         jrinactivo.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 24)); // NOI18N
         jrinactivo.setForeground(new java.awt.Color(51, 51, 51));
@@ -182,7 +185,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jrinactivoActionPerformed(evt);
             }
         });
-        getContentPane().add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 390, -1, -1));
+        getContentPane().add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABELingreso3.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
