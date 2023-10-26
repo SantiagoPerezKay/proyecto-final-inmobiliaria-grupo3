@@ -118,7 +118,7 @@ public class PropietarioData extends Conexion {
                 propietario.setEstado(rs.getBoolean("estado"));
             }
 
-            JOptionPane.showMessageDialog(null, "se obtuvo al propietario correctamente");
+            
             return propietario;
 
         } catch (SQLException ex) {

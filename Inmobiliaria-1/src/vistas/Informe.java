@@ -3,10 +3,9 @@ package vistas;
 import acceso_a_datos.InmuebleData;
 import acceso_a_datos.InquilinoData;
 import acceso_a_datos.PropietarioData;
-import inmobiliaria.entidades.Inmueble;
-import inmobiliaria.entidades.Inquilino;
-import inmobiliaria.entidades.Propietario;
+
 import javax.swing.table.DefaultTableModel;
+import inmobiliaria.entidades.*;
 
 public class Informe extends javax.swing.JInternalFrame {
 
@@ -64,6 +63,11 @@ public class Informe extends javax.swing.JInternalFrame {
         jLabel1.setText("Filtrar por:");
 
         jbimprimir.setText("Imprimir PDF");
+        jbimprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbimprimirActionPerformed(evt);
+            }
+        });
 
         jbsalir.setText("Salir");
 
@@ -71,42 +75,41 @@ public class Informe extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(144, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
+                        .addGap(150, 150, 150)
                         .addComponent(jLabel1)
                         .addGap(215, 215, 215)
                         .addComponent(jcopcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(432, 432, 432)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(255, 255, 255)
+                        .addGap(100, 100, 100)
                         .addComponent(jbimprimir)
-                        .addGap(281, 281, 281)
-                        .addComponent(jbsalir)))
-                .addContainerGap(390, Short.MAX_VALUE))
+                        .addGap(301, 301, 301)
+                        .addComponent(jbsalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(101, 101, 101))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcopcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(98, 98, 98)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbimprimir)
                     .addComponent(jbsalir))
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
 
         pack();
@@ -115,6 +118,19 @@ public class Informe extends javax.swing.JInternalFrame {
     private void jcopcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcopcionActionPerformed
         eleccionModelo((String) jcopcion.getSelectedItem());
     }//GEN-LAST:event_jcopcionActionPerformed
+
+    private void jbimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbimprimirActionPerformed
+        CrearPdf crearpdf = new CrearPdf();
+        String opcion = (String) jcopcion.getSelectedItem();
+        switch (opcion) {
+            case "propietario":
+                crearpdf.crearPdfconTablaProp(jtinforme);
+                break;
+              case "inmueble":
+                crearpdf.crearPdfconTablaInm(jtinforme);
+                break;   
+        }
+    }//GEN-LAST:event_jbimprimirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -166,15 +182,15 @@ public class Informe extends javax.swing.JInternalFrame {
 
     public void cargarCabeceraInm() {
 
-        modeloInm.addColumn("id_inmueble");
+        modeloInm.addColumn("idinmueble");
         modeloInm.addColumn("direccion");
         modeloInm.addColumn("altura");
         modeloInm.addColumn("tipo");
-        modeloInm.addColumn("superficie");
+        modeloInm.addColumn("sup");
         modeloInm.addColumn("precio");
         modeloInm.addColumn("disponibilidad");
-        modeloInm.addColumn("id_propietario");
-        modeloInm.addColumn("estado");
+        modeloInm.addColumn("nombreProp");
+     
         jtinforme.setModel(modeloInm);
     }
 
@@ -201,10 +217,13 @@ public class Informe extends javax.swing.JInternalFrame {
                 }
                 break;
             case "inmueble":
-                jtinforme.setModel(modeloInq);
+                jtinforme.setModel(modeloInm);
                 InmuebleData Inmuebledata = new InmuebleData();
+                 PropietarioData prop = new PropietarioData();
                 for (Inmueble inm : Inmuebledata.listarInmuebles()) {
-                    modeloInq.addRow(new Object[]{inm.getIdInmueble(), inm.getDireccion(), inm.getAltura(), inm.getTipo(), inm.getPrecio(), inm.getDisponibilidad(), inm.getPropietario(), inm.isEstado()});
+                    modeloInm.addRow(new Object[]{inm.getIdInmueble(), inm.getDireccion(), inm.getAltura(), inm.getTipo(),
+                        inm.getSuperficie(),inm.getPrecio(), inm.getDisponibilidad(),
+                        prop.obtenerPropietarioPorId(inm.getPropid()).getApellido()});
                 }
                 break;
         }

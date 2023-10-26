@@ -5,6 +5,17 @@ import static javafx.scene.paint.Color.color;
 
 public class Menu extends javax.swing.JFrame {
 
+    AdministracionInmueble administracioninmueble = new AdministracionInmueble();
+    AdministracionPropietario administracionpropietario = new AdministracionPropietario();
+    AdministracionContrato administracioncontrato = new AdministracionContrato();
+    AdministracionPropietarioCBM AdministracionpropietarioCBM = new AdministracionPropietarioCBM();
+    AdministracionInquilinoCBM administracionInquilinoCBM = new AdministracionInquilinoCBM();
+    AdministracionInmuebleCBM administracionInmuebleCBM = new AdministracionInmuebleCBM();
+    AdministracionContratoCBM AdministracionContratoCBM = new AdministracionContratoCBM();
+    AdministracionInquilino administracioninquilino = new AdministracionInquilino();
+   
+    
+
     public Menu() {
         initComponents();
         loadICons();
@@ -105,7 +116,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(jLsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(191, 191, 191))
         );
@@ -119,7 +130,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(921, Short.MAX_VALUE))
+                .addContainerGap(670, Short.MAX_VALUE))
         );
 
         Escritorio.setLayer(jLpropietarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -128,14 +139,11 @@ public class Menu extends javax.swing.JFrame {
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jLpropietarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLpropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLpropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLpropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
@@ -278,11 +286,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1262, Short.MAX_VALUE)
+            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
         );
 
         pack();
@@ -299,8 +307,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         AdministracionPropietario administracionpropietario = new AdministracionPropietario();
         administracionpropietario.setVisible(true);
         Escritorio.add(administracionpropietario);
@@ -309,9 +317,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionInmueble administracioninmueble = new AdministracionInmueble();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracioninmueble.setVisible(true);
         Escritorio.add(administracioninmueble);
         administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
@@ -319,9 +327,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionContrato administracioncontrato = new AdministracionContrato();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracioncontrato.setVisible(true);
         Escritorio.add(administracioncontrato);
         administracioncontrato.setLocation((Escritorio.getWidth() - administracioncontrato.getWidth()) / 2, (Escritorio.getHeight() - administracioncontrato.getHeight()) / 2);
@@ -329,9 +337,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionPropietarioCBM AdministracionpropietarioCBM = new AdministracionPropietarioCBM();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         AdministracionpropietarioCBM.setVisible(true);
         Escritorio.add(AdministracionpropietarioCBM);
         AdministracionpropietarioCBM.setLocation((Escritorio.getWidth() - AdministracionpropietarioCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionpropietarioCBM.getHeight()) / 2);
@@ -339,9 +347,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionInquilinoCBM administracionInquilinoCBM = new AdministracionInquilinoCBM();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracionInquilinoCBM.setVisible(true);
         Escritorio.add(administracionInquilinoCBM);
         administracionInquilinoCBM.setLocation((Escritorio.getWidth() - administracionInquilinoCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInquilinoCBM.getHeight()) / 2);
@@ -350,9 +358,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
 
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionInmuebleCBM administracionInmuebleCBM = new AdministracionInmuebleCBM();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         administracionInmuebleCBM.setVisible(true);
         Escritorio.add(administracionInmuebleCBM);
         administracionInmuebleCBM.setLocation((Escritorio.getWidth() - administracionInmuebleCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInmuebleCBM.getHeight()) / 2);
@@ -360,9 +367,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionContratoCBM AdministracionContratoCBM = new AdministracionContratoCBM();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         AdministracionContratoCBM.setVisible(true);
         Escritorio.add(AdministracionContratoCBM);
         AdministracionContratoCBM.setLocation((Escritorio.getWidth() - AdministracionContratoCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionContratoCBM.getHeight()) / 2);
@@ -370,9 +377,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jLpropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLpropietarioMouseClicked
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionPropietario administracionpropietario = new AdministracionPropietario();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracionpropietario.setVisible(true);
         Escritorio.add(administracionpropietario);
         administracionpropietario.setLocation((Escritorio.getWidth() - administracionpropietario.getWidth()) / 2, (Escritorio.getHeight() - administracionpropietario.getHeight()) / 2);
@@ -381,9 +388,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLpropietarioMouseClicked
 
     private void jLinquilinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinquilinoMouseClicked
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionInquilino administracioninquilino = new AdministracionInquilino();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracioninquilino.setVisible(true);
         Escritorio.add(administracioninquilino);
         administracioninquilino.setLocation((Escritorio.getWidth() - administracioninquilino.getWidth()) / 2, (Escritorio.getHeight() - administracioninquilino.getHeight()) / 2);
@@ -391,9 +398,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLinquilinoMouseClicked
 
     private void jLinmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinmuebleMouseClicked
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionInmueble administracioninmueble = new AdministracionInmueble();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracioninmueble.setVisible(true);
         Escritorio.add(administracioninmueble);
         administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
@@ -401,9 +408,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLinmuebleMouseClicked
 
     private void jLcontratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLcontratosMouseClicked
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionContrato administracioncontrato = new AdministracionContrato();
+        Escritorio.removeAll();
+        Escritorio.repaint();
+
         administracioncontrato.setVisible(true);
         Escritorio.add(administracioncontrato);
         administracioncontrato.setLocation((Escritorio.getWidth() - administracioncontrato.getWidth()) / 2, (Escritorio.getHeight() - administracioncontrato.getHeight()) / 2);
@@ -415,8 +422,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLsalirMouseClicked
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
+        Escritorio.removeAll();
+        Escritorio.repaint();
         Informe informe = new Informe();
         informe.setVisible(true);
         Escritorio.add(informe);
