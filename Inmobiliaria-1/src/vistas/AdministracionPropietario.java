@@ -16,6 +16,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import jdk.nashorn.internal.scripts.JO;
+import java.awt.Color;
 
 /**
  *
@@ -72,10 +73,13 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jButton3.setText("INGRESAR INMUEBLE");
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(1100, 600));
+        setMaximumSize(new java.awt.Dimension(1030, 600));
+        setMinimumSize(new java.awt.Dimension(1030, 600));
+        setPreferredSize(new java.awt.Dimension(1030, 600));
         getContentPane().setLayout(null);
 
         jpanelPropietario.setBackground(new java.awt.Color(255, 255, 255));
+        jpanelPropietario.setMaximumSize(new java.awt.Dimension(1030, 570));
         jpanelPropietario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
@@ -119,6 +123,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jtdomicilio.setPreferredSize(new java.awt.Dimension(10, 20));
         jpanelPropietario.add(jtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 370, 30));
 
+        jractivo.setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
         jractivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         jractivo.setForeground(new java.awt.Color(51, 51, 51));
         jractivo.setText("ACTIVO");
@@ -129,6 +134,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         });
         jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, -1));
 
+        jrinactivo.setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
         jrinactivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         jrinactivo.setForeground(new java.awt.Color(51, 51, 51));
         jrinactivo.setText("INACTIVO");
