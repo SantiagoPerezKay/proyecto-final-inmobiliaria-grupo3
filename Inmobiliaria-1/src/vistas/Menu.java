@@ -140,14 +140,14 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jMenu1.setBackground(new java.awt.Color(0, 0, 0));
-        jMenu1.setForeground(new java.awt.Color(51, 51, 51));
-        jMenu1.setText("PROPIETARIO");
+        jMenu1.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu1.setText("PROPIETARIO  ");
         jMenu1.setToolTipText("");
-        jMenu1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
-        jMenuItem1.setBackground(new java.awt.Color(0, 0, 0));
-        jMenuItem1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 16)); // NOI18N
+        jMenuItem1.setBackground(new java.awt.Color(204, 204, 204));
+        jMenuItem1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         jMenuItem1.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem1.setText("Nuevo Propietario");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +157,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem5.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 16)); // NOI18N
+        jMenuItem5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         jMenuItem5.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem5.setText("Buscar Propietario");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -169,8 +169,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Inquilino");
+        jMenu2.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu2.setText("INQUILINO  ");
+        jMenu2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
+        jMenuItem2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jMenuItem2.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem2.setText("Nuevo Inquilino");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +184,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem2);
 
+        jMenuItem6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jMenuItem6.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem6.setText("Buscar Inquilino");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,9 +196,14 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Inmuebles");
+        jMenu3.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu3.setText("INMUEBLES  ");
+        jMenu3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
-        jMenuItem3.setText("Ingresar Inmueble");
+        jMenuItem3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jMenuItem3.setForeground(new java.awt.Color(51, 51, 51));
+        jMenuItem3.setText("Nuevo Inmueble");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -199,6 +211,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
+        jMenuItem7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jMenuItem7.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem7.setText("Buscar Inmueble");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,8 +223,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Contratos");
+        jMenu4.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu4.setText("CONTRATOS  ");
+        jMenu4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
+        jMenuItem4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jMenuItem4.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem4.setText("Nuevo Contrato");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +238,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem4);
 
+        jMenuItem9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jMenuItem9.setForeground(new java.awt.Color(51, 51, 51));
         jMenuItem9.setText("Buscar Contrato");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,8 +250,12 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu6.setText("Informe");
+        jMenu6.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu6.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu6.setText("INFORMES  ");
+        jMenu6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
+        jMenuItem10.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         jMenuItem10.setText("Obtener Informes");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +266,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu5.setText("Salir");
+        jMenu5.setBackground(new java.awt.Color(51, 51, 51));
+        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu5.setText("SALIR");
+        jMenu5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -261,8 +289,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionInquilino administracioninquilino = new AdministracionInquilino();
         administracioninquilino.setVisible(true);
         Escritorio.add(administracioninquilino);
@@ -271,8 +299,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionPropietario administracionpropietario = new AdministracionPropietario();
         administracionpropietario.setVisible(true);
         Escritorio.add(administracionpropietario);
@@ -281,8 +309,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionInmueble administracioninmueble = new AdministracionInmueble();
         administracioninmueble.setVisible(true);
         Escritorio.add(administracioninmueble);
@@ -291,8 +319,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionContrato administracioncontrato = new AdministracionContrato();
         administracioncontrato.setVisible(true);
         Escritorio.add(administracioncontrato);
@@ -301,8 +329,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionPropietarioCBM AdministracionpropietarioCBM = new AdministracionPropietarioCBM();
         AdministracionpropietarioCBM.setVisible(true);
         Escritorio.add(AdministracionpropietarioCBM);
@@ -311,8 +339,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionInquilinoCBM administracionInquilinoCBM = new AdministracionInquilinoCBM();
         administracionInquilinoCBM.setVisible(true);
         Escritorio.add(administracionInquilinoCBM);
@@ -322,8 +350,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
 
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionInmuebleCBM administracionInmuebleCBM = new AdministracionInmuebleCBM();
         administracionInmuebleCBM.setVisible(true);
         Escritorio.add(administracionInmuebleCBM);
@@ -332,8 +360,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionContratoCBM AdministracionContratoCBM = new AdministracionContratoCBM();
         AdministracionContratoCBM.setVisible(true);
         Escritorio.add(AdministracionContratoCBM);
@@ -342,8 +370,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jLpropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLpropietarioMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionPropietario administracionpropietario = new AdministracionPropietario();
         administracionpropietario.setVisible(true);
         Escritorio.add(administracionpropietario);
@@ -353,8 +381,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLpropietarioMouseClicked
 
     private void jLinquilinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinquilinoMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionInquilino administracioninquilino = new AdministracionInquilino();
         administracioninquilino.setVisible(true);
         Escritorio.add(administracioninquilino);
@@ -363,8 +391,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLinquilinoMouseClicked
 
     private void jLinmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinmuebleMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionInmueble administracioninmueble = new AdministracionInmueble();
         administracioninmueble.setVisible(true);
         Escritorio.add(administracioninmueble);
@@ -373,8 +401,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLinmuebleMouseClicked
 
     private void jLcontratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLcontratosMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         AdministracionContrato administracioncontrato = new AdministracionContrato();
         administracioncontrato.setVisible(true);
         Escritorio.add(administracioncontrato);
@@ -387,8 +415,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLsalirMouseClicked
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+//        Escritorio.removeAll();
+//        Escritorio.repaint();
         Informe informe = new Informe();
         informe.setVisible(true);
         Escritorio.add(informe);

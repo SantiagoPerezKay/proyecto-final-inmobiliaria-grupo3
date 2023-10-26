@@ -32,35 +32,41 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jtpalabra = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtpropietarios = new javax.swing.JTable();
-        jtrestablecer = new javax.swing.JButton();
         jcbusqueda = new javax.swing.JComboBox<>();
-        jbsalir = new javax.swing.JButton();
-        jbguardarcambios = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jOrden = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jbguardarcambios = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jbsalir = new javax.swing.JButton();
+        jtrestablecer = new javax.swing.JButton();
         jEstado = new javax.swing.JComboBox<>();
-        jLimagen = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 1024));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(1100, 600));
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtpalabra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtpalabraKeyReleased(evt);
             }
         });
-        getContentPane().add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, 240, 30));
+        jPanel1.add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 180, 240, 30));
 
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("BUSCAR POR");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, 30));
 
         jtpropietarios.setBackground(new java.awt.Color(204, 204, 204));
         jtpropietarios.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 12)); // NOI18N
@@ -78,17 +84,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtpropietarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 528, 150));
-
-        jtrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
-        jtrestablecer.setForeground(new java.awt.Color(51, 51, 51));
-        jtrestablecer.setText("RESTABLECER");
-        jtrestablecer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtrestablecerActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, 200, 40));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 550, 150));
 
         jcbusqueda.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
         jcbusqueda.setForeground(new java.awt.Color(51, 51, 51));
@@ -97,19 +93,35 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jcbusquedaActionPerformed(evt);
             }
         });
-        getContentPane().add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 150, 30));
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 150, 30));
 
-        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
-        jbsalir.setForeground(new java.awt.Color(51, 51, 51));
-        jbsalir.setText("SALIR");
-        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+        jOrden.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jOrden.setForeground(new java.awt.Color(51, 51, 51));
+        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre", "Apellido", "Telefono", "Dni", "Domicilio" }));
+        jOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbsalirActionPerformed(evt);
+                jOrdenActionPerformed(evt);
             }
         });
-        getContentPane().add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 580, 130, 40));
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 400, 30));
 
-        jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("ORDENAR POR");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 160, -1));
+
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("MOSTRAR ");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("MOSTRAR");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 150, 40));
+
+        jbguardarcambios.setBackground(new java.awt.Color(153, 153, 153));
+        jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jbguardarcambios.setForeground(new java.awt.Color(51, 51, 51));
         jbguardarcambios.setText("GUARDAR CAMBIOS");
         jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
@@ -117,9 +129,9 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jbguardarcambiosActionPerformed(evt);
             }
         });
-        getContentPane().add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 530, 40));
+        jPanel1.add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 470, 550, 40));
 
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 22)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("ELIMINAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,40 +139,48 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 170, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 200, 40));
 
-        jOrden.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 12)); // NOI18N
-        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre", "Apellido", "Telefono", "Dni", "Domicilio" }));
-        jOrden.addActionListener(new java.awt.event.ActionListener() {
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setForeground(new java.awt.Color(51, 51, 51));
+        jbsalir.setText("SALIR");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jOrdenActionPerformed(evt);
+                jbsalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 170, -1));
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 520, 120, 40));
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("ORDENAR LISTA POR");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 150, -1));
+        jtrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jtrestablecer.setForeground(new java.awt.Color(51, 51, 51));
+        jtrestablecer.setText("RESTABLECER");
+        jtrestablecer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtrestablecerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 210, 40));
 
-        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("MOSTRAR ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 331, -1, 20));
-
-        jEstado.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jEstado.setForeground(new java.awt.Color(51, 51, 51));
         jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
         jEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(916, 330, 100, -1));
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 400, 30));
 
-        jLimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/BUSCARpropietario.jpg"))); // NOI18N
-        jLimagen.setText("jLabel1");
-        jLimagen.setPreferredSize(new java.awt.Dimension(576, 1280));
-        getContentPane().add(jLimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 470, 790));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 0, 620, 630));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/BUSCARpropietario.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 630));
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(-10, 0, 1050, 630);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -318,11 +338,14 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jEstado;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLimagen;
     private javax.swing.JComboBox<String> jOrden;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbguardarcambios;
     private javax.swing.JButton jbsalir;
