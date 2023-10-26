@@ -31,8 +31,6 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbIngresar = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
         jPFondo = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jtCuit = new javax.swing.JTextField();
@@ -49,10 +47,99 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jtNombreGarante = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jtDniGarante = new javax.swing.JTextField();
+        jbIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        setMaximumSize(new java.awt.Dimension(1060, 660));
+        setMinimumSize(new java.awt.Dimension(1080, 630));
+        setPreferredSize(new java.awt.Dimension(1060, 660));
+
+        jPFondo.setBackground(new java.awt.Color(255, 255, 255));
+        jPFondo.setMaximumSize(new java.awt.Dimension(1076, 630));
+        jPFondo.setMinimumSize(new java.awt.Dimension(1080, 670));
+        jPFondo.setPreferredSize(new java.awt.Dimension(1080, 670));
+        jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("CUIT");
+        jPFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, 30));
+
+        jtCuit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCuitActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jtCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 360, 30));
+
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("NOMBRE");
+        jPFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, 30));
+
+        jtNombre.setForeground(new java.awt.Color(51, 51, 51));
+        jPFondo.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 360, 30));
+
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("APELLIDO");
+        jPFondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, 30));
+        jPFondo.add(jtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 360, 30));
+
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("LUGAR DE TRABAJO:");
+        jPFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, -1, 30));
+
+        jtLugarTrabajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtLugarTrabajoActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jtLugarTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 270, 30));
+
+        jrb1.setText("ACTIVO ");
+        jrb1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb1ActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jrb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, -1, -1));
+
+        jrb2.setText("INACTIVO");
+        jrb2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb2ActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jrb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Garante");
+        jPFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("NOMBRE :");
+        jPFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 390, -1, 30));
+
+        jtNombreGarante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreGaranteActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jtNombreGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 188, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("DNI :");
+        jPFondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, -1, 30));
+
+        jtDniGarante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDniGaranteActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jtDniGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 430, 188, -1));
 
         jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jbIngresar.setText("INGRESAR");
@@ -61,145 +148,58 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
+        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, -1, -1));
 
-        jPFondo.setBackground(new java.awt.Color(255, 255, 255));
-        jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        jLabel7.setText("CUIT");
-        jPFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, 30));
-
-        jtCuit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtCuitActionPerformed(evt);
-            }
-        });
-        jPFondo.add(jtCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 86, 187, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("NOMBRE:");
-        jPFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 126, -1, 30));
-        jPFondo.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 134, 355, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel6.setText("A VERR");
-        jPFondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 165, -1, 30));
-        jPFondo.add(jtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 173, 355, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("LUGAR DE TRABAJO:");
-        jPFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 213, -1, 30));
-        jPFondo.add(jtLugarTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 221, 355, -1));
-
-        jrb1.setText("ACTIVO ");
-        jrb1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrb1ActionPerformed(evt);
-            }
-        });
-        jPFondo.add(jrb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 261, -1, -1));
-
-        jrb2.setText("INACTIVO");
-        jrb2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrb2ActionPerformed(evt);
-            }
-        });
-        jPFondo.add(jrb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 261, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Garante");
-        jPFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 311, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setText("NOMBRE :");
-        jPFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 344, -1, 30));
-
-        jtNombreGarante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNombreGaranteActionPerformed(evt);
-            }
-        });
-        jPFondo.add(jtNombreGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 352, 188, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("DNI :");
-        jPFondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 392, -1, 30));
-
-        jtDniGarante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtDniGaranteActionPerformed(evt);
-            }
-        });
-        jPFondo.add(jtDniGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 392, 188, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABELingreso.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABELingreso3.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 260, 460));
+        jPFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 580));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPFondo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 450));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 620, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
-                .addComponent(jbIngresar)
-                .addGap(673, 673, 673))
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 347, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122)
-                .addComponent(jbIngresar)
-                .addGap(49, 49, 49))
+                .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtCuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCuitActionPerformed
-        
-    }//GEN-LAST:event_jtCuitActionPerformed
-
     private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
-        
+
         try {
             String cuit = jtCuit.getText();
             String nombre = jtNombre.getText();
             String apellido = jtApellido.getText();
-            String lugarDeTrabajo = jtLugarTrabajo.getText(); 
+            String lugarDeTrabajo = jtLugarTrabajo.getText();
             String nombreGarante = jtNombreGarante.getText();
             String dniGarante = jtDniGarante.getText();
             boolean estado = jrb1.isSelected();
-           
+
             if (( validarCampoNumerico(jtCuit)) && (validarCampoNumerico(jtDniGarante)) && (validarCampoTexto(jtNombre)) && (validarCampoTexto(jtApellido)) && (validarCampoTexto(jtNombreGarante)) && (validarCampoTexto(jtLugarTrabajo))) {
                 //creo inquilino
-                
+
                 Inquilino inquilino = new Inquilino (cuit,nombre, apellido, lugarDeTrabajo, nombreGarante, dniGarante, estado);
                 inquiData.insertarInquilino(inquilino);
-                 
+
                 limpiarCampos();
-            } 
-               
-            
+            }
+
         } catch (NumberFormatException nfe) {
 
         }
-        
-       
-        
+
     }//GEN-LAST:event_jbIngresarActionPerformed
 
     private void jtDniGaranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDniGaranteActionPerformed
@@ -210,30 +210,37 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreGaranteActionPerformed
 
-    private void jrb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb1ActionPerformed
-          jrb1.setSelected(true);
-          jrb2.setSelected(false);
-                                          
-    }//GEN-LAST:event_jrb1ActionPerformed
-
     private void jrb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb2ActionPerformed
         jrb1.setSelected(false);
         jrb2.setSelected(true);
     }//GEN-LAST:event_jrb2ActionPerformed
 
+    private void jrb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb1ActionPerformed
+        jrb1.setSelected(true);
+        jrb2.setSelected(false);
+
+    }//GEN-LAST:event_jrb1ActionPerformed
+
+    private void jtCuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCuitActionPerformed
+
+    }//GEN-LAST:event_jtCuitActionPerformed
+
+    private void jtLugarTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtLugarTrabajoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtLugarTrabajoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPFondo;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jbIngresar;
     private javax.swing.JRadioButton jrb1;
     private javax.swing.JRadioButton jrb2;
