@@ -176,7 +176,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 0, 620, 630));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 620, 630));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/BUSCARpropietario.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");

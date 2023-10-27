@@ -30,7 +30,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jtpalabra = new javax.swing.JTextField();
         jcbusqueda = new javax.swing.JComboBox<>();
@@ -44,12 +44,23 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jEstado = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        setMaximumSize(new java.awt.Dimension(1060, 660));
+        setMinimumSize(new java.awt.Dimension(1060, 660));
+        setPreferredSize(new java.awt.Dimension(1060, 660));
 
-        jLabel1.setText("CONSULTA ALTA  BAJA MODIFICIACION");
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1080, 630));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1080, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1080, 650));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("BUSCAR POR:");
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("BUSCAR POR");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 220, 140, -1));
 
         jtpalabra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +72,12 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 jtpalabraKeyReleased(evt);
             }
         });
+        jPanel1.add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 220, 240, 30));
 
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 270, 340, 30));
+
+        jtinquilinos.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 12)); // NOI18N
+        jtinquilinos.setForeground(new java.awt.Color(51, 51, 51));
         jtinquilinos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -75,119 +91,107 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtinquilinos);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, 490, 130));
+
+        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jbrestablecer.setText("RESTABLECER");
+        jbrestablecer.setBorderPainted(false);
         jbrestablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbrestablecerActionPerformed(evt);
             }
         });
+        jPanel1.add(jbrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 570, 190, -1));
 
+        jbguardarcambios.setBackground(new java.awt.Color(153, 153, 153));
+        jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 22)); // NOI18N
+        jbguardarcambios.setForeground(new java.awt.Color(51, 51, 51));
         jbguardarcambios.setText("GUARDAR CAMBIOS");
         jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbguardarcambiosActionPerformed(evt);
             }
         });
+        jPanel1.add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 510, 490, -1));
 
+        jbeliminar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbeliminar.setForeground(new java.awt.Color(51, 51, 51));
         jbeliminar.setText("ELIMINAR");
         jbeliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbeliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 160, -1));
 
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbsalirActionPerformed(evt);
             }
         });
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 570, 120, -1));
 
+        jOrden.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 14)); // NOI18N
+        jOrden.setForeground(new java.awt.Color(51, 51, 51));
         jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Cuit", "Nombre", "Apellido" }));
         jOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jOrdenActionPerformed(evt);
             }
         });
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 310, 340, 30));
 
-        jLabel8.setText("Ordenar lista por: ");
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("ORDENAR POR");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, -1, 30));
 
-        jLabel9.setText("Mostrar estado :");
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("VER ESTADO");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 270, -1, -1));
 
+        jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jEstado.setForeground(new java.awt.Color(51, 51, 51));
         jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
         jEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jEstadoActionPerformed(evt);
             }
         });
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 220, 90, 30));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL BUSCAR INQUILINO.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setMaximumSize(new java.awt.Dimension(576, 1280));
+        jLabel3.setMinimumSize(new java.awt.Dimension(576, 1280));
+        jLabel3.setPreferredSize(new java.awt.Dimension(576, 1280));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 630));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 550, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(jbrestablecer)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jbguardarcambios)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jbeliminar)
-                                    .addGap(27, 27, 27)
-                                    .addComponent(jbsalir)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(131, 131, 131))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jtpalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(152, 152, 152))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(178, 178, 178))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1050, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtpalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbrestablecer)
-                    .addComponent(jbguardarcambios)
-                    .addComponent(jbeliminar)
-                    .addComponent(jbsalir))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jPanel1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -357,9 +361,11 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> jOrden;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbeliminar;
     private javax.swing.JButton jbguardarcambios;
