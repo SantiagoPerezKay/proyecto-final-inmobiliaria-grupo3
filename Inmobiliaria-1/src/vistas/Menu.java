@@ -13,8 +13,7 @@ public class Menu extends javax.swing.JFrame {
     AdministracionInmuebleCBM administracionInmuebleCBM = new AdministracionInmuebleCBM();
     AdministracionContratoCBM AdministracionContratoCBM = new AdministracionContratoCBM();
     AdministracionInquilino administracioninquilino = new AdministracionInquilino();
-   
-    
+    Informe informe = new Informe();
 
     public Menu() {
         initComponents();
@@ -36,11 +35,6 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         Escritorio = new javax.swing.JDesktopPane();
         jLpropietarios = new javax.swing.JPanel();
-        jLpropietario = new javax.swing.JLabel();
-        jLinquilino = new javax.swing.JLabel();
-        jLinmueble = new javax.swing.JLabel();
-        jLcontratos = new javax.swing.JLabel();
-        jLsalir = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -68,69 +62,15 @@ public class Menu extends javax.swing.JFrame {
         jLpropietarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLpropietarios.setPreferredSize(new java.awt.Dimension(1280, 1024));
 
-        jLpropietario.setText(".");
-        jLpropietario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLpropietarioMouseClicked(evt);
-            }
-        });
-
-        jLinquilino.setText(".");
-        jLinquilino.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLinquilinoMouseClicked(evt);
-            }
-        });
-
-        jLinmueble.setText(".");
-        jLinmueble.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLinmuebleMouseClicked(evt);
-            }
-        });
-
-        jLcontratos.setText(".");
-        jLcontratos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLcontratosMouseClicked(evt);
-            }
-        });
-
-        jLsalir.setText(".");
-        jLsalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLsalirMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jLpropietariosLayout = new javax.swing.GroupLayout(jLpropietarios);
         jLpropietarios.setLayout(jLpropietariosLayout);
         jLpropietariosLayout.setHorizontalGroup(
             jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLpropietariosLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(jLpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLinquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addComponent(jLsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         jLpropietariosLayout.setVerticalGroup(
             jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLpropietariosLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLpropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLinquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLinmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLcontratos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(670, Short.MAX_VALUE))
+            .addGap(0, 773, Short.MAX_VALUE)
         );
 
         Escritorio.setLayer(jLpropietarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -278,6 +218,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu5.setForeground(new java.awt.Color(255, 255, 255));
         jMenu5.setText("SALIR");
         jMenu5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -297,139 +242,136 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-//        Escritorio.removeAll();
-//        Escritorio.repaint();
-        AdministracionInquilino administracioninquilino = new AdministracionInquilino();
-        administracioninquilino.setVisible(true);
-        Escritorio.add(administracioninquilino);
-        administracioninquilino.setLocation((Escritorio.getWidth() - administracioninquilino.getWidth()) / 2, (Escritorio.getHeight() - administracioninquilino.getHeight()) / 2);
-        Escritorio.moveToFront(administracioninquilino);
+        try {
+// Escritorio.removeAll();
+            Escritorio.repaint();
+
+            administracioninquilino.setVisible(true);
+            Escritorio.add(administracioninquilino);
+            administracioninquilino.setLocation((Escritorio.getWidth() - administracioninquilino.getWidth()) / 2, (Escritorio.getHeight() - administracioninquilino.getHeight()) / 2);
+            Escritorio.moveToFront(administracioninquilino);
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(administracioninquilino);
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        AdministracionPropietario administracionpropietario = new AdministracionPropietario();
-        administracionpropietario.setVisible(true);
-        Escritorio.add(administracionpropietario);
-        administracionpropietario.setLocation((Escritorio.getWidth() - administracionpropietario.getWidth()) / 2, (Escritorio.getHeight() - administracionpropietario.getHeight()) / 2);
-        Escritorio.moveToFront(administracionpropietario);
+        try {
+            //Escritorio.removeAll();
+            Escritorio.repaint();
+            administracionpropietario.setVisible(true);
+            Escritorio.add(administracionpropietario);
+            administracionpropietario.setLocation((Escritorio.getWidth() - administracionpropietario.getWidth()) / 2, (Escritorio.getHeight() - administracionpropietario.getHeight()) / 2);
+            Escritorio.moveToFront(administracionpropietario);
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(administracionpropietario);
+        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+        try {
+//Escritorio.removeAll();
+            Escritorio.repaint();
 
-        administracioninmueble.setVisible(true);
-        Escritorio.add(administracioninmueble);
-        administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
-        Escritorio.moveToFront(administracioninmueble);        // TODO add your handling code here:
+            administracioninmueble.setVisible(true);
+            Escritorio.add(administracioninmueble);
+            administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
+            Escritorio.moveToFront(administracioninmueble); // TODO add your handling code here:
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(administracioninmueble);
+        }
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+        try {
+            //Escritorio.removeAll();
+            Escritorio.repaint();
 
-        administracioncontrato.setVisible(true);
-        Escritorio.add(administracioncontrato);
-        administracioncontrato.setLocation((Escritorio.getWidth() - administracioncontrato.getWidth()) / 2, (Escritorio.getHeight() - administracioncontrato.getHeight()) / 2);
-        Escritorio.moveToFront(administracioncontrato);        // TODO add your handling code here:
+            administracioncontrato.setVisible(true);
+            Escritorio.add(administracioncontrato);
+            administracioncontrato.setLocation((Escritorio.getWidth() - administracioncontrato.getWidth()) / 2, (Escritorio.getHeight() - administracioncontrato.getHeight()) / 2);
+            Escritorio.moveToFront(administracioncontrato);        // TODO add your handling code here:
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(administracioncontrato);
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+        try {
+// Escritorio.removeAll();
+            Escritorio.repaint();
 
-        AdministracionpropietarioCBM.setVisible(true);
-        Escritorio.add(AdministracionpropietarioCBM);
-        AdministracionpropietarioCBM.setLocation((Escritorio.getWidth() - AdministracionpropietarioCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionpropietarioCBM.getHeight()) / 2);
-        Escritorio.moveToFront(AdministracionpropietarioCBM);        // TODO add your handling code here:
+            AdministracionpropietarioCBM.setVisible(true);
+            Escritorio.add(AdministracionpropietarioCBM);
+            AdministracionpropietarioCBM.setLocation((Escritorio.getWidth() - AdministracionpropietarioCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionpropietarioCBM.getHeight()) / 2);
+            Escritorio.moveToFront(AdministracionpropietarioCBM);        // TODO add your handling code here:
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(AdministracionpropietarioCBM);
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
 
-        administracionInquilinoCBM.setVisible(true);
-        Escritorio.add(administracionInquilinoCBM);
-        administracionInquilinoCBM.setLocation((Escritorio.getWidth() - administracionInquilinoCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInquilinoCBM.getHeight()) / 2);
-        Escritorio.moveToFront(administracionInquilinoCBM);        // TODO add your handling code here:
+        try {
+//Escritorio.removeAll();
+            Escritorio.repaint();
+
+            administracionInquilinoCBM.setVisible(true);
+            Escritorio.add(administracionInquilinoCBM);
+            administracionInquilinoCBM.setLocation((Escritorio.getWidth() - administracionInquilinoCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInquilinoCBM.getHeight()) / 2);
+            Escritorio.moveToFront(administracionInquilinoCBM);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
-
+catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(administracionInquilinoCBM);
+        }
+    }
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        try {
+            //Escritorio.removeAll();
+            Escritorio.repaint();
+            administracionInmuebleCBM.setVisible(true);
+            Escritorio.add(administracionInmuebleCBM);
+            administracionInmuebleCBM.setLocation((Escritorio.getWidth() - administracionInmuebleCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInmuebleCBM.getHeight()) / 2);
+            Escritorio.moveToFront(administracionInmuebleCBM);
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(administracionInmuebleCBM);
+        }
 
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        administracionInmuebleCBM.setVisible(true);
-        Escritorio.add(administracionInmuebleCBM);
-        administracionInmuebleCBM.setLocation((Escritorio.getWidth() - administracionInmuebleCBM.getWidth()) / 2, (Escritorio.getHeight() - administracionInmuebleCBM.getHeight()) / 2);
-        Escritorio.moveToFront(administracionInmuebleCBM);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
+        try {
+// Escritorio.removeAll();
+            Escritorio.repaint();
 
-        AdministracionContratoCBM.setVisible(true);
-        Escritorio.add(AdministracionContratoCBM);
-        AdministracionContratoCBM.setLocation((Escritorio.getWidth() - AdministracionContratoCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionContratoCBM.getHeight()) / 2);
-        Escritorio.moveToFront(AdministracionContratoCBM);
+            AdministracionContratoCBM.setVisible(true);
+            Escritorio.add(AdministracionContratoCBM);
+            AdministracionContratoCBM.setLocation((Escritorio.getWidth() - AdministracionContratoCBM.getWidth()) / 2, (Escritorio.getHeight() - AdministracionContratoCBM.getHeight()) / 2);
+            Escritorio.moveToFront(AdministracionContratoCBM);
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(AdministracionContratoCBM);
+        }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jLpropietarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLpropietarioMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
-
-        administracionpropietario.setVisible(true);
-        Escritorio.add(administracionpropietario);
-        administracionpropietario.setLocation((Escritorio.getWidth() - administracionpropietario.getWidth()) / 2, (Escritorio.getHeight() - administracionpropietario.getHeight()) / 2);
-        Escritorio.moveToFront(administracionpropietario);
-
-    }//GEN-LAST:event_jLpropietarioMouseClicked
-
-    private void jLinquilinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinquilinoMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
-
-        administracioninquilino.setVisible(true);
-        Escritorio.add(administracioninquilino);
-        administracioninquilino.setLocation((Escritorio.getWidth() - administracioninquilino.getWidth()) / 2, (Escritorio.getHeight() - administracioninquilino.getHeight()) / 2);
-        Escritorio.moveToFront(administracioninquilino);
-    }//GEN-LAST:event_jLinquilinoMouseClicked
-
-    private void jLinmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLinmuebleMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
-
-        administracioninmueble.setVisible(true);
-        Escritorio.add(administracioninmueble);
-        administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);
-        Escritorio.moveToFront(administracioninmueble);
-    }//GEN-LAST:event_jLinmuebleMouseClicked
-
-    private void jLcontratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLcontratosMouseClicked
-        Escritorio.removeAll();
-        Escritorio.repaint();
-
-        administracioncontrato.setVisible(true);
-        Escritorio.add(administracioncontrato);
-        administracioncontrato.setLocation((Escritorio.getWidth() - administracioncontrato.getWidth()) / 2, (Escritorio.getHeight() - administracioncontrato.getHeight()) / 2);
-        Escritorio.moveToFront(administracioncontrato);
-    }//GEN-LAST:event_jLcontratosMouseClicked
-
-    private void jLsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLsalirMouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jLsalirMouseClicked
-
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        Informe informe = new Informe();
-        informe.setVisible(true);
-        Escritorio.add(informe);
-        informe.setLocation((Escritorio.getWidth() - informe.getWidth()) / 2, (Escritorio.getHeight() - informe.getHeight()) / 2);
-        Escritorio.moveToFront(informe);
+        try {
+            // Escritorio.removeAll();
+            Escritorio.repaint();
+
+            informe.setVisible(true);
+            Escritorio.add(informe);
+            informe.setLocation((Escritorio.getWidth() - informe.getWidth()) / 2, (Escritorio.getHeight() - informe.getHeight()) / 2);
+            Escritorio.moveToFront(informe);
+        } catch (IllegalArgumentException e) {
+            Escritorio.moveToFront(informe);
+        }
+
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     public static void main(String args[]) {
 
@@ -442,12 +384,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Escritorio;
-    private javax.swing.JLabel jLcontratos;
-    private javax.swing.JLabel jLinmueble;
-    private javax.swing.JLabel jLinquilino;
-    private javax.swing.JLabel jLpropietario;
     private javax.swing.JPanel jLpropietarios;
-    private javax.swing.JLabel jLsalir;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

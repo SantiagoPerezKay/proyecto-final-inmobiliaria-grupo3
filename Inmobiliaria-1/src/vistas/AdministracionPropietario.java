@@ -123,7 +123,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jtdomicilio.setPreferredSize(new java.awt.Dimension(10, 20));
         jpanelPropietario.add(jtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 370, 30));
 
-        jractivo.setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
+        jractivo.setBackground(new java.awt.Color(255, 255, 255));
         jractivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         jractivo.setForeground(new java.awt.Color(51, 51, 51));
         jractivo.setText("ACTIVO");
@@ -132,9 +132,9 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jractivoActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, -1, -1));
+        jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, -1, -1));
 
-        jrinactivo.setBackground(new Color(1.0f,1.0f,1.0f,0.0f));
+        jrinactivo.setBackground(new java.awt.Color(255, 255, 255));
         jrinactivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
         jrinactivo.setForeground(new java.awt.Color(51, 51, 51));
         jrinactivo.setText("INACTIVO");
@@ -143,7 +143,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jrinactivoActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, -1, -1));
+        jpanelPropietario.add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 24)); // NOI18N
@@ -155,7 +155,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 500, -1));
+        jpanelPropietario.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 500, -1));
 
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
@@ -203,7 +203,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jpanelPropietario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 590, 570));
+        jpanelPropietario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 600, 540));
 
         getContentPane().add(jpanelPropietario);
         jpanelPropietario.setBounds(-10, 0, 1050, 570);

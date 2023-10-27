@@ -76,6 +76,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         alertaingresar = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTinquilino = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1280, 1024));
         try {
@@ -163,6 +164,13 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jTinquilino.setShowHorizontalLines(false);
         jScrollPane4.setViewportView(jTinquilino);
 
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,7 +211,9 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                         .addComponent(alertainquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(337, 337, 337)
-                        .addComponent(jbalta))
+                        .addComponent(jbalta)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(248, 248, 248)
                         .addComponent(alertaingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -251,7 +261,9 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 .addGap(11, 11, 11)
                 .addComponent(alertainquilino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
-                .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(6, 6, 6)
                 .addComponent(alertaingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -350,6 +362,10 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         modelo2.addRow(new Object[]{inq.getIdInquilino(), inq.getLugarTrabajo(), inq.getNombreGarante(), inq.getDniGarante(),inq.isEstado()});
     }//GEN-LAST:event_jComboinquilinosActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void rellenarInmuebles() {
         InmuebleData inmData = new InmuebleData();
 
@@ -416,6 +432,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     private javax.swing.JTextField alertaingresar;
     private javax.swing.JTextField alertainmueble;
     private javax.swing.JTextField alertainquilino;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<Inmueble> jComboinmuebles;
     private javax.swing.JComboBox<Inquilino> jComboinquilinos;
     private javax.swing.JLabel jLabel2;

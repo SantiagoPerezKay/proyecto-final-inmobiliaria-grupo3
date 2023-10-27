@@ -113,7 +113,7 @@ public class InquilinoData extends Conexion {
                 
             }
             
-            JOptionPane.showMessageDialog(null, "se obtuvo al inquilino correctamente");
+          
             return inqui;
             
         } catch (SQLException ex) {

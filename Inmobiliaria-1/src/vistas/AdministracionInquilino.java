@@ -32,6 +32,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPFondo = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jtCuit = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -60,6 +61,14 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jPFondo.setMinimumSize(new java.awt.Dimension(1080, 670));
         jPFondo.setPreferredSize(new java.awt.Dimension(1080, 670));
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 510, 200, 40));
 
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
@@ -160,7 +169,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 480, -1));
+        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 260, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/NUEVO INQUILINO.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -171,7 +180,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 660, 580));
+        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 640, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -240,8 +249,13 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtLugarTrabajoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

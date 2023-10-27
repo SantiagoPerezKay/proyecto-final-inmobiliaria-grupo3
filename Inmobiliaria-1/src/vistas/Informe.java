@@ -1,5 +1,6 @@
 package vistas;
 
+import acceso_a_datos.ContratoData;
 import acceso_a_datos.InmuebleData;
 import acceso_a_datos.InquilinoData;
 import acceso_a_datos.PropietarioData;
@@ -13,6 +14,11 @@ public class Informe extends javax.swing.JInternalFrame {
     DefaultTableModel modeloInq = new DefaultTableModel();
     DefaultTableModel modeloInm = new DefaultTableModel();
     DefaultTableModel modeloP = new DefaultTableModel();
+
+    ContratoData contratodata = new ContratoData();
+    InmuebleData Inmuebledata = new InmuebleData();
+    PropietarioData propietariodata = new PropietarioData();
+    InquilinoData Inquilinodata = new InquilinoData();
 
     public Informe() {
         initComponents();
@@ -34,11 +40,16 @@ public class Informe extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jbimprimir = new javax.swing.JButton();
         jbsalir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jcordenar = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(1280, 1024));
+        getContentPane().setLayout(null);
 
         label1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         label1.setText("INFORME");
+        getContentPane().add(label1);
+        label1.setBounds(510, 100, 272, 32);
 
         jcopcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "contrato", "propietario", "inquilino", "inmueble" }));
         jcopcion.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +57,8 @@ public class Informe extends javax.swing.JInternalFrame {
                 jcopcionActionPerformed(evt);
             }
         });
+        getContentPane().add(jcopcion);
+        jcopcion.setBounds(720, 130, 92, 26);
 
         jtinforme.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,7 +73,12 @@ public class Informe extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtinforme);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(230, 360, 753, 310);
+
         jLabel1.setText("Filtrar por:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(360, 140, 58, 16);
 
         jbimprimir.setText("Imprimir PDF");
         jbimprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -68,55 +86,32 @@ public class Informe extends javax.swing.JInternalFrame {
                 jbimprimirActionPerformed(evt);
             }
         });
+        getContentPane().add(jbimprimir);
+        jbimprimir.setBounds(340, 710, 110, 30);
 
         jbsalir.setText("Salir");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbsalir);
+        jbsalir.setBounds(740, 710, 90, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel1)
-                        .addGap(215, 215, 215)
-                        .addComponent(jcopcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jbimprimir)
-                        .addGap(301, 301, 301)
-                        .addComponent(jbsalir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(101, 101, 101))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcopcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbimprimir)
-                    .addComponent(jbsalir))
-                .addGap(48, 48, 48))
-        );
+        jLabel2.setText("ordenar por:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(360, 180, 80, 20);
+
+        getContentPane().add(jcordenar);
+        jcordenar.setBounds(720, 180, 90, 26);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcopcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcopcionActionPerformed
         eleccionModelo((String) jcopcion.getSelectedItem());
+
+
     }//GEN-LAST:event_jcopcionActionPerformed
 
     private void jbimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbimprimirActionPerformed
@@ -126,19 +121,31 @@ public class Informe extends javax.swing.JInternalFrame {
             case "propietario":
                 crearpdf.crearPdfconTablaProp(jtinforme);
                 break;
-              case "inmueble":
+            case "inmueble":
                 crearpdf.crearPdfconTablaInm(jtinforme);
-                break;   
+                break;
+            case "inquilino":
+                crearpdf.crearPdfconTablaInq(jtinforme);
+                break;
+            case "contrato":
+                crearpdf.crearPdfconTablaCont(jtinforme);
+                break;
         }
     }//GEN-LAST:event_jbimprimirActionPerformed
+
+    private void jbsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbsalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbimprimir;
     private javax.swing.JButton jbsalir;
     private javax.swing.JComboBox<String> jcopcion;
+    private javax.swing.JComboBox<Object> jcordenar;
     private javax.swing.JTable jtinforme;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
@@ -190,7 +197,7 @@ public class Informe extends javax.swing.JInternalFrame {
         modeloInm.addColumn("precio");
         modeloInm.addColumn("disponibilidad");
         modeloInm.addColumn("nombreProp");
-     
+
         jtinforme.setModel(modeloInm);
     }
 
@@ -204,26 +211,34 @@ public class Informe extends javax.swing.JInternalFrame {
         switch (opcion) {
             case "propietario":
                 jtinforme.setModel(modeloP);
-                PropietarioData propietariodata = new PropietarioData();
+
                 for (Propietario prop : propietariodata.listarPropietarios()) {
                     modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                 }
                 break;
             case "inquilino":
                 jtinforme.setModel(modeloInq);
-                InquilinoData Inquilinodata = new InquilinoData();
+
                 for (Inquilino inq : Inquilinodata.listarInquilinos()) {
                     modeloInq.addRow(new Object[]{inq.getIdInquilino(), inq.getCuit(), inq.getNombre(), inq.getApellido(), inq.getLugarTrabajo(), inq.getNombreGarante(), inq.getDniGarante(), inq.isEstado()});
                 }
                 break;
             case "inmueble":
                 jtinforme.setModel(modeloInm);
-                InmuebleData Inmuebledata = new InmuebleData();
-                 PropietarioData prop = new PropietarioData();
+
                 for (Inmueble inm : Inmuebledata.listarInmuebles()) {
                     modeloInm.addRow(new Object[]{inm.getIdInmueble(), inm.getDireccion(), inm.getAltura(), inm.getTipo(),
-                        inm.getSuperficie(),inm.getPrecio(), inm.getDisponibilidad(),
-                        prop.obtenerPropietarioPorId(inm.getPropid()).getApellido()});
+                        inm.getSuperficie(), inm.getPrecio(), inm.getDisponibilidad(),
+                        propietariodata.obtenerPropietarioPorId(inm.getPropid()).getApellido()});
+                }
+                break;
+
+            case "contrato":
+                jtinforme.setModel(modeloC);
+
+                for (Contrato con : contratodata.listarContratos()) {
+                    modeloC.addRow(new Object[]{con.getIdContrato(), con.getFechaInicio(), con.getFechaFin(), con.isEstado(),
+                        con.getMonto(), con.getIdimb(), Inquilinodata.obtenerInquilinoPorId(con.getIdinq()).getApellido()});
                 }
                 break;
         }
