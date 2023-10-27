@@ -2,8 +2,44 @@ package vistas;
 
 import java.awt.Color;
 import static javafx.scene.paint.Color.color;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Menu extends javax.swing.JFrame {
+    
+    public static void main(String[] args) {
+        
+//        try{
+//            UIManager.setLookAndFeel(new FlatLightLaf);
+//        }
+    try {
+      for(javax.swing.UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()){
+          if("Windows".equals(info.getName())){
+              javax.swing.UIManager.setLookAndFeel(info.getClassName());
+              break;
+
+          }
+      }
+    } 
+    catch (UnsupportedLookAndFeelException e) {
+       // handle exception
+    }
+    catch (ClassNotFoundException e) {
+       // handle exception
+    }
+    catch (InstantiationException e) {
+       // handle exception
+    }
+    catch (IllegalAccessException e) {
+       // handle exception
+    }
+      
+    java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Menu().setVisible(true);
+            }
+        });
+}
 
     AdministracionInmueble administracioninmueble = new AdministracionInmueble();
     AdministracionPropietario administracionpropietario = new AdministracionPropietario();
@@ -70,7 +106,7 @@ public class Menu extends javax.swing.JFrame {
         );
         jLpropietariosLayout.setVerticalGroup(
             jLpropietariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 773, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
         );
 
         Escritorio.setLayer(jLpropietarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -83,13 +119,15 @@ public class Menu extends javax.swing.JFrame {
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLpropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+            .addComponent(jLpropietarios, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(102, 102, 102));
 
         jMenu1.setBackground(new java.awt.Color(102, 102, 102));
-        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu1.setForeground(new java.awt.Color(102, 102, 102));
         jMenu1.setText("PROPIETARIO  ");
         jMenu1.setToolTipText("");
         jMenu1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -117,8 +155,8 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setBackground(new java.awt.Color(51, 51, 51));
-        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu2.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu2.setForeground(new java.awt.Color(102, 102, 102));
         jMenu2.setText("INQUILINO  ");
         jMenu2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
@@ -145,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setBackground(new java.awt.Color(51, 51, 51));
-        jMenu3.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu3.setForeground(new java.awt.Color(102, 102, 102));
         jMenu3.setText("INMUEBLES  ");
         jMenu3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
@@ -172,7 +210,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setBackground(new java.awt.Color(51, 51, 51));
-        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu4.setForeground(new java.awt.Color(102, 102, 102));
         jMenu4.setText("CONTRATOS  ");
         jMenu4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
@@ -198,8 +236,8 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu6.setBackground(new java.awt.Color(51, 51, 51));
-        jMenu6.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu6.setBackground(new java.awt.Color(102, 102, 102));
+        jMenu6.setForeground(new java.awt.Color(102, 102, 102));
         jMenu6.setText("INFORMES  ");
         jMenu6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
 
@@ -215,7 +253,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu6);
 
         jMenu5.setBackground(new java.awt.Color(51, 51, 51));
-        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu5.setForeground(new java.awt.Color(102, 102, 102));
         jMenu5.setText("SALIR");
         jMenu5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -235,7 +273,7 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 775, Short.MAX_VALUE)
         );
 
         pack();
@@ -373,14 +411,7 @@ catch (IllegalArgumentException e) {
         System.exit(0);
     }//GEN-LAST:event_jMenu5MouseClicked
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane Escritorio;

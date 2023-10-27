@@ -73,55 +73,55 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jButton3.setText("INGRESAR INMUEBLE");
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1030, 600));
-        setMinimumSize(new java.awt.Dimension(1030, 600));
-        setPreferredSize(new java.awt.Dimension(1030, 600));
+        setMaximumSize(new java.awt.Dimension(1060, 600));
+        setMinimumSize(new java.awt.Dimension(1060, 600));
+        setPreferredSize(new java.awt.Dimension(1060, 600));
         getContentPane().setLayout(null);
 
         jpanelPropietario.setBackground(new java.awt.Color(255, 255, 255));
-        jpanelPropietario.setMaximumSize(new java.awt.Dimension(1030, 570));
+        jpanelPropietario.setMaximumSize(new java.awt.Dimension(1060, 570));
         jpanelPropietario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("NOMBRE ");
-        jpanelPropietario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, 30));
+        jpanelPropietario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, 30));
 
-        jLabel3.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("APELLIDO ");
-        jpanelPropietario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, 30));
+        jpanelPropietario.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, 30));
 
-        jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("TELEFONO ");
-        jpanelPropietario.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, 20));
+        jpanelPropietario.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, 30));
 
-        jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("DNI ");
-        jpanelPropietario.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 60, 30));
+        jpanelPropietario.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 60, 30));
 
         jtdni.setPreferredSize(new java.awt.Dimension(10, 20));
-        jpanelPropietario.add(jtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 170, 370, 30));
+        jpanelPropietario.add(jtdni, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 370, 30));
 
-        jLabel7.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("DOMICILIO ");
-        jpanelPropietario.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, -1, 30));
+        jpanelPropietario.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, -1, 30));
 
         jtnombre.setToolTipText("");
         jtnombre.setPreferredSize(new java.awt.Dimension(10, 20));
-        jpanelPropietario.add(jtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 370, 30));
+        jpanelPropietario.add(jtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 370, 30));
 
         jtapellido.setPreferredSize(new java.awt.Dimension(10, 20));
-        jpanelPropietario.add(jtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 370, 30));
+        jpanelPropietario.add(jtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 370, 30));
 
         jttelefono.setPreferredSize(new java.awt.Dimension(10, 20));
-        jpanelPropietario.add(jttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, 370, 30));
+        jpanelPropietario.add(jttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 370, 30));
 
         jtdomicilio.setPreferredSize(new java.awt.Dimension(10, 20));
-        jpanelPropietario.add(jtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 370, 30));
+        jpanelPropietario.add(jtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 370, 30));
 
         jractivo.setBackground(new java.awt.Color(255, 255, 255));
         jractivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
@@ -132,7 +132,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jractivoActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, -1, -1));
+        jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
 
         jrinactivo.setBackground(new java.awt.Color(255, 255, 255));
         jrinactivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
@@ -143,7 +143,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jrinactivoActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, -1, -1));
+        jpanelPropietario.add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 380, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 24)); // NOI18N
@@ -155,7 +155,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 500, -1));
+        jpanelPropietario.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 500, -1));
 
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
@@ -171,7 +171,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 500, -1, -1));
+        jpanelPropietario.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 500, -1, -1));
 
         jblimpiar.setBackground(new java.awt.Color(255, 255, 255));
         jblimpiar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -183,7 +183,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jblimpiarActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jblimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, -1, -1));
+        jpanelPropietario.add(jblimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, -1));
 
         jbsalir.setBackground(new java.awt.Color(255, 255, 255));
         jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -195,18 +195,18 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jbsalirActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 110, -1));
+        jpanelPropietario.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 500, 110, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/INGRESO PROPIETARIO.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jpanelPropietario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 570));
+        jpanelPropietario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -20, 460, 590));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jpanelPropietario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 600, 540));
+        jpanelPropietario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 620, 570));
 
         getContentPane().add(jpanelPropietario);
-        jpanelPropietario.setBounds(-10, 0, 1050, 570);
+        jpanelPropietario.setBounds(0, 0, 1050, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
