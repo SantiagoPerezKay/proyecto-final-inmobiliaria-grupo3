@@ -124,7 +124,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jpanelPropietario.add(jtdomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 370, 30));
 
         jractivo.setBackground(new java.awt.Color(255, 255, 255));
-        jractivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jractivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         jractivo.setForeground(new java.awt.Color(51, 51, 51));
         jractivo.setText("ACTIVO");
         jractivo.addActionListener(new java.awt.event.ActionListener() {
@@ -132,10 +132,10 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
                 jractivoActionPerformed(evt);
             }
         });
-        jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
+        jpanelPropietario.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 380, -1, -1));
 
         jrinactivo.setBackground(new java.awt.Color(255, 255, 255));
-        jrinactivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 24)); // NOI18N
+        jrinactivo.setFont(new java.awt.Font("Franklin Gothic Demi", 0, 18)); // NOI18N
         jrinactivo.setForeground(new java.awt.Color(51, 51, 51));
         jrinactivo.setText("INACTIVO");
         jrinactivo.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         jpanelPropietario.add(jrinactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 380, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("REGISTRAR");
         jButton1.setBorderPainted(false);

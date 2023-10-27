@@ -42,6 +42,7 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jblimpiar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jtdireccion = new javax.swing.JTextField();
@@ -54,15 +55,14 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jtprecio = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jbalta = new javax.swing.JButton();
         jractivo = new javax.swing.JRadioButton();
         jrinactivo = new javax.swing.JRadioButton();
         jcpropietario = new javax.swing.JComboBox<>();
         jttipo = new javax.swing.JComboBox<>();
         jtdisponibilidad = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1040, 610));
         setMinimumSize(new java.awt.Dimension(1040, 610));
@@ -74,14 +74,26 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 590));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jblimpiar.setBackground(new java.awt.Color(255, 255, 255));
+        jblimpiar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jblimpiar.setForeground(new java.awt.Color(51, 51, 51));
+        jblimpiar.setText("LIMPIAR CAMPOS");
+        jblimpiar.setBorderPainted(false);
+        jblimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jblimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 520, 260, -1));
+
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 500, 230, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, 240, 30));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
@@ -151,13 +163,8 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jLabel11.setText("PROPIETARIO");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, 30));
 
-        jLabel12.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel12.setText("ESTADO");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, 30));
-
         jbalta.setBackground(new java.awt.Color(153, 153, 153));
-        jbalta.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 22)); // NOI18N
+        jbalta.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbalta.setForeground(new java.awt.Color(51, 51, 51));
         jbalta.setText("REGISTRAR");
         jbalta.addActionListener(new java.awt.event.ActionListener() {
@@ -165,10 +172,10 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
                 jbaltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jbalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, 250, 40));
+        jPanel1.add(jbalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, 510, -1));
 
         jractivo.setBackground(new java.awt.Color(255, 255, 255));
-        jractivo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jractivo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jractivo.setForeground(new java.awt.Color(51, 51, 51));
         jractivo.setText("ACTIVO");
         jractivo.addActionListener(new java.awt.event.ActionListener() {
@@ -176,10 +183,10 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
                 jractivoActionPerformed(evt);
             }
         });
-        jPanel1.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 100, -1));
+        jPanel1.add(jractivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 100, -1));
 
         jrinactivo.setBackground(new java.awt.Color(255, 255, 255));
-        jrinactivo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jrinactivo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jrinactivo.setForeground(new java.awt.Color(51, 51, 51));
         jrinactivo.setText("INACTIVO");
         jrinactivo.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +209,10 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jtdisponibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "disponible", "no disponible" }));
         jPanel1.add(jtdisponibilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 320, 30));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, -20, 650, 600));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/NUEVO INMUEBLE.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(576, 1280));
@@ -209,10 +220,6 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         jLabel1.setPreferredSize(new java.awt.Dimension(576, 1280));
         jLabel1.setRequestFocusEnabled(false);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, 490, 630));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 650, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -297,6 +304,10 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jblimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimpiarActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_jblimpiarActionPerformed
     //metodos validadores de numeros
     public boolean validarCampoNumerico(JTextField textfield) {
         if (textfield.getText().isEmpty()) {
@@ -333,7 +344,6 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -342,6 +352,7 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbalta;
+    private javax.swing.JButton jblimpiar;
     private javax.swing.JComboBox<Propietario> jcpropietario;
     private javax.swing.JRadioButton jractivo;
     private javax.swing.JRadioButton jrinactivo;

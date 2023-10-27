@@ -70,12 +70,12 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jtpalabraKeyReleased(evt);
             }
         });
-        jPanel1.add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, 240, 30));
+        jPanel1.add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 190, 240, 30));
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("BUSCAR POR");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, -1, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, -1, 30));
 
         jtpropietarios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jtpropietarios.setForeground(new java.awt.Color(51, 51, 51));
@@ -98,7 +98,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
             jtpropietarios.getColumnModel().getColumn(0).setMaxWidth(20);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 580, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 580, 180));
 
         jcbusqueda.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jcbusqueda.setForeground(new java.awt.Color(51, 51, 51));
@@ -107,7 +107,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jcbusquedaActionPerformed(evt);
             }
         });
-        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 150, 30));
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 150, 30));
 
         jOrden.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jOrden.setForeground(new java.awt.Color(51, 51, 51));
@@ -117,25 +117,25 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jOrdenActionPerformed(evt);
             }
         });
-        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 400, 30));
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, 100, 30));
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("ORDENAR POR");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 160, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 100, 30));
 
         jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("MOSTRAR ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 360, -1, 20));
 
-        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("MOSTRAR");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 150, 40));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 70, 30));
 
         jbguardarcambios.setBackground(new java.awt.Color(153, 153, 153));
-        jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
+        jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbguardarcambios.setForeground(new java.awt.Color(51, 51, 51));
         jbguardarcambios.setText("GUARDAR CAMBIOS");
         jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +145,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 550, 40));
 
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("ELIMINAR");
         jButton1.setBorderPainted(false);
@@ -154,9 +154,9 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 550, 200, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, 180, 30));
 
-        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
         jbsalir.setBorderPainted(false);
@@ -165,9 +165,9 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jbsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 550, 120, 40));
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 560, 160, 30));
 
-        jtrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jtrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jtrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jtrestablecer.setText("RESTABLECER");
         jtrestablecer.setBorder(null);
@@ -177,7 +177,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jtrestablecerActionPerformed(evt);
             }
         });
-        jPanel1.add(jtrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 210, 40));
+        jPanel1.add(jtrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, 190, 30));
 
         jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jEstado.setForeground(new java.awt.Color(51, 51, 51));
@@ -187,7 +187,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
                 jEstadoActionPerformed(evt);
             }
         });
-        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 400, 30));
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 250, 100, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");

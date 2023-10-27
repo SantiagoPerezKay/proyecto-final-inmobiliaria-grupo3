@@ -7,6 +7,11 @@ import acceso_a_datos.PropietarioData;
 
 import javax.swing.table.DefaultTableModel;
 import inmobiliaria.entidades.*;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
 
 public class Informe extends javax.swing.JInternalFrame {
 
@@ -33,7 +38,6 @@ public class Informe extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label1 = new java.awt.Label();
         jcopcion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtinforme = new javax.swing.JTable();
@@ -46,11 +50,7 @@ public class Informe extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(1280, 1024));
         getContentPane().setLayout(null);
 
-        label1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        label1.setText("INFORME");
-        getContentPane().add(label1);
-        label1.setBounds(510, 100, 272, 32);
-
+        jcopcion.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jcopcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "contrato", "propietario", "inquilino", "inmueble" }));
         jcopcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +58,7 @@ public class Informe extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jcopcion);
-        jcopcion.setBounds(720, 130, 92, 26);
+        jcopcion.setBounds(720, 130, 92, 22);
 
         jtinforme.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -76,10 +76,12 @@ public class Informe extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(230, 360, 753, 310);
 
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setText("Filtrar por:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(360, 140, 58, 16);
+        jLabel1.setBounds(360, 140, 140, 28);
 
+        jbimprimir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbimprimir.setText("Imprimir PDF");
         jbimprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +89,9 @@ public class Informe extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jbimprimir);
-        jbimprimir.setBounds(340, 710, 110, 30);
+        jbimprimir.setBounds(460, 700, 250, 30);
 
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbsalir.setText("Salir");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,14 +99,16 @@ public class Informe extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jbsalir);
-        jbsalir.setBounds(740, 710, 90, 30);
+        jbsalir.setBounds(560, 740, 90, 30);
 
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel2.setText("ordenar por:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(360, 180, 80, 20);
+        jLabel2.setBounds(360, 180, 170, 20);
 
+        jcordenar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         getContentPane().add(jcordenar);
-        jcordenar.setBounds(720, 180, 90, 26);
+        jcordenar.setBounds(720, 180, 90, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,10 +152,16 @@ public class Informe extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jcopcion;
     private javax.swing.JComboBox<Object> jcordenar;
     private javax.swing.JTable jtinforme;
-    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 
     public void cargarCabeceraC() {
+        JTableHeader headerimn = jtinforme.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
 
         modeloC.addColumn("id_contrato");
         modeloC.addColumn("fecha_inicio");
@@ -161,9 +172,29 @@ public class Informe extends javax.swing.JInternalFrame {
         modeloC.addColumn("id_inquilino");
         jtinforme.setModel(modeloC);
     }
+    
+    public void centrarTexto(){
+       
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+
+        centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        for (int i = 0; i < modeloP.getColumnCount(); i++) {
+            jtinforme.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+        for (int i = 0; i < modeloC.getColumnCount(); i++) {
+            jtinforme.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+    }
 
     public void cargarCabeceraP() {
-
+        JTableHeader headerimn = jtinforme.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
+        
         modeloP.addColumn("id_propietario");
         modeloP.addColumn("nombre");
         modeloP.addColumn("apellido");

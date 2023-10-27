@@ -50,6 +50,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jtDniGarante = new javax.swing.JTextField();
         jbIngresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jblimpiar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1030, 618));
@@ -62,7 +63,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jPFondo.setPreferredSize(new java.awt.Dimension(1080, 670));
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton1.setText("SALIR");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +71,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPFondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 200, -1));
+        jPFondo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 240, -1));
 
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
@@ -118,7 +119,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jrb1ActionPerformed(evt);
             }
         });
-        jPFondo.add(jrb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 110, -1));
+        jPFondo.add(jrb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 110, -1));
 
         jrb2.setBackground(new java.awt.Color(255, 255, 255));
         jrb2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
@@ -128,37 +129,37 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jrb2ActionPerformed(evt);
             }
         });
-        jPFondo.add(jrb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, 110, -1));
+        jPFondo.add(jrb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 110, -1));
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 22)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("DATOS DEL GARANTE:");
-        jPFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, -1, -1));
+        jPFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("NOMBRE ");
-        jPFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, -1, 30));
+        jPFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, -1, 30));
 
         jtNombreGarante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtNombreGaranteActionPerformed(evt);
             }
         });
-        jPFondo.add(jtNombreGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, 360, 30));
+        jPFondo.add(jtNombreGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 360, 30));
 
         jLabel10.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("DNI ");
-        jPFondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, -1, 30));
+        jPFondo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, -1, 30));
 
         jtDniGarante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtDniGaranteActionPerformed(evt);
             }
         });
-        jPFondo.add(jtDniGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 460, 360, 30));
+        jPFondo.add(jtDniGarante, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 360, 30));
 
         jbIngresar.setBackground(new java.awt.Color(153, 153, 153));
         jbIngresar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
@@ -171,7 +172,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 520, 260, -1));
+        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, 470, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/NUEVO INQUILINO.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -179,6 +180,18 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jLabel1.setMinimumSize(new java.awt.Dimension(576, 1280));
         jLabel1.setPreferredSize(new java.awt.Dimension(576, 1280));
         jPFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, 510, 660));
+
+        jblimpiar.setBackground(new java.awt.Color(255, 255, 255));
+        jblimpiar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jblimpiar.setForeground(new java.awt.Color(51, 51, 51));
+        jblimpiar.setText("LIMPIAR CAMPOS");
+        jblimpiar.setBorderPainted(false);
+        jblimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimpiarActionPerformed(evt);
+            }
+        });
+        jPFondo.add(jblimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 220, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -255,6 +268,10 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jblimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimpiarActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_jblimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -269,6 +286,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPFondo;
     private javax.swing.JButton jbIngresar;
+    private javax.swing.JButton jblimpiar;
     private javax.swing.JRadioButton jrb1;
     private javax.swing.JRadioButton jrb2;
     private javax.swing.JTextField jtApellido;

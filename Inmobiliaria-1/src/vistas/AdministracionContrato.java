@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
@@ -57,8 +59,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -77,6 +77,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTinquilino = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jbrestablecer = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1280, 1024));
         try {
@@ -85,21 +86,19 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             e1.printStackTrace();
         }
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("ALTA DE CONTRATO");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel5.setText("FECHA INICIO :");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel6.setText("FECHA FIN :");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel7.setText("INMUEBLE :");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel8.setText("INQUILINO :");
 
+        jComboinmuebles.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jComboinmuebles.setSelectedItem(-1);
         jComboinmuebles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,13 +106,14 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             }
         });
 
+        jComboinquilinos.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jComboinquilinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboinquilinosActionPerformed(evt);
             }
         });
 
-        jbalta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jbalta.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbalta.setText("INGRESAR");
         jbalta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,10 +164,19 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jTinquilino.setShowHorizontalLines(false);
         jScrollPane4.setViewportView(jTinquilino);
 
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jbrestablecer.setText("RESTABLECER");
+        jbrestablecer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbrestablecerActionPerformed(evt);
             }
         });
 
@@ -177,12 +186,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(jLabel5)
@@ -210,31 +213,29 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                         .addGap(256, 256, 256)
                         .addComponent(alertainquilino, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(337, 337, 337)
-                        .addComponent(jbalta)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(alertaingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addGap(10, 10, 10)
-                                .addComponent(jComboinquilinos, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(92, 92, 92))
+                                .addComponent(jComboinquilinos, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jbalta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbrestablecer)
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(alertaingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(138, 138, 138))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel2)
-                .addGap(6, 6, 6)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(120, 120, 120)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfechainicio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,7 +250,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                         .addGap(3, 3, 3)
                         .addComponent(jComboinmuebles, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alertainmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
@@ -257,15 +258,20 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboinquilinos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(alertainquilino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(6, 6, 6)
-                .addComponent(alertaingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(alertaingresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jbalta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jbrestablecer)
+                            .addComponent(jButton1)))))
         );
 
         jtfechainicio.addPropertyChangeListener(new PropertyChangeListener() {
@@ -366,6 +372,14 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
      dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
+
+        jComboinmuebles.setSelectedIndex(-1);
+        jComboinquilinos.setSelectedIndex(-1);
+        jtfechainicio.setDate(null);
+        jtfechafin.setDate(null);
+    }//GEN-LAST:event_jbrestablecerActionPerformed
+
     public void rellenarInmuebles() {
         InmuebleData inmData = new InmuebleData();
 
@@ -388,9 +402,13 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     }
 
     public void cargarCabeceraInm() {
-        JTableHeader headerimn = jTinmueble.getTableHeader();
+         JTableHeader headerimn = jTinmueble.getTableHeader();
         DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         modelo.addColumn("Id");
         modelo.addColumn("Tipo");
@@ -403,9 +421,13 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     }
     
      public void cargarCabeceraInq() {
-        JTableHeader headerinq = jTinquilino.getTableHeader();
-        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerinq.getDefaultRenderer();
+         JTableHeader headerimn = jTinquilino.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
         headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         modelo2.addColumn("Id");
         modelo2.addColumn("Trabajo");
@@ -414,7 +436,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         modelo2.addColumn("Estado");
         jTinquilino.setModel(modelo2);
     }
-    
 
     private void borrarFila() {
         int f = jTinmueble.getRowCount() - 1;
@@ -435,17 +456,16 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<Inmueble> jComboinmuebles;
     private javax.swing.JComboBox<Inquilino> jComboinquilinos;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTinmueble;
     private javax.swing.JTable jTinquilino;
     private javax.swing.JButton jbalta;
+    private javax.swing.JButton jbrestablecer;
     private com.toedter.calendar.JDateChooser jtfechafin;
     private com.toedter.calendar.JDateChooser jtfechainicio;
     // End of variables declaration//GEN-END:variables
