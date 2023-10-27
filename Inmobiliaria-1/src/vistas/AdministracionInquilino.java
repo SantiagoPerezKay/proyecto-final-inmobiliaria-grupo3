@@ -51,9 +51,9 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(1060, 660));
-        setMinimumSize(new java.awt.Dimension(1080, 630));
-        setPreferredSize(new java.awt.Dimension(1060, 660));
+        setMaximumSize(new java.awt.Dimension(1030, 600));
+        setMinimumSize(new java.awt.Dimension(1030, 600));
+        setPreferredSize(new java.awt.Dimension(1030, 600));
 
         jPFondo.setBackground(new java.awt.Color(255, 255, 255));
         jPFondo.setMaximumSize(new java.awt.Dimension(1076, 630));
@@ -122,7 +122,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 22)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("DATOS DEL GARANTE");
+        jLabel3.setText("DATOS DEL GARANTE:");
         jPFondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
@@ -171,7 +171,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 550, 580));
+        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 570, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,9 +181,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
