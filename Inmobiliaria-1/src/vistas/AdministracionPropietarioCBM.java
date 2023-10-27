@@ -72,7 +72,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jLabel2.setText("BUSCAR POR");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, 30));
 
-        jtpropietarios.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 12)); // NOI18N
+        jtpropietarios.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 12)); // NOI18N
         jtpropietarios.setForeground(new java.awt.Color(51, 51, 51));
         jtpropietarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,6 +137,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("ELIMINAR");
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -147,6 +148,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
+        jbsalir.setBorderPainted(false);
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbsalirActionPerformed(evt);
@@ -157,6 +159,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
         jtrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jtrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jtrestablecer.setText("RESTABLECER");
+        jtrestablecer.setBorderPainted(false);
         jtrestablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtrestablecerActionPerformed(evt);
@@ -176,7 +179,7 @@ public class AdministracionPropietarioCBM extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 620, 630));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 590, 630));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/BUSCARpropietario.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");

@@ -160,26 +160,24 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
                 jbIngresarActionPerformed(evt);
             }
         });
-        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 500, -1, -1));
+        jPFondo.add(jbIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL BUSCAR INQUILINO.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/NUEVO INQUILINO.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(576, 1280));
         jLabel1.setMinimumSize(new java.awt.Dimension(576, 1280));
         jLabel1.setPreferredSize(new java.awt.Dimension(576, 1280));
-        jPFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 510, 630));
+        jPFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 510, 580));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, 620, 580));
+        jPFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 550, 580));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1027, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
