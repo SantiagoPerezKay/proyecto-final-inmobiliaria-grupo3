@@ -203,7 +203,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jpanelPropietario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 570, 570));
+        jpanelPropietario.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 590, 570));
 
         getContentPane().add(jpanelPropietario);
         jpanelPropietario.setBounds(-10, 0, 1050, 570);
