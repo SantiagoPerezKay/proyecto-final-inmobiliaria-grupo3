@@ -197,7 +197,7 @@ public class AdministracionPropietario extends javax.swing.JInternalFrame {
         });
         jpanelPropietario.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 110, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/BUSCARpropietario.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/INGRESO PROPIETARIO.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         jpanelPropietario.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 570));
 
