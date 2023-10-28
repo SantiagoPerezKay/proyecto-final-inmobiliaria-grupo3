@@ -82,7 +82,8 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
         jPanel1.add(jtpalabra, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, 240, 30));
 
         jcbusqueda.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 90, 30));
+        jcbusqueda.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, 90, 30));
 
         jtinquilinos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jtinquilinos.setForeground(new java.awt.Color(51, 51, 51));
@@ -151,14 +152,14 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 jOrdenActionPerformed(evt);
             }
         });
-        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 90, 30));
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, 90, 30));
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("ORDENAR POR");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, -1, 30));
 
-        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("VER ESTADO");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, -1, 30));

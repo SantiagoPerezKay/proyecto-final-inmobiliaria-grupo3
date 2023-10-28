@@ -61,6 +61,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jcbusqueda = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -89,11 +90,23 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jEstado = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        setMaximumSize(new java.awt.Dimension(1030, 700));
+        setMinimumSize(new java.awt.Dimension(1030, 700));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1030, 700));
 
-        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        jLabel3.setText("BUSCAR POR:");
+        jPanel1.setMaximumSize(new java.awt.Dimension(1030, 610));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1030, 610));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1030, 610));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("BUSCAR POR");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
 
         jcbusqueda.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jcbusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inquilino", "Inmueble" }));
@@ -102,6 +115,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jcbusquedaActionPerformed(evt);
             }
         });
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 190, 150, -1));
 
         jContratos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,270 +130,57 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jContratos);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 550, 90));
+
         jCopciones.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jCopciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCopcionesActionPerformed(evt);
             }
         });
+        jPanel1.add(jCopciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 260, -1));
 
-        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbsalirActionPerformed(evt);
             }
         });
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 620, 120, -1));
 
-        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jbrestablecer.setText("RESTABLECER");
         jbrestablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbrestablecerActionPerformed(evt);
             }
         });
+        jPanel1.add(jbrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 620, 240, -1));
 
+        jbguardarcambios.setBackground(new java.awt.Color(153, 153, 153));
         jbguardarcambios.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbguardarcambios.setForeground(new java.awt.Color(51, 51, 51));
         jbguardarcambios.setText("GUARDAR CAMBIOS");
         jbguardarcambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbguardarcambiosActionPerformed(evt);
             }
         });
+        jPanel1.add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570, 550, -1));
 
-        jbeliminar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jbeliminar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbeliminar.setForeground(new java.awt.Color(51, 51, 51));
         jbeliminar.setText("ELIMINAR");
         jbeliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbeliminarActionPerformed(evt);
             }
         });
-
-        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jLabel4.setText("Desde :");
-
-        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jLabel5.setText("Hasta :");
-
-        jRfecha.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
-        jRfecha.setText("FECHA");
-        jRfecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRfechaActionPerformed(evt);
-            }
-        });
-
-        jRmonto.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
-        jRmonto.setText("MONTO");
-
-        jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jLabel6.setText("Min :");
-
-        jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jLabel7.setText("Max :");
-
-        jtminimo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jtminimo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtminimoKeyReleased(evt);
-            }
-        });
-
-        jtmaximo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jtmaximo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtmaximoKeyReleased(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jButton1.setText("APLICAR FILTROS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        alertafechas.setBorder(null);
-
-        alertamonto.setBorder(null);
-
-        alertas.setBackground(new java.awt.Color(240, 240, 240));
-        alertas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        alertas.setBorder(null);
-        alertas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alertasActionPerformed(evt);
-            }
-        });
-
-        alertas2.setBackground(new java.awt.Color(240, 240, 240));
-        alertas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        alertas2.setBorder(null);
-
-        jOrden.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Fecha inicio", "Fecha fin", "Monto" }));
-        jOrden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jOrdenActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jLabel8.setText("Ordenar lista por: ");
-
-        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jLabel9.setText("Mostrar estado :");
-
-        jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
-        jEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jEstadoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(309, 309, 309)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRfecha)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRmonto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtdesde, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtminimo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(12, 12, 12)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jthasta, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtmaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(alertafechas)
-                            .addComponent(alertamonto, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(265, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(9, 9, 9)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(alertas2, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(alertas, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jbguardarcambios)
-                                            .addGap(178, 178, 178)))
-                                    .addGap(121, 121, 121))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(141, 141, 141)
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel9)
-                            .addGap(18, 18, 18)
-                            .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbrestablecer)
-                        .addGap(44, 44, 44)
-                        .addComponent(jbeliminar)
-                        .addGap(34, 34, 34)
-                        .addComponent(jbsalir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(305, 305, 305))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jcbusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCopciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jtdesde, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
-                                .addComponent(jRfecha)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRmonto)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtminimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jthasta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtmaximo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(alertafechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(alertamonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(alertas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(alertas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbguardarcambios)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jbrestablecer)
-                        .addComponent(jbeliminar))
-                    .addComponent(jbsalir))
-                .addGap(237, 237, 237))
-        );
-
+        jPanel1.add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 620, 170, -1));
+        jPanel1.add(jtdesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 240, 190, 27));
         jtdesde.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
@@ -394,6 +195,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 }
             }
         });
+        jPanel1.add(jthasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 240, 180, 27));
         jthasta.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
@@ -408,6 +210,141 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 }
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jLabel4.setText("Desde :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, 30));
+
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jLabel5.setText("Hasta :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, -1, 27));
+
+        jRfecha.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jRfecha.setText("FECHA");
+        jRfecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRfechaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, -1));
+
+        jRmonto.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
+        jRmonto.setText("MONTO");
+        jPanel1.add(jRmonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jLabel6.setText("Min :");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jLabel7.setText("Max: ");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 280, -1, -1));
+
+        jtminimo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jtminimo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtminimoKeyReleased(evt);
+            }
+        });
+        jPanel1.add(jtminimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 120, -1));
+
+        jtmaximo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jtmaximo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtmaximoKeyReleased(evt);
+            }
+        });
+        jPanel1.add(jtmaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, 110, -1));
+
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jButton1.setText("APLICAR FILTROS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 150, -1));
+
+        alertafechas.setBorder(null);
+        jPanel1.add(alertafechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 495, -1));
+
+        alertamonto.setBorder(null);
+        alertamonto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alertamontoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(alertamonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 495, -1));
+
+        alertas.setBackground(new java.awt.Color(240, 240, 240));
+        alertas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        alertas.setBorder(null);
+        alertas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alertasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(alertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 415, -1));
+
+        alertas2.setBackground(new java.awt.Color(240, 240, 240));
+        alertas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        alertas2.setBorder(null);
+        jPanel1.add(alertas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 416, -1));
+
+        jOrden.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Fecha inicio", "Fecha fin", "Monto" }));
+        jOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jOrdenActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 153, -1));
+
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("ORDENAR POR ");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("ESTADO");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 380, -1, -1));
+
+        jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
+        jEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEstadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 120, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL BUSCAR CONTRATO.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(576, 1280));
+        jLabel1.setMinimumSize(new java.awt.Dimension(576, 1280));
+        jLabel1.setPreferredSize(new java.awt.Dimension(576, 1280));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -20, 500, 720));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, -80, 650, 780));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 2, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -851,6 +788,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private void alertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alertasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_alertasActionPerformed
+
+    private void alertamontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alertamontoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alertamontoActionPerformed
     
     private void ordenarTabla(){
         String eleccion = (String) jOrden.getSelectedItem();
@@ -956,6 +897,8 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private javax.swing.JTable jContratos;
     private javax.swing.JComboBox<Object> jCopciones;
     private javax.swing.JComboBox<String> jEstado;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -964,6 +907,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> jOrden;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRfecha;
     private javax.swing.JRadioButton jRmonto;
     private javax.swing.JScrollPane jScrollPane1;

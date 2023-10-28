@@ -38,17 +38,32 @@ public class Informe extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jcopcion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtinforme = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jbimprimir = new javax.swing.JButton();
         jbsalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jcordenar = new javax.swing.JComboBox<>();
+        jtinforme = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1280, 1024));
+        setMaximumSize(new java.awt.Dimension(1040, 450));
+        setMinimumSize(new java.awt.Dimension(1040, 450));
+        setName(""); // NOI18N
+        setOpaque(true);
+        setPreferredSize(new java.awt.Dimension(1040, 450));
+        setRequestFocusEnabled(false);
+        setVerifyInputWhenFocusTarget(false);
         getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1050, 590));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1050, 590));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1050, 590));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jcopcion.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jcopcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "contrato", "propietario", "inquilino", "inmueble" }));
@@ -57,9 +72,43 @@ public class Informe extends javax.swing.JInternalFrame {
                 jcopcionActionPerformed(evt);
             }
         });
-        getContentPane().add(jcopcion);
-        jcopcion.setBounds(720, 130, 92, 22);
+        jPanel1.add(jcopcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 270, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 18, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("FILTRAR POR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
+
+        jbimprimir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbimprimir.setForeground(new java.awt.Color(51, 51, 51));
+        jbimprimir.setText("Imprimir PDF");
+        jbimprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbimprimirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 340, 310, 40));
+
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setForeground(new java.awt.Color(51, 51, 51));
+        jbsalir.setText("SALIR");
+        jbsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbsalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 340, 130, 40));
+
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("ORDENAR POR");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
+
+        jcordenar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jPanel1.add(jcordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 142, 270, 30));
+
+        jtinforme.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtinforme.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -71,44 +120,21 @@ public class Informe extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtinforme);
+        jPanel1.add(jtinforme, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 450, 90));
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(230, 360, 753, 310);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL INFORME.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setMaximumSize(new java.awt.Dimension(576, 1280));
+        jLabel3.setMinimumSize(new java.awt.Dimension(576, 1280));
+        jLabel3.setPreferredSize(new java.awt.Dimension(576, 1280));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, 490, 530));
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
-        jLabel1.setText("Filtrar por:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(360, 140, 140, 28);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -20, 670, 600));
 
-        jbimprimir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
-        jbimprimir.setText("Imprimir PDF");
-        jbimprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbimprimirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbimprimir);
-        jbimprimir.setBounds(460, 700, 250, 30);
-
-        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
-        jbsalir.setText("Salir");
-        jbsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbsalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jbsalir);
-        jbsalir.setBounds(560, 740, 90, 30);
-
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
-        jLabel2.setText("ordenar por:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(360, 180, 170, 20);
-
-        jcordenar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        getContentPane().add(jcordenar);
-        jcordenar.setBounds(720, 180, 90, 22);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1058, 450);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -146,6 +172,9 @@ public class Informe extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbimprimir;
     private javax.swing.JButton jbsalir;

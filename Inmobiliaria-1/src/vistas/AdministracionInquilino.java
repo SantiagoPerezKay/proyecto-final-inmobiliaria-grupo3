@@ -64,6 +64,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("SALIR");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +114,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
 
         jrb1.setBackground(new java.awt.Color(255, 255, 255));
         jrb1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jrb1.setForeground(new java.awt.Color(51, 51, 51));
         jrb1.setText("ACTIVO ");
         jrb1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +125,7 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
 
         jrb2.setBackground(new java.awt.Color(255, 255, 255));
         jrb2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        jrb2.setForeground(new java.awt.Color(51, 51, 51));
         jrb2.setText("INACTIVO");
         jrb2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
