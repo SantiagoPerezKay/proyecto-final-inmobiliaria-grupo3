@@ -105,7 +105,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jbaltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jbalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, 220, 30));
+        jPanel1.add(jbalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 590, 390, 30));
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
@@ -113,6 +113,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, -1, 30));
 
         alertafechas.setEditable(false);
+        alertafechas.setBackground(new java.awt.Color(255, 255, 255));
         alertafechas.setBorder(null);
         jPanel1.add(alertafechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(542, 270, 450, -1));
 
@@ -186,13 +187,12 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             }
         });
 
-        alertaingresar.setBackground(new java.awt.Color(240, 240, 240));
         alertaingresar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         alertaingresar.setForeground(new java.awt.Color(51, 51, 51));
         alertaingresar.setBorder(null);
         jPanel1.add(alertaingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, 310, -1));
 
-        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jbrestablecer.setText("RESTABLECER");
         jbrestablecer.setBorderPainted(false);
@@ -201,9 +201,9 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jbrestablecerActionPerformed(evt);
             }
         });
-        jPanel1.add(jbrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 600, 220, 30));
+        jPanel1.add(jbrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 630, 190, 30));
 
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("SALIR");
         jButton1.setBorderPainted(false);
@@ -212,20 +212,18 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 600, 100, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 630, 190, 30));
 
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("INQUILINO");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, 30));
 
-        alertainmueble.setBackground(new java.awt.Color(240, 240, 240));
         alertainmueble.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         alertainmueble.setForeground(new java.awt.Color(51, 51, 51));
         alertainmueble.setBorder(null);
         jPanel1.add(alertainmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 460, -1));
 
-        alertainquilino.setBackground(new java.awt.Color(240, 240, 240));
         alertainquilino.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         alertainquilino.setForeground(new java.awt.Color(51, 51, 51));
         alertainquilino.setBorder(null);

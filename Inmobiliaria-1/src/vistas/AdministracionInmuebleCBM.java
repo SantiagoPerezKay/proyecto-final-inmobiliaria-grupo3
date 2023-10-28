@@ -166,17 +166,17 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
                 jOrdenActionPerformed(evt);
             }
         });
-        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 170, 30));
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 100, 20));
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("ORDENAR POR");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, 20));
 
-        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("ESTADO");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 230, -1, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, -1, 20));
 
         jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
@@ -185,7 +185,7 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
                 jEstadoActionPerformed(evt);
             }
         });
-        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 230, 110, 30));
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 250, 110, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL BUSCAR INMUEBLE.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -202,7 +202,7 @@ public class AdministracionInmuebleCBM extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1058, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

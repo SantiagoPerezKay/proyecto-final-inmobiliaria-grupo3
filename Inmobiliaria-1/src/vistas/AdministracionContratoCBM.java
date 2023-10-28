@@ -115,7 +115,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jcbusquedaActionPerformed(evt);
             }
         });
-        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 190, 150, -1));
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 190, 90, -1));
 
         jContratos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,7 +130,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jContratos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 550, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 550, 120));
 
         jCopciones.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jCopciones.addActionListener(new java.awt.event.ActionListener() {
@@ -138,9 +138,9 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jCopcionesActionPerformed(evt);
             }
         });
-        jPanel1.add(jCopciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 260, -1));
+        jPanel1.add(jCopciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 320, -1));
 
-        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +150,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 620, 120, -1));
 
-        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbrestablecer.setForeground(new java.awt.Color(51, 51, 51));
         jbrestablecer.setText("RESTABLECER");
         jbrestablecer.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +171,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jbguardarcambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570, 550, -1));
 
-        jbeliminar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbeliminar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbeliminar.setForeground(new java.awt.Color(51, 51, 51));
         jbeliminar.setText("ELIMINAR");
         jbeliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +180,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 620, 170, -1));
-        jPanel1.add(jtdesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 240, 190, 27));
+        jPanel1.add(jtdesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 240, 110, 27));
         jtdesde.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
@@ -195,7 +195,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 }
             }
         });
-        jPanel1.add(jthasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 240, 180, 27));
+        jPanel1.add(jthasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 240, 110, 27));
         jthasta.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
@@ -217,7 +217,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel5.setText("Hasta :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 240, -1, 27));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, -1, 27));
 
         jRfecha.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 16)); // NOI18N
         jRfecha.setText("FECHA");
@@ -234,7 +234,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel6.setText("Min :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel7.setText("Max: ");
@@ -246,7 +246,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jtminimoKeyReleased(evt);
             }
         });
-        jPanel1.add(jtminimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 120, -1));
+        jPanel1.add(jtminimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 110, -1));
 
         jtmaximo.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jtmaximo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -254,7 +254,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jtmaximoKeyReleased(evt);
             }
         });
-        jPanel1.add(jtmaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 280, 110, -1));
+        jPanel1.add(jtmaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 280, 110, -1));
 
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jButton1.setText("APLICAR FILTROS");
@@ -263,10 +263,10 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 280, 150, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 260, 150, -1));
 
         alertafechas.setBorder(null);
-        jPanel1.add(alertafechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 495, -1));
+        jPanel1.add(alertafechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, 495, -1));
 
         alertamonto.setBorder(null);
         alertamonto.addActionListener(new java.awt.event.ActionListener() {
@@ -276,7 +276,6 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         });
         jPanel1.add(alertamonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 495, -1));
 
-        alertas.setBackground(new java.awt.Color(240, 240, 240));
         alertas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         alertas.setBorder(null);
         alertas.addActionListener(new java.awt.event.ActionListener() {
@@ -284,9 +283,8 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 alertasActionPerformed(evt);
             }
         });
-        jPanel1.add(alertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 415, -1));
+        jPanel1.add(alertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, 415, -1));
 
-        alertas2.setBackground(new java.awt.Color(240, 240, 240));
         alertas2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         alertas2.setBorder(null);
         jPanel1.add(alertas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 416, -1));
@@ -298,17 +296,17 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jOrdenActionPerformed(evt);
             }
         });
-        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 153, -1));
+        jPanel1.add(jOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 90, -1));
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("ORDENAR POR ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, -1, 20));
 
-        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("ESTADO");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 380, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 360, -1, 20));
 
         jEstado.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activo", "Inactivo" }));
@@ -317,7 +315,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
                 jEstadoActionPerformed(evt);
             }
         });
-        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 120, -1));
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, 120, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL BUSCAR CONTRATO.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -342,7 +340,7 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 2, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
