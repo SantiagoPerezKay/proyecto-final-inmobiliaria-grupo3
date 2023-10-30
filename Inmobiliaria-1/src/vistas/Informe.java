@@ -40,13 +40,13 @@ public class Informe extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jcopcion = new javax.swing.JComboBox<>();
+        jtinforme = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLabel1 = new javax.swing.JLabel();
         jbimprimir = new javax.swing.JButton();
         jbsalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jcordenar = new javax.swing.JComboBox<>();
-        jtinforme = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -73,6 +73,20 @@ public class Informe extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jcopcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 270, 30));
+
+        jtinforme.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jtinforme.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jPanel1.add(jtinforme, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 450, 90));
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 18, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
@@ -107,20 +121,6 @@ public class Informe extends javax.swing.JInternalFrame {
 
         jcordenar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jPanel1.add(jcordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 142, 270, 30));
-
-        jtinforme.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jtinforme.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jPanel1.add(jtinforme, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 450, 90));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL INFORME.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -184,13 +184,13 @@ public class Informe extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public void cargarCabeceraC() {
-        JTableHeader headerimn = jtinforme.getTableHeader();
-        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
-        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        headerimn.setOpaque(false);
-        headerimn.setBackground(Color.GRAY);
-        headerimn.setForeground(Color.WHITE);
-        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
+//        JTableHeader headerimn = jtinforme.getTableHeader();
+//        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+//        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+//        headerimn.setOpaque(false);
+//        headerimn.setBackground(Color.GRAY);
+//        headerimn.setForeground(Color.WHITE);
+//        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
 
         modeloC.addColumn("id_contrato");
         modeloC.addColumn("fecha_inicio");
@@ -216,13 +216,13 @@ public class Informe extends javax.swing.JInternalFrame {
     }
 
     public void cargarCabeceraP() {
-        JTableHeader headerimn = jtinforme.getTableHeader();
-        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
-        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        headerimn.setOpaque(false);
-        headerimn.setBackground(Color.GRAY);
-        headerimn.setForeground(Color.WHITE);
-        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
+//        JTableHeader headerimn = jtinforme.getTableHeader();
+//        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+//        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+//        headerimn.setOpaque(false);
+//        headerimn.setBackground(Color.GRAY);
+//        headerimn.setForeground(Color.WHITE);
+//        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         modeloP.addColumn("id_propietario");
         modeloP.addColumn("nombre");
