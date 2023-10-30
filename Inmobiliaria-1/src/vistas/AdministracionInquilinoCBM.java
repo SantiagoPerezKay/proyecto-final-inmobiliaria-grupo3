@@ -83,7 +83,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
 
         jcbusqueda.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jcbusqueda.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 90, 30));
+        jPanel1.add(jcbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 90, 30));
 
         jtinquilinos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jtinquilinos.setForeground(new java.awt.Color(51, 51, 51));
@@ -172,7 +172,7 @@ public class AdministracionInquilinoCBM extends javax.swing.JInternalFrame {
                 jEstadoActionPerformed(evt);
             }
         });
-        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 90, 30));
+        jPanel1.add(jEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 260, 140, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL BUSCAR INQUILINO.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");

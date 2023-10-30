@@ -316,13 +316,14 @@ public class AdministracionInquilino extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "No pueden haber campos vacios.");
             textfield.requestFocus();
             return false;
-        } else if (!textfield.getText().matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
+      } else if (!textfield.getText().matches("^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ'\\s]+$")) {
             JOptionPane.showMessageDialog(null, "El campo solo puede contener letras.");
             textfield.setText("");
             textfield.requestFocus();
             return false;
         }
         return true;
+    
     }
        
          public boolean validarCampoNumerico(JTextField textfield) {

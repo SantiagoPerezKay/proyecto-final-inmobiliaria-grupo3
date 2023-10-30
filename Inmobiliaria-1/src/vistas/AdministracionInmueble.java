@@ -338,6 +338,7 @@ public class AdministracionInmueble extends javax.swing.JInternalFrame {
         }
         return true;
     }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
