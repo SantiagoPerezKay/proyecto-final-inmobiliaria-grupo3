@@ -40,8 +40,8 @@ public class Informe extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jcopcion = new javax.swing.JComboBox<>();
-        jtinforme = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
+        jtinforme = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jbimprimir = new javax.swing.JButton();
         jbsalir = new javax.swing.JButton();
@@ -50,19 +50,19 @@ public class Informe extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(1040, 450));
-        setMinimumSize(new java.awt.Dimension(1040, 450));
+        setMaximumSize(new java.awt.Dimension(1060, 660));
+        setMinimumSize(new java.awt.Dimension(1060, 660));
         setName(""); // NOI18N
         setOpaque(true);
-        setPreferredSize(new java.awt.Dimension(1040, 450));
+        setPreferredSize(new java.awt.Dimension(1060, 660));
         setRequestFocusEnabled(false);
         setVerifyInputWhenFocusTarget(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1050, 590));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1050, 590));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1050, 590));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1060, 660));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1060, 660));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1060, 660));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jcopcion.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
@@ -72,7 +72,7 @@ public class Informe extends javax.swing.JInternalFrame {
                 jcopcionActionPerformed(evt);
             }
         });
-        jPanel1.add(jcopcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 270, 30));
+        jPanel1.add(jcopcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, 270, 30));
 
         jtinforme.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtinforme.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,25 +86,26 @@ public class Informe extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jPanel1.add(jtinforme, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 450, 90));
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 18, -1, -1));
+        jScrollPane1.setViewportView(jtinforme);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 570, 200));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("FILTRAR POR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
 
         jbimprimir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbimprimir.setForeground(new java.awt.Color(51, 51, 51));
-        jbimprimir.setText("Imprimir PDF");
+        jbimprimir.setText("IMPRIMIR PDF");
         jbimprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbimprimirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 340, 310, 40));
+        jPanel1.add(jbimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, 310, 40));
 
-        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
+        jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbsalir.setForeground(new java.awt.Color(51, 51, 51));
         jbsalir.setText("SALIR");
         jbsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -112,29 +113,28 @@ public class Informe extends javax.swing.JInternalFrame {
                 jbsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 340, 130, 40));
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 130, 40));
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("ORDENAR POR");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
 
         jcordenar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jPanel1.add(jcordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 142, 270, 30));
+        jPanel1.add(jcordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 270, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL INFORME.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setMaximumSize(new java.awt.Dimension(576, 1280));
         jLabel3.setMinimumSize(new java.awt.Dimension(576, 1280));
         jLabel3.setPreferredSize(new java.awt.Dimension(576, 1280));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, 490, 530));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, 490, 660));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -20, 670, 600));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -20, 680, 650));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1058, 450);
+        jPanel1.setBounds(0, 0, 1058, 640);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,13 +184,13 @@ public class Informe extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     public void cargarCabeceraC() {
-//        JTableHeader headerimn = jtinforme.getTableHeader();
-//        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
-//        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-//        headerimn.setOpaque(false);
-//        headerimn.setBackground(Color.GRAY);
-//        headerimn.setForeground(Color.WHITE);
-//        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
+        JTableHeader headerimn = jtinforme.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
 
         modeloC.addColumn("id_contrato");
         modeloC.addColumn("fecha_inicio");
@@ -201,28 +201,15 @@ public class Informe extends javax.swing.JInternalFrame {
         modeloC.addColumn("id_inquilino");
         jtinforme.setModel(modeloC);
     }
-    
-    public void centrarTexto(){
-       
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-
-        centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int i = 0; i < modeloP.getColumnCount(); i++) {
-            jtinforme.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-        }
-        for (int i = 0; i < modeloC.getColumnCount(); i++) {
-            jtinforme.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-        }
-    }
 
     public void cargarCabeceraP() {
-//        JTableHeader headerimn = jtinforme.getTableHeader();
-//        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
-//        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
-//        headerimn.setOpaque(false);
-//        headerimn.setBackground(Color.GRAY);
-//        headerimn.setForeground(Color.WHITE);
-//        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
+        JTableHeader headerimn = jtinforme.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
         
         modeloP.addColumn("id_propietario");
         modeloP.addColumn("nombre");
@@ -235,6 +222,13 @@ public class Informe extends javax.swing.JInternalFrame {
     }
 
     public void cargarCabeceraInq() {
+        JTableHeader headerimn = jtinforme.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
 
         modeloInq.addColumn("id_inquilino");
         modeloInq.addColumn("cuit");
@@ -248,6 +242,13 @@ public class Informe extends javax.swing.JInternalFrame {
     }
 
     public void cargarCabeceraInm() {
+        JTableHeader headerimn = jtinforme.getTableHeader();
+        DefaultTableCellRenderer headerRenderer = (DefaultTableCellRenderer) headerimn.getDefaultRenderer();
+        headerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+        headerimn.setOpaque(false);
+        headerimn.setBackground(Color.GRAY);
+        headerimn.setForeground(Color.WHITE);
+        headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
 
         modeloInm.addColumn("idinmueble");
         modeloInm.addColumn("direccion");
@@ -260,6 +261,7 @@ public class Informe extends javax.swing.JInternalFrame {
 
         jtinforme.setModel(modeloInm);
     }
+    
 
     public void eleccionModelo(String opcion) {
         // Limpia los datos del modelo en lugar de configurar la cabecera cada vez
