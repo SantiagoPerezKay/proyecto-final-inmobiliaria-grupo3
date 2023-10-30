@@ -574,6 +574,52 @@ public class ContratoData extends Conexion {
         }
         return contratos;
     }
+    public ArrayList<Contrato> ordenarX(String x) {
+    ArrayList<Contrato> contratos = new ArrayList<>();
+
+    switch (x) {
+        case "Id":
+            x = "id_contrato";
+            break;
+        case "Fecha inicio":
+            x = "fecha_inicio";
+            break;
+        case "Fecha fin":
+            x = "fecha_fin";
+            break;
+        case "Monto":
+            x = "monto";
+            break;
+    }
+
+    try {
+        String sql = "SELECT * FROM contrato ORDER BY lower(" + x + ") ASC";
+
+        Statement ps = con.createStatement();
+        ResultSet rs = ps.executeQuery(sql);
+
+        while (rs.next()) {
+            Contrato contrato = new Contrato();
+
+            Inquilino inq = buscarInquilino(rs.getInt("id_inquilino"));
+            Inmueble imb = buscarInmueble(rs.getInt("id_inmueble"));
+
+            contrato.setIdContrato(rs.getInt("id_contrato"));
+            contrato.setFechaInicio(rs.getDate("fecha_inicio").toLocalDate());
+            contrato.setFechaFin(rs.getDate("fecha_fin").toLocalDate());
+            contrato.setMonto(rs.getInt("monto"));
+            contrato.setEstado(rs.getBoolean("estado"));
+            contrato.setIdimb(imb.getIdInmueble());
+            contrato.setIdinq(inq.getIdInquilino());
+            contratos.add(contrato);
+        }
+
+        ps.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "ocurrio un error" + e.getMessage());
+    }
+    return contratos;
+}
 
     public ArrayList<Contrato> MostrarEstado(String x) {
         ArrayList<Contrato> contratos = new ArrayList<>();

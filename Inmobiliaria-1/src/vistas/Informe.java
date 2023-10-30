@@ -45,15 +45,14 @@ public class Informe extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jbimprimir = new javax.swing.JButton();
         jbsalir = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jcordenar = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jco = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1060, 660));
         setMinimumSize(new java.awt.Dimension(1060, 660));
         setName(""); // NOI18N
-        setOpaque(true);
         setPreferredSize(new java.awt.Dimension(1060, 660));
         setRequestFocusEnabled(false);
         setVerifyInputWhenFocusTarget(false);
@@ -72,7 +71,7 @@ public class Informe extends javax.swing.JInternalFrame {
                 jcopcionActionPerformed(evt);
             }
         });
-        jPanel1.add(jcopcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, 270, 30));
+        jPanel1.add(jcopcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, 270, 30));
 
         jtinforme.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jtinforme.setModel(new javax.swing.table.DefaultTableModel(
@@ -88,12 +87,12 @@ public class Informe extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtinforme);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 570, 200));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 570, 200));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("FILTRAR POR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         jbimprimir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jbimprimir.setForeground(new java.awt.Color(51, 51, 51));
@@ -103,7 +102,7 @@ public class Informe extends javax.swing.JInternalFrame {
                 jbimprimirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 500, 310, 40));
+        jPanel1.add(jbimprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, 310, 40));
 
         jbsalir.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbsalir.setForeground(new java.awt.Color(51, 51, 51));
@@ -113,15 +112,15 @@ public class Informe extends javax.swing.JInternalFrame {
                 jbsalirActionPerformed(evt);
             }
         });
-        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 130, 40));
-
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("ORDENAR POR");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
+        jPanel1.add(jbsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 570, 130, 40));
 
         jcordenar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        jPanel1.add(jcordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, 270, 30));
+        jcordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcordenarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jcordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 110, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/LABEL INFORME.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -130,8 +129,13 @@ public class Informe extends javax.swing.JInternalFrame {
         jLabel3.setPreferredSize(new java.awt.Dimension(576, 1280));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 0, 490, 660));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -20, 680, 650));
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("ORDENAR POR");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, -1));
+
+        jco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Sis gestion.jpg"))); // NOI18N
+        jPanel1.add(jco, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -20, 680, 650));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1058, 640);
@@ -168,16 +172,32 @@ public class Informe extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbsalirActionPerformed
 
+    private void jcordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcordenarActionPerformed
+        String op = (String) jcopcion.getSelectedItem();
+       
+
+        if (op.equals("propietario")) {
+            ordenarTablaP();
+        }else if (op.equals("contrato")) {
+            ordenarTablaC();
+            
+        }else if (op.equals("inmueble")) {
+            //TO DO
+        }else{
+            //TO DO
+        }
+    }//GEN-LAST:event_jcordenarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbimprimir;
     private javax.swing.JButton jbsalir;
+    private javax.swing.JLabel jco;
     private javax.swing.JComboBox<String> jcopcion;
     private javax.swing.JComboBox<Object> jcordenar;
     private javax.swing.JTable jtinforme;
@@ -210,7 +230,7 @@ public class Informe extends javax.swing.JInternalFrame {
         headerimn.setBackground(Color.GRAY);
         headerimn.setForeground(Color.WHITE);
         headerimn.setFont(new Font("SansSerif", Font.BOLD, 12));
-        
+
         modeloP.addColumn("id_propietario");
         modeloP.addColumn("nombre");
         modeloP.addColumn("apellido");
@@ -261,7 +281,51 @@ public class Informe extends javax.swing.JInternalFrame {
 
         jtinforme.setModel(modeloInm);
     }
-    
+
+    public void cargarComboC() {
+        jcordenar.addItem("id_contrato");
+        jcordenar.addItem("fecha_inicio");
+        jcordenar.addItem("fecha_fin");
+        jcordenar.addItem("estado");
+        jcordenar.addItem("monto");
+        jcordenar.addItem("id_inmueble");
+        jcordenar.addItem("id_inquilino");
+    }
+
+    public void cargarComboP() {
+
+        jcordenar.addItem("id_propietario");
+        jcordenar.addItem("nombre");
+        jcordenar.addItem("apellido");
+        jcordenar.addItem("telefono");
+        jcordenar.addItem("dni");
+        jcordenar.addItem("domicilio");
+        jcordenar.addItem("estado");
+    }
+
+    public void cargarComboInq() {
+        jcordenar.addItem("id_inquilino");
+        jcordenar.addItem("cuit");
+        jcordenar.addItem("nombre");
+        jcordenar.addItem("apellido");
+        jcordenar.addItem("lugar_trabajo");
+        jcordenar.addItem("nombre_garante");
+        jcordenar.addItem("dni_garante");
+        jcordenar.addItem("estado");
+
+    }
+
+    public void cargarComboInm() {
+        jcordenar.addItem("idinmueble");
+        jcordenar.addItem("direccion");
+        jcordenar.addItem("altura");
+        jcordenar.addItem("tipo");
+        jcordenar.addItem("sup");
+        jcordenar.addItem("precio");
+        jcordenar.addItem("disponibilidad");
+        jcordenar.addItem("nombreProp");
+
+    }
 
     public void eleccionModelo(String opcion) {
         // Limpia los datos del modelo en lugar de configurar la cabecera cada vez
@@ -272,13 +336,17 @@ public class Informe extends javax.swing.JInternalFrame {
 
         switch (opcion) {
             case "propietario":
-                jtinforme.setModel(modeloP);
+                jcordenar.removeAllItems();//remuevo todos los valores del mi combobox "jcordenar
+                cargarComboP();//invoco metodo para cargar valores (cada valor representa el nombre un campo en la bd)
+                jtinforme.setModel(modeloP);//seteo el modelo a la tabla perteneciente a propietario 
 
                 for (Propietario prop : propietariodata.listarPropietarios()) {
                     modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
                 }
                 break;
             case "inquilino":
+                jcordenar.removeAllItems();
+                cargarComboInq();
                 jtinforme.setModel(modeloInq);
 
                 for (Inquilino inq : Inquilinodata.listarInquilinos()) {
@@ -286,6 +354,8 @@ public class Informe extends javax.swing.JInternalFrame {
                 }
                 break;
             case "inmueble":
+                jcordenar.removeAllItems();
+                cargarComboInm();
                 jtinforme.setModel(modeloInm);
 
                 for (Inmueble inm : Inmuebledata.listarInmuebles()) {
@@ -296,6 +366,8 @@ public class Informe extends javax.swing.JInternalFrame {
                 break;
 
             case "contrato":
+                jcordenar.removeAllItems();
+                cargarComboC();
                 jtinforme.setModel(modeloC);
 
                 for (Contrato con : contratodata.listarContratos()) {
@@ -309,13 +381,118 @@ public class Informe extends javax.swing.JInternalFrame {
 
     private void borrarDatos(DefaultTableModel model) {
 
-        int f = model.getRowCount() - 1; //obtengo total de filas de la tabla
+        int rowCount = model.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            model.removeRow(i);
+        }
 
-        if (f > 0) {
-            for (; f >= 0; f--) { //recorro filas para borrar 1 por 1 en iteracion.
+    }
 
-                model.removeRow(f);// remuevo valor por indice en la tabla "jcTable"
-            }
+    private void ordenarTablaP() {
+        String eleccion = (String) jcordenar.getSelectedItem();
+
+        if (modeloP.getRowCount() == 0) {
+            return; // Si la tabla está vacía, no ordenar
+        }
+
+        PropietarioData inmData = new PropietarioData();
+
+        switch (eleccion) {
+            case "id_propietario":
+
+                borrarDatos(modeloP);
+                for (Propietario prop : inmData.ordenarX(eleccion)) {
+                    modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+                }
+                break;
+            case "nombre":
+                borrarDatos(modeloP);
+                for (Propietario prop : inmData.ordenarX(eleccion)) {
+                    modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+                }
+                break;
+            case "apellido":
+                borrarDatos(modeloP);
+                for (Propietario prop : inmData.ordenarX(eleccion)) {
+                    modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+                }
+                break;
+            case "telefono":
+                borrarDatos(modeloP);
+                for (Propietario prop : inmData.ordenarX(eleccion)) {
+                    modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+                }
+                break;
+            case "dni":
+                borrarDatos(modeloP);
+                for (Propietario prop : inmData.ordenarX(eleccion)) {
+                    modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+                }
+                break;
+            case "estado":
+                borrarDatos(modeloP);
+                for (Propietario prop : inmData.ordenarX(eleccion)) {
+                    modeloP.addRow(new Object[]{prop.getIdPropietario(), prop.getNombre(), prop.getApellido(), prop.getTelefono(), prop.getDni(), prop.getDomicilio(), prop.isEstado()});
+                }
+                break;
         }
     }
+
+    private void ordenarTablaC() {
+        String eleccion = (String) jcordenar.getSelectedItem();
+
+        if (modeloC.getRowCount() == 0) {
+            return; // Si la tabla está vacía, no ordenar
+        }
+
+        ContratoData contData = new ContratoData();
+
+      
+        
+        switch (eleccion) {
+            case "id_contrato":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+            case "fecha_inicio":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+            case "fecha_fin":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+            case "estado":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+                case "monto":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+                case "id_inmueble":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+                 case "id_inquilino":
+                borrarDatos(modeloC);
+                for (Contrato c : contData.ordenarX(eleccion)) {
+                    modeloC.addRow(new Object[]{c.getIdContrato(), c.getFechaInicio().toString(), c.getFechaFin().toString(), c.getMonto(), c.getIdinq(), c.getIdimb(), c.isEstado()});
+                }
+                break;
+        }
+    }
+
 }

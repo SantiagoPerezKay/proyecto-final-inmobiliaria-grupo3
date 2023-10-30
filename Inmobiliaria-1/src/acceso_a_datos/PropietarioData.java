@@ -198,69 +198,132 @@ public class PropietarioData extends Conexion {
 
     }
 
-    public ArrayList<Propietario> ordenarX(String x, int act){
-        ArrayList<Propietario> Propietarios = new ArrayList<>();
-        
-        switch (x){
-            case "Id": x= "id_propietario"; break;
-            case "Nombre": x= "nombre"; break;
-            case "Apellido": x= "apellido"; break;
-            case "Telefono": x="telefono"; break;
-            case "Dni": x="dni"; break;
-            case "Direccion": x="direccion"; break;
-        }
-        try {
-            if(act==1 || act==0){
-                String sql = "SELECT * FROM propietario WHERE estado ="+act+" ORDER BY lower("+x+") ASC";
+  public ArrayList<Propietario> ordenarX(String x, int act) {
+    ArrayList<Propietario> propietarios = new ArrayList<>();
 
-                Statement ps = con.createStatement();
-
-                ResultSet rs = ps.executeQuery(sql);
-
-                while (rs.next()) {
-                    Propietario propietario = new Propietario();
-
-                    propietario.setNombre(rs.getString("nombre"));
-                    propietario.setApellido(rs.getString("apellido"));
-                    propietario.setTelefono(rs.getString("telefono"));
-                    propietario.setDni(rs.getString("dni"));
-                    propietario.setDomicilio(rs.getString("domicilio"));
-                    propietario.setEstado(rs.getBoolean("estado"));
-                    propietario.setIdPropietario(rs.getInt("id_propietario"));
-
-                    Propietarios.add(propietario);     
-                }
-
-                ps.close();
-            }else{
-               String sql = "SELECT * FROM propietario ORDER BY lower("+x+") ASC";
-
-                Statement ps = con.createStatement();
-
-                ResultSet rs = ps.executeQuery(sql);
-
-                while (rs.next()) {
-                    Propietario propietario = new Propietario();
-
-                    propietario.setNombre(rs.getString("nombre"));
-                    propietario.setApellido(rs.getString("apellido"));
-                    propietario.setTelefono(rs.getString("telefono"));
-                    propietario.setDni(rs.getString("dni"));
-                    propietario.setDomicilio(rs.getString("domicilio"));
-                    propietario.setEstado(rs.getBoolean("estado"));
-                    propietario.setIdPropietario(rs.getInt("id_propietario"));
-
-                    Propietarios.add(propietario);       
-                }
-
-                ps.close(); 
-            }
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ocurrio un error" + e.getMessage());
-        }
-        return Propietarios;
+    switch (x) {
+        case "Id":
+            x = "id_propietario";
+            break;
+        case "Nombre":
+            x = "nombre";
+            break;
+        case "Apellido":
+            x = "apellido";
+            break;
+        case "Telefono":
+            x = "telefono";
+            break;
+        case "Dni":
+            x = "dni";
+            break;
+        case "Direccion":
+            x = "direccion";
+            break;
     }
+
+    try {
+        if (act == 1 || act == 0) {
+            String sql = "SELECT * FROM propietario WHERE estado = " + act + " ORDER BY " + x + " ASC";
+
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(sql);
+
+            while (rs.next()) {
+                Propietario propietario = new Propietario();
+
+                propietario.setNombre(rs.getString("nombre"));
+                propietario.setApellido(rs.getString("apellido"));
+                propietario.setTelefono(rs.getString("telefono"));
+                propietario.setDni(rs.getString("dni"));
+                propietario.setDomicilio(rs.getString("domicilio"));
+                propietario.setEstado(rs.getBoolean("estado"));
+                propietario.setIdPropietario(rs.getInt("id_propietario"));
+
+                propietarios.add(propietario);
+            }
+
+            ps.close();
+        } else {
+            String sql = "SELECT * FROM propietario ORDER BY " + x + " ASC";
+
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(sql);
+
+            while (rs.next()) {
+                Propietario propietario = new Propietario();
+
+                propietario.setNombre(rs.getString("nombre"));
+                propietario.setApellido(rs.getString("apellido"));
+                propietario.setTelefono(rs.getString("telefono"));
+                propietario.setDni(rs.getString("dni"));
+                propietario.setDomicilio(rs.getString("domicilio"));
+                propietario.setEstado(rs.getBoolean("estado"));
+                propietario.setIdPropietario(rs.getInt("id_propietario"));
+
+                propietarios.add(propietario);
+            }
+
+            ps.close();
+        }
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Ocurrió un error: " + e.getMessage());
+    }
+    return propietarios;
+}
+
+    public ArrayList<Propietario> ordenarX(String x) {
+    ArrayList<Propietario> Propietarios = new ArrayList<>();
+
+    switch (x) {
+        case "Id":
+            x = "id_propietario";
+            break;
+        case "Nombre":
+            x = "nombre";
+            break;
+        case "Apellido":
+            x = "apellido";
+            break;
+        case "Telefono":
+            x = "telefono";
+            break;
+        case "Dni":
+            x = "dni";
+            break;
+        case "Direccion":
+            x = "direccion";
+            break;
+    }
+
+    try {
+        String sql = "SELECT * FROM propietario ORDER BY lower(" + x + ") ASC";
+
+        Statement ps = con.createStatement();
+
+        ResultSet rs = ps.executeQuery(sql);
+
+        while (rs.next()) {
+            Propietario propietario = new Propietario();
+
+            propietario.setNombre(rs.getString("nombre"));
+            propietario.setApellido(rs.getString("apellido"));
+            propietario.setTelefono(rs.getString("telefono"));
+            propietario.setDni(rs.getString("dni"));
+            propietario.setDomicilio(rs.getString("domicilio"));
+            propietario.setEstado(rs.getBoolean("estado"));
+            propietario.setIdPropietario(rs.getInt("id_propietario"));
+
+            Propietarios.add(propietario);
+        }
+
+        ps.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Ocurrió un error: " + e.getMessage());
+    }
+    return Propietarios;
+}
     
     public  ArrayList<Propietario> MostrarEstado(String x) {
          ArrayList<Propietario> Propietarios = new ArrayList<>();

@@ -225,71 +225,83 @@ public class InmuebleData extends Conexion {
     
     }    
 
-    public ArrayList<Inmueble> ordenarX(String x, int act){
-        ArrayList<Inmueble> inmuebles = new ArrayList<>();
-        
-        switch (x){
-            case "Id": x= "id_inmueble"; break;
-            case "Direccion": x="direccion"; break;
-            case "Tipo": x= "tipo"; break;
-            case "Superficie": x= "superficie"; break;
-            case "Precio": x= "precio"; break;
-            case "Disponibilidad": x= "disponibilidad"; break;
-        }
-        try {
-            if(act==1 || act==0){
-                String sql = "SELECT * FROM inmueble WHERE estado ="+act+" ORDER BY lower("+x+") ASC";
+   public ArrayList<Inmueble> ordenarX(String x, int act) {
+    ArrayList<Inmueble> inmuebles = new ArrayList<>();
 
-                Statement ps = con.createStatement();
-
-                ResultSet rs = ps.executeQuery(sql);
-
-                while (rs.next()) {
-                    Inmueble inmueble = new Inmueble();
-            
-                    inmueble.setDireccion(rs.getString("direccion"));
-                    inmueble.setAltura(rs.getInt("altura"));
-                    inmueble.setTipo(rs.getString("tipo"));
-                    inmueble.setSuperficie(rs.getDouble("superficie"));
-                    inmueble.setPrecio(rs.getDouble("precio"));
-                    inmueble.setDisponibilidad(rs.getString("disponibilidad"));
-                    inmueble.setPropid(rs.getInt("id_propietario"));
-                    inmueble.setIdInmueble(rs.getInt("id_inmueble"));
-                    inmueble.setEstado(rs.getBoolean("estado"));
-                    inmuebles.add(inmueble);       
-                }
-
-                ps.close();
-            }else{
-               String sql = "SELECT * FROM inmueble ORDER BY lower("+x+") ASC";
-
-                Statement ps = con.createStatement();
-
-                ResultSet rs = ps.executeQuery(sql);
-
-                while (rs.next()) {
-                    Inmueble inmueble = new Inmueble();
-            
-                    inmueble.setDireccion(rs.getString("direccion"));
-                    inmueble.setAltura(rs.getInt("altura"));
-                    inmueble.setTipo(rs.getString("tipo"));
-                    inmueble.setSuperficie(rs.getDouble("superficie"));
-                    inmueble.setPrecio(rs.getDouble("precio"));
-                    inmueble.setDisponibilidad(rs.getString("disponibilidad"));
-                    inmueble.setPropid(rs.getInt("id_propietario"));
-                    inmueble.setIdInmueble(rs.getInt("id_inmueble"));
-                    inmueble.setEstado(rs.getBoolean("estado"));
-                    inmuebles.add(inmueble);       
-                }
-
-                ps.close(); 
-            }
-            
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ocurrio un error" + e.getMessage());
-        }
-        return inmuebles;
+    switch (x) {
+        case "Id":
+            x = "id_inmueble";
+            break;
+        case "Direccion":
+            x = "direccion";
+            break;
+        case "Tipo":
+            x = "tipo";
+            break;
+        case "Superficie":
+            x = "superficie";
+            break;
+        case "Precio":
+            x = "precio";
+            break;
+        case "Disponibilidad":
+            x = "disponibilidad";
+            break;
     }
+
+    try {
+        if (act == 1 || act == 0) {
+            String sql = "SELECT * FROM inmueble WHERE estado =" + act + " ORDER BY " + x + " ASC";
+
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(sql);
+
+            while (rs.next()) {
+                Inmueble inmueble = new Inmueble();
+
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAltura(rs.getInt("altura"));
+                inmueble.setTipo(rs.getString("tipo"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecio(rs.getDouble("precio"));
+                inmueble.setDisponibilidad(rs.getString("disponibilidad"));
+                inmueble.setPropid(rs.getInt("id_propietario"));
+                inmueble.setIdInmueble(rs.getInt("id_inmueble"));
+                inmueble.setEstado(rs.getBoolean("estado"));
+                inmuebles.add(inmueble);
+            }
+
+            ps.close();
+        } else {
+            String sql = "SELECT * FROM inmueble ORDER BY " + x + " ASC";
+
+            Statement ps = con.createStatement();
+            ResultSet rs = ps.executeQuery(sql);
+
+            while (rs.next()) {
+                Inmueble inmueble = new Inmueble();
+
+                inmueble.setDireccion(rs.getString("direccion"));
+                inmueble.setAltura(rs.getInt("altura"));
+                inmueble.setTipo(rs.getString("tipo"));
+                inmueble.setSuperficie(rs.getDouble("superficie"));
+                inmueble.setPrecio(rs.getDouble("precio"));
+                inmueble.setDisponibilidad(rs.getString("disponibilidad"));
+                inmueble.setPropid(rs.getInt("id_propietario"));
+                inmueble.setIdInmueble(rs.getInt("id_inmueble"));
+                inmueble.setEstado(rs.getBoolean("estado"));
+                inmuebles.add(inmueble);
+            }
+
+            ps.close();
+        }
+
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Ocurrió un error: " + e.getMessage());
+    }
+    return inmuebles;
+}
+
     
     public  ArrayList<Inmueble> MostrarEstado(String x) {
          ArrayList<Inmueble> inmuebles = new ArrayList<>();
