@@ -30,6 +30,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     private ContratoData contData = new ContratoData();
 
     public AdministracionContrato() {
+        //conexion();
         initComponents();
         rellenarInmuebles();
         rellenarInquilinos();
@@ -37,10 +38,14 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         cargarCabeceraInq();
         centrarTexto();
         
-        borrarFila();
+        borrarFilaInm();
+        borrarFilaInq();
         // jComboinquilinos.setSelectedIndex(-1);    
     }
-    
+    public void conexion(){
+        contData.EstablecerConexion();
+    }
+
     public void centrarTexto(){
         
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -73,8 +78,6 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jbrestablecer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        alertainmueble = new javax.swing.JTextField();
-        alertainquilino = new javax.swing.JTextField();
         jComboinmuebles = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -105,22 +108,22 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jbaltaActionPerformed(evt);
             }
         });
-        jPanel1.add(jbalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 590, 390, 30));
+        jPanel1.add(jbalta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 390, 30));
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("FECHA FIN ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 190, -1, 30));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 190, -1, 30));
 
         alertafechas.setEditable(false);
         alertafechas.setBackground(new java.awt.Color(255, 255, 255));
         alertafechas.setBorder(null);
-        jPanel1.add(alertafechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(542, 270, 450, -1));
+        jPanel1.add(alertafechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 560, -1));
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("FECHA INICIO ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, 30));
 
         jComboinquilinos.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jComboinquilinos.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +131,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jComboinquilinosActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboinquilinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 460, 30));
+        jPanel1.add(jComboinquilinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 460, 30));
 
         jTinquilino.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,10 +148,10 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jTinquilino.setShowHorizontalLines(false);
         jScrollPane4.setViewportView(jTinquilino);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 570, 80));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 430, 570, 80));
 
         jtfechafin.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jtfechafin, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, 160, 30));
+        jPanel1.add(jtfechafin, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 190, 150, 30));
         jtfechafin.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
@@ -165,22 +168,24 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         });
 
         jtfechainicio.setForeground(new java.awt.Color(51, 51, 51));
-        jPanel1.add(jtfechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 163, 30));
+        jPanel1.add(jtfechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 150, 30));
         jtfechainicio.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent e) {
                 if ("date".equals(e.getPropertyName())){
                     Date fechaActual = new Date();
-                    if (jtfechainicio.getDate().before(fechaActual)){
-                        alertafechas.setText("La fecha de inicio del contrato no puede ser anterior al dia de hoy. Ingrese una fecha correcta.");
-                    }else{
-                        alertafechas.setText(null);
-                    }
-                    if (jtfechafin.getDate()!=null){
-                        if(jtfechainicio.getDate().after(jtfechafin.getDate())){
-                            alertafechas.setText("La fecha de inicio del contrato no puede ser posterior a la final. Ingrese una fecha correcta.");
+                    if(jtfechainicio.getDate()!=null){
+                        if (jtfechainicio.getDate().before(fechaActual)){
+                            alertafechas.setText("La fecha de inicio del contrato no puede ser anterior al dia de hoy. Ingrese una fecha correcta.");
                         }else{
                             alertafechas.setText(null);
+                        }
+                        if (jtfechafin.getDate()!=null){
+                            if(jtfechainicio.getDate().after(jtfechafin.getDate())){
+                                alertafechas.setText("La fecha de inicio del contrato no puede ser posterior a la final. Ingrese una fecha correcta.");
+                            }else{
+                                alertafechas.setText(null);
+                            }
                         }
                     }
                 }
@@ -190,7 +195,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         alertaingresar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         alertaingresar.setForeground(new java.awt.Color(51, 51, 51));
         alertaingresar.setBorder(null);
-        jPanel1.add(alertaingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, 310, -1));
+        jPanel1.add(alertaingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 550, 390, -1));
 
         jbrestablecer.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jbrestablecer.setForeground(new java.awt.Color(51, 51, 51));
@@ -201,7 +206,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jbrestablecerActionPerformed(evt);
             }
         });
-        jPanel1.add(jbrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 630, 190, 30));
+        jPanel1.add(jbrestablecer, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 610, 190, 30));
 
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
@@ -212,22 +217,12 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 630, 190, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 610, 190, 30));
 
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("INQUILINO");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, 30));
-
-        alertainmueble.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        alertainmueble.setForeground(new java.awt.Color(51, 51, 51));
-        alertainmueble.setBorder(null);
-        jPanel1.add(alertainmueble, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 460, -1));
-
-        alertainquilino.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
-        alertainquilino.setForeground(new java.awt.Color(51, 51, 51));
-        alertainquilino.setBorder(null);
-        jPanel1.add(alertainquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 550, 310, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, 30));
 
         jComboinmuebles.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
         jComboinmuebles.setSelectedItem(-1);
@@ -236,12 +231,12 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
                 jComboinmueblesActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboinmuebles, new org.netbeans.lib.awtextra.AbsoluteConstraints(538, 230, 460, 30));
+        jPanel1.add(jComboinmuebles, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 260, 450, 30));
 
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("INMUEBLE ");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, -1, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 260, 120, 30));
 
         jTinmueble.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -293,68 +288,76 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
     private void jbaltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbaltaActionPerformed
 
         try {
-            
+           
             Date fechaInicio = (Date) jtfechainicio.getDate();
-            Date fechaFin = (Date) jtfechafin.getDate();       
-            LocalDate fecha1 = fechaInicio.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            LocalDate fecha2 = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Date fechaFin = (Date) jtfechafin.getDate(); 
             Inmueble inmueble = (Inmueble) jComboinmuebles.getSelectedItem();
             Inquilino inquilino = (Inquilino) jComboinquilinos.getSelectedItem();
             double monto = inmueble.getPrecio();
             boolean estado = true;
-
+         
             if ("".equals(alertafechas.getText()) || alertafechas.getText()==null ){
                 alertaingresar.setText(null);
-                
-                //InmuebleData inmData = new InmuebleData();
-                //inmData.actualizarDisponibilidadInmueble(inmueble.getIdInmueble(), 1);
-                
-                Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
-                contData.crearContrato(cont);
+
+                try{
+                   LocalDate fecha1 = fechaInicio.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                   LocalDate fecha2 = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+                   Contrato cont = new Contrato(fecha1, fecha2, monto, inquilino, inmueble, estado);
+                   contData.crearContrato(cont);
+                   jComboinmuebles.removeItem(inmueble);
+                   restablecer();   
+                }catch(NullPointerException e ){
+                    JOptionPane.showMessageDialog(null, "Por favoringrese las fechas para continuar.");  
+                }   
             }else{
                 alertaingresar.setText("Verifique los datos para continuar.");
-            }
-              
+            }      
         } catch (NumberFormatException e) {
             System.out.println(e.getMessage());
-        }
+        }   
     }//GEN-LAST:event_jbaltaActionPerformed
 
     private void jComboinmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboinmueblesActionPerformed
-        if  ( modelo.getRowCount()>0){
-          modelo.removeRow(0);
-        }
-        InmuebleData inmData = new InmuebleData();
 
-        Inmueble inm = (Inmueble) jComboinmuebles.getSelectedItem();
-        
-        modelo.addRow(new Object[]{inm.getIdInmueble(), inm.getTipo(), inm.getSuperficie(), inm.getPrecio(), inm.getDisponibilidad(), inm.getPropid(), inm.isEstado()}); 
-        
-        
-        
+        if(jComboinmuebles.getSelectedIndex()!=-1 ){          
+            if  ( modelo.getRowCount()>0){
+                modelo.removeRow(0);
+            }
+            InmuebleData inmData = new InmuebleData();
+            Inmueble inm = (Inmueble) jComboinmuebles.getSelectedItem();
+            modelo.addRow(new Object[]{inm.getIdInmueble(), inm.getTipo(), inm.getSuperficie(), inm.getPrecio(), inm.getDisponibilidad(), inm.getPropid(), inm.isEstado()}); 
+        } else {
+           if  ( modelo.getRowCount()>0){
+                modelo.removeRow(0);
+            }
+        }   
     }//GEN-LAST:event_jComboinmueblesActionPerformed
 
     private void jComboinquilinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboinquilinosActionPerformed
-        if  ( modelo2.getRowCount()>0){
-          modelo2.removeRow(0);
-        }
-        InquilinoData inqData = new InquilinoData();
-
-        Inquilino inq = (Inquilino) jComboinquilinos.getSelectedItem();
         
-        modelo2.addRow(new Object[]{inq.getIdInquilino(), inq.getLugarTrabajo(), inq.getNombreGarante(), inq.getDniGarante(),inq.isEstado()});
+        if(jComboinmuebles.getSelectedIndex()!=-1 ){
+            if  ( modelo2.getRowCount()>0){
+              modelo2.removeRow(0);
+            }
+            InquilinoData inqData = new InquilinoData();
+            Inquilino inq = (Inquilino) jComboinquilinos.getSelectedItem();
+            modelo2.addRow(new Object[]{inq.getIdInquilino(), inq.getLugarTrabajo(), inq.getNombreGarante(), inq.getDniGarante(),inq.isEstado()});
+        }else{
+            if  ( modelo2.getRowCount()>0){
+              modelo2.removeRow(0);
+            }
+        }
     }//GEN-LAST:event_jComboinquilinosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     dispose();
+
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbrestablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbrestablecerActionPerformed
 
-        jComboinmuebles.setSelectedIndex(-1);
-        jComboinquilinos.setSelectedIndex(-1);
-        jtfechainicio.setDate(null);
-        jtfechafin.setDate(null);
+        restablecer();
     }//GEN-LAST:event_jbrestablecerActionPerformed
 
     public void rellenarInmuebles() {
@@ -414,7 +417,7 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
         jTinquilino.setModel(modelo2);
     }
 
-    private void borrarFila() {
+    private void borrarFilaInm() {
         int f = jTinmueble.getRowCount() - 1;
 
         for (; f >= 0; f--) {
@@ -422,14 +425,30 @@ public class AdministracionContrato extends javax.swing.JInternalFrame {
             modelo.removeRow(f);
         }
     }
+    
+    private void borrarFilaInq() {
+        int f = jTinquilino.getRowCount() - 1;
+
+        for (; f >= 0; f--) {
+
+            modelo2.removeRow(f);
+        }
+    }
+    
+    private void restablecer(){
+        jComboinmuebles.setSelectedIndex(-1);
+        jComboinquilinos.setSelectedIndex(-1);
+        borrarFilaInm();
+        borrarFilaInq();
+        jtfechainicio.setDate(null);
+        jtfechafin.setDate(null);
+    }
 
     //
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField alertafechas;
     private javax.swing.JTextField alertaingresar;
-    private javax.swing.JTextField alertainmueble;
-    private javax.swing.JTextField alertainquilino;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<Inmueble> jComboinmuebles;
     private javax.swing.JComboBox<Inquilino> jComboinquilinos;

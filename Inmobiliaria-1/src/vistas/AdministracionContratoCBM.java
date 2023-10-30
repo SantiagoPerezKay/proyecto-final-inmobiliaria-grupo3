@@ -483,14 +483,25 @@ public class AdministracionContratoCBM extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Por favor verifique que los campos sean correctos para continuar.");
         } 
+        
+        borrarDatos();
+        rellenarTabla();
     }//GEN-LAST:event_jbguardarcambiosActionPerformed
 
     private void jbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbeliminarActionPerformed
         int fila = jContratos.getSelectedRow();
         int id = (int)jContratos.getValueAt(fila,0);
-        
+        int id_inm = (int)jContratos.getValueAt(fila,5);
         ContratoData contData = new ContratoData();
+        InmuebleData inmData = new InmuebleData();
+        
+        inmData.actualizarDisponibilidadInmueble(id_inm, 0);
         contData.borrarContrato(id);
+        
+        borrarDatos();
+        rellenarTabla();
+        limpiarCampos();
+        
     }//GEN-LAST:event_jbeliminarActionPerformed
 
     private void jRfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRfechaActionPerformed

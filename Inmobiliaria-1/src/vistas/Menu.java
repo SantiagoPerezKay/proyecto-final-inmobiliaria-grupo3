@@ -9,9 +9,6 @@ public class Menu extends javax.swing.JFrame {
     
     public static void main(String[] args) {
         
-//        try{
-//            UIManager.setLookAndFeel(new FlatLightLaf);
-//        }
     try {
       for(javax.swing.UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()){
           if("Windows".equals(info.getName())){
@@ -310,7 +307,7 @@ public class Menu extends javax.swing.JFrame {
         try {
 //Escritorio.removeAll();
             Escritorio.repaint();
-
+            
             administracioninmueble.setVisible(true);
             Escritorio.add(administracioninmueble);
             administracioninmueble.setLocation((Escritorio.getWidth() - administracioninmueble.getWidth()) / 2, (Escritorio.getHeight() - administracioninmueble.getHeight()) / 2);

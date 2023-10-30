@@ -84,7 +84,7 @@ public class InmuebleData extends Conexion {
     
     public void actualizarDisponibilidadInmueble(int id, int disp) {
 
-        String sql = "UPDATE inmueble SET disponibilidad="+1+" WHERE id_inmueble="+id;
+        String sql = "UPDATE inmueble SET disponibilidad="+disp+" WHERE id_inmueble="+id;
         try {
         PreparedStatement ps = con.prepareStatement(sql);
         ps.executeUpdate();
